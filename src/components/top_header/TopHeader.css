@@ -41,7 +41,7 @@ margin-right: 20px;
 }
 .topHeader-user-username{
     color: #000;
-    text-transform: uppercase;
+    
     font-size: 20px;
     
 
@@ -49,5 +49,11 @@ margin-right: 20px;
     font-weight: 600;
    
     line-height: 39px;
-    margin-top: 15px;
+    margin-top: 12px;
 }
+@media only screen and (max-width: 600px) {
+    
+    .topHeader-user-username{
+        visibility:hidden;
+    }
+  }
