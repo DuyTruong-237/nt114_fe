@@ -7,17 +7,39 @@ import './SideBar.css'
 export default function SideBar() {
   return (
     <div className='SideBar'>
-       <div className='home'>
-                <div classname='home-icon'>
+       <div className='SideBar-item'>
+               
                   <img 
-                  classname="icon-img"
+                  className="icon-img"
                   src={homeicon} 
                   alt="home" />
-                </div>
-                <div classname='home-text'>
+                
+                <div className='SideBar-title-text'>
                   Trang chủ
                 </div>
           </div>
+          <div className='SideBar-item'>
+               
+               <img 
+               className="icon-img"
+               src={homeicon} 
+               alt="home" />
+             
+             <div className='SideBar-title-text'>
+               Trang chủ
+             </div>
+       </div>
+       <div className='SideBar-item'>
+               
+               <img 
+               className="icon-img"
+               src={homeicon} 
+               alt="home" />
+             
+             <div className='SideBar-title-text'>
+               Trang chủ
+             </div>
+       </div>
        
       
     </div>
