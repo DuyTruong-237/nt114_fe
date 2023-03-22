@@ -12,7 +12,7 @@
 .Header_Logo{
     height: 50px;
     padding: 8px;
-    margin-left: 15px;
+    margin-left: 25px;
 
 }
 .nameapp{
@@ -27,6 +27,7 @@
    
     line-height: 39px;
     margin-top: 15px;
+    margin-left: 15px;
    
 }
 .topHeader-userimg{

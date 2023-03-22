@@ -1,30 +1,42 @@
 .SideBar {
-   width: 15%;
+   width: 14%;
    height: 100%;
-   background-color:royalblue ;
+   background-color:#002f35c5;
    padding-top: 20px;
    
 
 }
 .SideBar-item{
     display: flex;
-   
+    margin: 15px;
     padding: 10px 0;
-
+    position: relative;
 }
 
 
 
 .icon-img {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
    
 }
 .SideBar-title-text{
-    font-size: 30px;
+    font-size: 26px;
     color: #fff;
-   
+    margin-right: 5px;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 1000px) {
     
-    margin-right: 15px;
-    font-weight: 600;
+    .SideBar-title-text{
+        visibility:hidden;
+    }
+    .icon-img{
+        position: absolute;
+        right: 50%;
+        
+    }
 }
