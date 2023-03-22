@@ -1,0 +1,32 @@
+.Notification-wrapper {
+    background-color: #F8F9FA;
+    height: 60%;
+    width: 20%;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.Noti-Title {
+    color: #726D81;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+.Noti-Content {
+    margin-top: 15px;
+    display: flex;
+    
+}
+.arr-img {
+    height: 10px;
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 5px;
+    flex: left;
+}
+.Content-Title {
+    color: #1375E7;
+    flex: right;
+}
