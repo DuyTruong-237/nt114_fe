@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< Updated upstream
 
 function App() {
   return (
@@ -19,6 +20,18 @@ function App() {
         </a>
       </header>
     </div>
+=======
+import TopHeader from './components/top_header/TopHeader';
+import SideBar from './components/side_bar/SideBar';
+
+function App() {
+  return (
+    <>
+    <TopHeader/>
+    <SideBar/>
+    </>
+    
+>>>>>>> Stashed changes
   );
 }
 
