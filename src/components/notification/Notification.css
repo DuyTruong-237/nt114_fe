@@ -1,9 +1,12 @@
 .Notification-wrapper {
     background-color: #F8F9FA;
-    height: 60%;
-    width: 20%;
+    height: 67%;
+    width: 94%;
     border-radius: 10px;
-    margin-left: 10px;
+    margin: 15px 10px 0px;
+    display: flex;
+    flex-direction: column;
+
 }
 .Noti-Title {
     color: #726D81;

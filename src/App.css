@@ -1,4 +1,24 @@
 .app_js{
   height: 100%;
-  display: flex;
 }
+.Body {
+  height: 100%;
+  display: flex;
+  flex-basis: 15%;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.SideBar {
+  height: 100%;
+  
+}
+.Main-Content {
+  flex-grow: 3;
+}
+.Right-Cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 20%;
+}
+

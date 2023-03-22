@@ -1,0 +1,9 @@
+.Calendar {
+    background-color: #F8F9FA;
+    height: 30%;
+    width: 94%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 10px 0px;
+}
