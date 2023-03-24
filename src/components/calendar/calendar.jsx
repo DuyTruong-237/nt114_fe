@@ -1,39 +1,30 @@
-import "flatpickr/dist/themes/material_green.css";
-import './Calendar.css'
-import Flatpickr from "react-flatpickr";
-import { Component } from "react";
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import './Calendar.css';
 
-import React from 'react'
+function MyCalendar() {
+  const [date, setDate] = useState(new Date());
 
-export default function Calendar() {
+  function onChangeDate(date) {
+    setDate(date);
+  }
+  // const customLocale = {
+  //   weekDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  //   weekdaysShort: ["S", "M", "T", "W", "T", "F", "S"],
+  //   weekStartsOn: 0,
+  // };
   return (
-    <div className="Calendar">
-      
+    <div>
+      <Calendar
+        // prevLabel={'<'}
+        // nextLabel={'>'}
+        className="react-calendar"
+        // locale={customLocale}
+        onChange={onChangeDate}
+        value={date}
+      />
     </div>
-  )
+  );
 }
 
-// class Calendar extends Component {
-//   constructor() {
-//     super();
-
-//     this.state = {
-//       date: new Date()
-//     };
-//   }
-
-//   render() {
-//     const { date } = this.state;
-//     return (
-//       <Flatpickr
-//         data-enable-time
-//         value={date}
-//         onChange={([date]) => {
-//           this.setState({ date });
-//         }}
-//       />
-//     );
-//   }
-  
-// }
-// export default Calendar;
+export default MyCalendar;
