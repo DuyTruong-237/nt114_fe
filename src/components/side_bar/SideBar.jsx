@@ -1,5 +1,5 @@
 import React from 'react'
-import homeicon from '../../img/homeicon.png'
+import homeicon from '../../img/home-icon-silhouette.png'
 import studenicon from '../../img/student.png'
 import teachericon from '../../img/teacher.png'
 import chart from '../../img/barchart.png'

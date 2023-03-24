@@ -1,0 +1,79 @@
+.MainContent {
+    
+}
+.MainContent_Title {
+    font-size: 40px;
+    font-weight: 400;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.MainContent_Search {
+    display: flex;
+}
+.Searchbar {
+    height: 50px;
+    width: 323px;
+    box-sizing: border-box;
+    border: 3px solid #0A7ACC;
+    margin-top: 50px;
+    margin-left: 300px;
+}
+.Searchbox {
+    height: 50px;
+    width: 50px;
+    box-sizing: border-box;
+    background-color: #0A7ACC;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Searchimg {
+    height: 28px;
+}
+.Courses_Wrapper {
+    display: grid;
+    grid-template: auto/ auto auto auto;
+    column-gap: 20px;
+    justify-content: center;
+}
+.Course {
+    width: 290px;
+    height: 135px;
+    border-radius: 10px;
+    margin-top: 60px;
+}
+.Gryffindor {
+    background-color: #DA4949;
+}
+.Ravenclaw {
+    background-color: #31A4E5;
+}
+.Slytherin {
+    background-color: #367E18;
+}
+.Hufflebuff {
+    margin-top: 24px;
+    background-color: #F4BF39;
+}
+.Course_Title {
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.Course_Lecturer {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.Course_Icon {
+    text-align: right;
+}
+.Icon-img {
+    height: 55px;
+    margin-right: 10px;
+}
