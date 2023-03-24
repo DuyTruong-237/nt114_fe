@@ -5,6 +5,7 @@ import TopHeader from './components/top_header/TopHeader';
 import SideBar from './components/side_bar/SideBar';
 import Calendar from  './components/calendar/Calendar'
 import Notification from './components/notification/Notification';
+import MainContent from './components/content/MainContent';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <SideBar/>
         </div>
         <div className='Main-Content'>
-
+          <MainContent/>
         </div>
         <div className='Right-Cont'>
           <Calendar/>
