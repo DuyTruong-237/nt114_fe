@@ -52,6 +52,35 @@ margin-right: 20px;
     line-height: 39px;
     margin-top: 12px;
 }
+
+.dropdown-menu {
+    width: 12%;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .dropdown-menu a {
+    box-sizing: border-box;
+    font-size: 20px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #eee;
+    border-radius: 8px;
+  }
+  .fa, .fab, .fad, .fal, .far, .fas {
+    padding-right: 8px;
+  }
 @media only screen and (max-width: 600px) {
     
     .topHeader-user-username{
