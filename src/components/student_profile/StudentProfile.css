@@ -1,0 +1,35 @@
+.Profile_wrapper {
+    height: 100%;
+}
+.Title {
+    font-size: 35px;
+    font-weight: 600;
+    margin: 29px;
+}
+.Student_wrapper {
+    width: 100%;
+    display: flex;
+    height: 10%;
+
+}
+.Avatar_Profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-right: 40px;
+    /* flex-grow: 1; */
+}
+.Name_ID_wrapper {
+    margin-top: 10px;
+}
+.Student_name {
+    font-size: 35px;
+    color: #31A4E5;
+    font-weight: 700;
+}
+.Student_ID {
+    margin-top: 5px;
+    font-size: 22px;
+    font-weight: 500;
+}
