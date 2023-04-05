@@ -23,7 +23,7 @@
 .Right-Cont {
   display: flex;
   flex-direction: column;
-  justify-content: end;
   width: 20%;
+  height: 100%;
 }
 
