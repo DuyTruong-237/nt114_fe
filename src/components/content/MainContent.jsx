@@ -14,10 +14,12 @@ export default function MainContent() {
             CÁC KHÓA HỌC: 
         </div>
         <div className='MainContent_Search'>
-            <div className='Searchbar'></div>
-            <div className='Searchbox'>
-                <img className='Searchimg' src={SearchIcon} alt="search" />
+            <div className='Searchbar'>
+            <input className='Searchbar-input' type='text' placeholder='Tìm kiếm' />
             </div>
+            <button className='Searchbox'>
+                <img className='Searching' src={SearchIcon} alt="search" />
+            </button>
         </div>
         <div className='Courses_Wrapper'>
             <div className='Course Gryffindor'>

@@ -13,7 +13,9 @@
     position: relative;
 }
 
-
+.SideBar-item:hover .SideBar-title-text {
+  color: #FF7B54;
+}
 
 .icon-img {
     height: 30px;
@@ -36,7 +38,7 @@
     }
     .icon-img{
         position: absolute;
-        left: 50%;
-        
+        left: 30%;
+        margin-top: 16px;
     }
 }
