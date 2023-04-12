@@ -1,0 +1,120 @@
+.loginScreen_js{
+  height: 100%;
+}
+::selection {
+  background: #4A4747;
+}
+::-webkit-selection {
+  background: #4A4747;
+}
+::-moz-selection {
+  background: #4A4747;
+}
+.Header_Logo{
+  height: 50px;
+  padding: 8px;
+  margin-left: 25px;
+
+}
+.nameapp{
+
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 28px;
+  width: 50px;
+
+  font-style: normal;
+  font-weight: 600;
+ 
+  line-height: 39px;
+  margin-top: 15px;
+  margin-left: 15px;
+ 
+}
+body {
+  background: rgb(172, 172, 172);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  height: 100hv;
+  margin: 0 auto;   
+}
+.login-page {
+  background: #FF7B54;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  position: absolute;
+  place-content: center;
+  width: calc(100% - 40px);
+}
+@media (max-width: 767px) {
+  .login-page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+.container {
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+.left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+.page {
+  margin: 40px;
+  position: absolute;
+}
+.slogan {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+#buttonlogin {
+  color: #707075;
+  margin-top: 40px;
+  transition: color 300ms;
+}
+#buttonlogin:focus {
+  color: #f2f2f2;
+}
+#buttonlogin:active {
+  color: #d0d0d2;
+}
+input {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
