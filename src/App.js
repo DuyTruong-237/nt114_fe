@@ -8,12 +8,17 @@ import Notification from './components/notification/Notification';
 import MainContent from './components/content/MainContent';
 import Home from './screen/Home/Home';
 import Login from './screen/Login/Login';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
    
     <div className='app_js'>
-      <Login/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+      </Routes>
+      </BrowserRouter>
     </div>
     
     
