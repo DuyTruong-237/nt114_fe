@@ -3,12 +3,12 @@ import React from 'react'
 import mainlogo from '../../img/mainlogo.png'
 export default function login() {
   return(
-    <div className="logo">
-      <div className="logo-login">
+    <div className="Login">
+      <div className="Login-part">
         <img 
-        className="loginLogo"
+        className="LoginLogo"
         src={mainlogo}
-        alt="logo"/>
+        alt="Logo"/>
           <div className="nameapp">
             HOGWART 
           </div>

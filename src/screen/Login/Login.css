@@ -1,0 +1,109 @@
+.Login{
+
+  display: block;
+  height: 70px;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 75px;
+}
+.Login-part{
+  display: block;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.LoginLogo{
+  text-align: center;
+  height: 50px;
+  padding: 8px;
+  
+
+}
+.nameapp{
+
+  text-align: center;
+  color: #FF7B54;
+  text-transform: uppercase;
+  font-size: 50px;
+  width: 50px;
+
+  line-height: 40px;
+  margin-top: 15px;
+  margin-bottom: auto;
+ 
+}
+
+.login-page {
+  background: #FF7B54;
+  height: 200%;
+  width: 75%;
+  display: block;
+  /* flex-direction: column;
+  position: absolute; */
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.container {
+  color: #ffffff;
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+.slogan {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+
+.page {
+  margin: 40px;
+  position: absolute;
+}
+
+.from {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+
+
+
+#buttonlogin {
+  color: #707075;
+  margin-top: 40px;
+  transition: color 300ms;
+}
+#buttonlogin:focus {
+  color: #f2f2f2;
+}
+#buttonlogin:active {
+  color: #d0d0d2;
+}
+input {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+body {
+  background: #D1D9D3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  height: 100hv;
+  margin: 0 auto;   
+}

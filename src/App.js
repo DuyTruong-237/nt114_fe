@@ -8,12 +8,13 @@ import Notification from './components/notification/Notification';
 import MainContent from './components/content/MainContent';
 import Home from './screen/Home/Home';
 import Profile from './screen/Profile/Profile';
+import Login from './screen/Login/Login';
 
 function App() {
   return (
    
     <div className='app_js'>
-      <Profile/>
+      <Login/>
     </div>
     
     
