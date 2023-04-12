@@ -1,11 +1,13 @@
+import "./Login.css"
 import React from 'react'
+import mainlogo from '../../img/mainlogo.png'
 export default function login() {
   return(
     <div className="logo">
       <div className="logo-login">
         <img 
-        className="login-logo"
-        src="mainlogo"
+        className="loginLogo"
+        src={mainlogo}
         alt="logo"/>
           <div className="nameapp">
             HOGWART 
