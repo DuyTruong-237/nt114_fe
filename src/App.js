@@ -3,7 +3,7 @@ import './App.css';
 
 import TopHeader from './components/top_header/TopHeader';
 import SideBar from './components/side_bar/SideBar';
-import Calendar from  './components/calendar/Calendar'
+import Calendar from  './components/calendar/calendar'
 import Notification from './components/notification/Notification';
 import MainContent from './components/content/MainContent';
 
