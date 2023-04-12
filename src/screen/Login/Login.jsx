@@ -17,7 +17,7 @@ export default function login() {
       <div className="login-page">
         <div className="container">
           <div className="left">
-            <div className="login">LOGIN</div>
+            <div className="textlogin">LOGIN</div>
             <div className="slogan">Hello! Welcome to blabla</div>
 
       <div className="page">

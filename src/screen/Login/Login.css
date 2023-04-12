@@ -36,9 +36,10 @@
 
 .login-page {
   background: #FF7B54;
-  height: 200%;
-  width: 75%;
+  height: 300%;
+  width: 50%;
   display: block;
+
   /* flex-direction: column;
   position: absolute; */
   margin-left: 50px;
@@ -47,9 +48,12 @@
 
 .container {
   color: #ffffff;
-  display: flex;
-  height: 320px;
-  margin: 0 auto;
+  text-transform: uppercase;
+  font-style:inherit;
+  font-size: 24px;
+  display: block;
+  height: 400px;
+  margin-left: 20px;
   width: 640px;
 }
 .slogan {
@@ -66,17 +70,16 @@
 
 .from {
   background: white;
-  height: calc(100% - 40px);
+  height: 300px;
   top: 20px;
   position: relative;
-  width: 50%;
+  width: 300px;
 }
-
-
 
 #buttonlogin {
   color: #707075;
-  margin-top: 40px;
+  height: 300px;
+  margin-top: 100px;
   transition: color 300ms;
 }
 #buttonlogin:focus {
