@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import TopHeader from './components/top_header/TopHeader';

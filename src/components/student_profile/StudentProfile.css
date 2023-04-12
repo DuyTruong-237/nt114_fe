@@ -33,3 +33,52 @@
     font-size: 22px;
     font-weight: 500;
 }
+.Info_Wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.btn_radius {
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    
+}
+.Edit_btn {
+    width: 160px;
+    height: 40px
+}
+.Info_Profile {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    line-height: 1.5;
+    border: solid 2px #000;
+}
+.Text_Info_first {
+    margin: 30px 20px 0px;
+}
+.Text_Info {
+    margin: 0px 20px;
+}
+.Text_Info_final {
+    margin: 0px 20px 30px;
+}
+.Info_Bar_Wrapper {
+    display: grid;
+    grid-template: auto/ auto auto auto;
+    column-gap: 100px;
+    justify-content: left;
+}
+.Info_Bar {
+    margin-top: 10px;
+}
+.Infobar-input {
+    font-size: 18px;
+    margin-top: 5px;
+}
