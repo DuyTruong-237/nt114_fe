@@ -46,7 +46,7 @@ export default function TopHeader() {
                 <i className="fa fa-cog" aria-hidden="true"></i>
                 Tùy chọn
               </a>
-              <a href="#" className="dropdown-item">
+              <a href="login" className="dropdown-item">
                 <i className="fa fa-sign-out" aria-hidden="true"></i>
                 Đăng xuất
               </a>
