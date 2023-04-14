@@ -22,7 +22,7 @@ export default function login() {
 
       <div className="page">
         <div className="from">
-          <div className="login-from">
+          <div className="login-form">
             <input type="text" placeholder="username" />
             <input type="password" placeholder="password" />
             <button>Login</button>
