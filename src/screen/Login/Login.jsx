@@ -3,29 +3,29 @@ import React from 'react'
 import mainlogo from '../../img/mainlogo.png'
 export default function login() {
   return(
-    <div className="logo">
-      <div className="logo-login">
+    <div className="Login">
+      <div className="Login-part">
         <img 
-        className="loginLogo"
+        className="LoginLogo"
         src={mainlogo}
-        alt="logo"/>
+        alt="Logo"/>
           <div className="nameapp">
-            HOGWART 
+            <b>HOGWART</b> 
           </div>
       </div>
 
       <div className="login-page">
         <div className="container">
           <div className="left">
-            <div className="login">LOGIN</div>
-            <div className="slogan">Hello! Welcome to blabla</div>
+            <div className="textlogin"><b>LOGIN</b></div>
+            <div className="slogan">Hello! Welcome to lalal.</div>
 
       <div className="page">
         <div className="from">
-          <div className="login-form">
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
-            <button>Login</button>
+          <div className="login-from">
+            <input type="text" className="text" placeholder="username" />
+            <input type="password" className="pass" placeholder="password" />
+            <button class="buttonLogin"><b>LOG IN</b></button>
             <p className="message">Forgot your password? <a href=" ">Forgot password</a>
             </p>
           </div>
