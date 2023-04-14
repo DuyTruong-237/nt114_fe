@@ -12,7 +12,7 @@ export default function Home() {
       <div className='Header'>
         <TopHeader/>
       </div>
-      <div className='Body_Home'> 
+      <div className='Body'> 
         <div className='SideBar'>
           <SideBar/>
         </div>

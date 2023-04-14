@@ -3,8 +3,8 @@ import TopHeader from '../../components/top_header/TopHeader';
 import SideBar from '../../components/side_bar/SideBar';
 import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
-import MainContent from '../../components/content/MainCourse';
-import './Notificationscr.css';
+import Message from '../../components/message/Message';
+import './Inbox.css';
 
 export default function Notification_scr() {
   return (
@@ -17,7 +17,7 @@ export default function Notification_scr() {
           <SideBar/>
         </div>
         <div className='Main-Content'>
-          <MainContent/>
+          <Message/>
         </div>
         <div className='Right-Cont'>
           <Calendar/>

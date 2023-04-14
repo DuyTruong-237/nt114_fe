@@ -1,8 +1,9 @@
 .homeScreen_js{
   height: 100%;
 }
-.Body_Home {
-  height: 100%;
+.Body {
+  min-height: 100%;
+  max-height: none;
   display: flex;
   justify-content: space-between;
 }

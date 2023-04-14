@@ -11,12 +11,11 @@ export default function Login() {
       <div className='homeScreen_js'>
         <div className='Header'>
           <TopHeader/></div>
-          <div className='Body-Profile'> 
+          <div className='Body'> 
             <div className='SideBar'>
               <SideBar/>
             </div>
             <div className='MainContent'>
-              <StudentProfile/>
               <StudentProfile/>
             </div>
             <div className='Right-Cont'>

@@ -1,0 +1,94 @@
+.Noti_Toolbar {
+    margin: 45px 30px 0px;
+    height: 60px;
+    display: flex;
+    background-color: #E8E8E8;
+    justify-content: left;
+    align-items: center;
+    border-radius: 5px;
+}
+.Noti_Toolbar div {
+    font-size: 24px;
+    font-weight: 400;
+}
+.Noti_Toolbar div:nth-child(1) {
+    margin-left: 30px;
+}
+.Noti_Toolbar div:nth-child(2) {
+    margin-left: 45px;
+}
+.Noti_Toolbar div:nth-child(3) {
+    margin-left: auto;
+}
+.eclipse {
+    margin: 5px 50px 0px 5px;
+    width: 12px;
+    height: 12px;
+    background: #DA4949;
+    border-radius: 50%;
+}
+.Message_Details {
+    margin: 5px 30px 0px;
+    min-height: 55px;
+    max-height: auto;
+    background-color: #C6EAFF;
+    display: flex;
+    align-items: center;
+    box-shadow:0px 5px 3px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.Check{
+    margin-left: 20px;
+    width: 12px;
+}
+.Noti_User {
+    width: 29px;
+    margin-left: 15px;
+    
+}
+.Message_Details div {
+    font-size: 20px;
+}
+.Message_Details div:nth-child(3) {
+    font-weight: 500;
+    margin-left: 10px;
+}
+.Message_Details div:nth-child(4) {
+    font-weight: 400;
+    margin-left: 30px;
+}
+.Message_Details_2 {
+    margin: 5px 30px 0px;
+    min-height: 55px;
+    max-height: auto;
+    background-color: #E8E8E8;
+    display: flex;
+    align-items: center;
+    box-shadow:0px 5px 3px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.Message_Details_2 div {
+    font-size: 20px;
+}
+.Message_Details_2 div:nth-child(3) {
+    font-weight: 500;
+    margin-left: 10px;
+}
+.Message_Details_2 div:nth-child(4) {
+    font-weight: 400;
+    margin-left: 30px;
+}
+.Message_Brief div:nth-child(2){
+    font-weight: 400;
+    font-size: 14px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 20px;
+    text-align: center;
+    width: 140px;
+}
