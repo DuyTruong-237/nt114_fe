@@ -1,10 +1,10 @@
-.MainContent_Title {
+.MainCourse_Title {
     font-size: 40px;
     font-weight: 400;
     margin-left: 20px;
     margin-top: 20px;
 }
-.MainContent_Search {
+.MainCourse_Search {
     justify-content: center;
     display: flex;
 }

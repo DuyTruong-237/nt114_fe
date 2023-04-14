@@ -1,5 +1,5 @@
 import React from 'react'
-import './MainContent.css'
+import './MainCourse.css'
 import SearchIcon from "../../img/search.png"
 import book from  "../../img/book.png"
 import education from "../../img/education.png"
@@ -7,13 +7,13 @@ import book2 from "../../img/book (2).png"
 import book3 from "../../img/book (3).png"
 
 
-export default function MainContent() {
+export default function MainCourse() {
   return (
-    <div className='MainContent'>
-        <div className='MainContent_Title'>
+    <div className='MainCourse'>
+        <div className='MainCourse_Title'>
             CÁC KHÓA HỌC: 
         </div>
-        <div className='MainContent_Search'>
+        <div className='MainCourse_Search'>
             <div className='Searchbar'>
             <input className='Searchbar-input' type='text' placeholder='Tìm kiếm' />
             </div>

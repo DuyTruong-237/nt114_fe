@@ -1,38 +1,14 @@
-.homeScreen_js{
-    height: auto;
-  }
-  .Body {
-    height: 100%;
-    display: flex;
-    flex-basis: 15%;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
-  .SideBar {
-    height: auto;
-    
-  }
+.Body-Profile {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
   .Main-Content {
-    flex-grow: 3;
-    background-color: #F8F9FA;
-    border-radius: 10px;
-    margin: 15px 0px 15px 10px;
-    height: 100%;
-    padding-bottom: 30px;
+    flex-basis: 100%;
   }
   .Right-Cont {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    height: auto;
-    margin-bottom: 15px;
+    display: none;
   }
-  
-  @media screen and (max-width: 768px) {
-    .Main-Content {
-      flex-basis: 100%;
-    }
-    .Right-Cont {
-      display: none;
-    }
-  }
+}

@@ -4,19 +4,19 @@ import SideBar from '../../components/side_bar/SideBar';
 import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
 import MainContent from '../../components/content/MainCourse';
-import './Home.css';
+import './Notificationscr.css';
 
-export default function Home() {
+export default function Notification_scr() {
   return (
     <div className='homeScreen_js'>
       <div className='Header'>
         <TopHeader/>
       </div>
-      <div className='Body_Home'> 
+      <div className='Body'> 
         <div className='SideBar'>
           <SideBar/>
         </div>
-        <div className='MainContent'>
+        <div className='Main-Content'>
           <MainContent/>
         </div>
         <div className='Right-Cont'>

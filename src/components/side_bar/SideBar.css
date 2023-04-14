@@ -1,6 +1,6 @@
 .SideBar {
    width: 15%;
-   height: 100%;
+   height: auto;
    background-color:#002f35c5;
    padding-top: 20px;
    display: inline;
