@@ -5,7 +5,7 @@ import TopHeader from './components/top_header/TopHeader';
 import SideBar from './components/side_bar/SideBar';
 import Calendar from  './components/calendar/calendar';
 import Notification from './components/notification/Notification';
-import MainContent from './components/content/MainContent';
+import MainCourse from './components/content/MainCourse';
 import Home from './screen/Home/Home';
 import Login from './screen/Login/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
