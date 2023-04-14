@@ -1,3 +1,4 @@
+
 .SideBar {
    width: 15%;
    height: auto;
@@ -15,6 +16,7 @@
 
 .SideBar-item:hover .SideBar-title-text {
   color: #FF7B54;
+  
 }
 
 .icon-img {

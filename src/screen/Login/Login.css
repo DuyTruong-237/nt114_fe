@@ -79,20 +79,25 @@
   margin-top: -206px;
 }
 
-.from {
+.form {
   background: #4A4747;
-  height: 300px;
-  position: relative;
+  height: auto;
   width: 300px;
 }
-.login-from{
+.login-form{
   margin: 20px;
   color: #f2f2f2;
-
-  
+  font-size: 20px;
+  font-weight: 400; 
 }
-input {
-  margin-top: 30px;
+.login-form div:nth-child(1) {
+  padding-top: 20px;
+}
+.login-form div:nth-child(3) {
+  margin-top: 10px;
+}
+.login_details {
+  margin-top: 5px;
   padding: 15px ;
   border-radius:5px;
   border: #f2f2f2;
@@ -110,19 +115,20 @@ input {
   width: 100%;
   margin-top: 50px;
   border: 0;
-  padding: 15px;
+  padding: 8px;
   color: #FF7B54;
   font-style: normal;
   font-size: 20px;
 }
 .message{
-  align-items: center;
-  justify-content: center;
-  margin-top: 0px;
-  padding: 15px;
-  font-size: 13px;
+  padding: 10px 0px;
+  font-size: 15px;
   font-style: italic;
   color:#ffffff;
+}
+
+.message a{
+  color: #FF7B54;
 }
 
 body {

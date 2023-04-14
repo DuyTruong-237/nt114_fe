@@ -18,16 +18,17 @@ export default function login() {
         <div className="container">
           <div className="left">
             <div className="textlogin"><b>LOGIN</b></div>
-            <div className="slogan">Hello! Welcome to lalal.</div>
+            <div className="slogan">Hello! Welcome to Hogwart.</div>
 
       <div className="page">
-        <div className="from">
-          <div className="login-from">
-            <input type="text" className="text" placeholder="username" />
-            <input type="password" className="pass" placeholder="password" />
+        <div className="form">
+          <div className="login-form">
+            <div>Student ID</div>
+            <input type="text" className="login_details" placeholder="username" />
+            <div>Password</div>
+            <input type="password" className="login_details" placeholder="password" />
             <button class="buttonLogin"><b>LOG IN</b></button>
-            <p className="message">Forgot your password? <a href=" ">Forgot password</a>
-            </p>
+            <div className="message">Forgot your password? <a href=" ">Forgot password</a></div>
           </div>
         </div>
       </div>

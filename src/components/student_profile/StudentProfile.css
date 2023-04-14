@@ -72,7 +72,7 @@
 .Info_Bar_Wrapper {
     display: grid;
     grid-template: auto/ auto auto auto;
-    column-gap: 100px;
+    column-gap: 80px;
     justify-content: left;
 }
 .Info_Bar {

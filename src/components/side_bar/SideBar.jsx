@@ -19,8 +19,8 @@ export default function SideBar() {
             <div className='SideBar-title-text'>
               Trang chủ
             </div>
-        </div>
-        <div className='SideBar-item'>
+      </div>
+      <div className='SideBar-item'>
           <img 
             className="icon-img"
             src={studenicon} 
@@ -29,7 +29,7 @@ export default function SideBar() {
           <div className='SideBar-title-text'>
             Sinh viên    
           </div>
-       </div>
+       </div> 
        <div className='SideBar-item'>
           <img 
             className="icon-img"
