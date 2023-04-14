@@ -1,10 +1,8 @@
 .Login{
-
   display: block;
   height: 70px;
   width: 100%;
-  margin-top: 50px;
-  margin-left: 75px;
+  margin-left: 10px;
 }
 .Login-part{
   display: block;
@@ -18,98 +16,120 @@
 .LoginLogo{
   text-align: center;
   height: 50px;
- 
   padding: 8px;
-  
-
+  margin-top: 30px;
 }
 .nameapp{
-  
-  
   color: #FF7B54;
   text-transform: uppercase;
   font-size: 50px;
+  font-family:Arial, Helvetica, sans-serif;
   width: 100%;
+  
 
   line-height: 40px;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: auto;
- 
 }
 
 .login-page {
   background: #FF7B54;
-  height: 300%;
+  height: 350%;
   width: 50%;
   display: block;
-
-  /* flex-direction: column;
-  position: absolute; */
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 75px;
+  margin-top: 100px;
 }
-
 .container {
   color: #ffffff;
-  text-transform: uppercase;
-  font-style:inherit;
-  font-size: 24px;
+  font-size: 12px;
   display: block;
   height: 400px;
+  margin-top: 50px;
   margin-left: 20px;
   width: 640px;
 }
+.left {
+  height: 50px;
+  top: 50px;
+  left: 30px;
+  position: relative;
+  width: 50%;
+}
+.textlogin{
+  font-size: 48px;
+  font-style: normal;
+  margin-top: 100px;
+  margin-right: 10px;
+
+}
 .slogan {
+  text-transform: uppercase;
   color: #ffffff;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 40px;
+  font-size: 16px;
+  font-style:unset;
+  line-height: 1;
+  margin-left: 2px;
+  margin-top: 30px;
 }
 
 .page {
-  margin: 40px;
   position: absolute;
+  margin-left: 240px;
+  margin-top: -206px;
 }
 
 .from {
-  background: white;
+  background: #4A4747;
   height: 300px;
-  top: 20px;
   position: relative;
   width: 300px;
 }
-
-#buttonlogin {
-  color: #707075;
-  height: 300px;
-  margin-top: 100px;
-  transition: color 300ms;
-}
-#buttonlogin:focus {
+.login-from{
+  margin: 20px;
   color: #f2f2f2;
-}
-#buttonlogin:active {
-  color: #d0d0d2;
+
+  
 }
 input {
-  background: transparent;
-  border: 0;
-  color: #f2f2f2;
-  font-size: 20px;
-  height: 30px;
-  line-height: 30px;
-  outline: none !important;
+  margin-top: 30px;
+  padding: 15px ;
+  border-radius:5px;
+  border: #f2f2f2;
+  background: rgba(255, 255, 255, 0.479);
+  width: 88%;  
+  color:white;
+  font-size:18px;
+  height: 5px;
+}
+
+.buttonLogin {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #ffffff;
   width: 100%;
+  margin-top: 50px;
+  border: 0;
+  padding: 15px;
+  color: #FF7B54;
+  font-style: normal;
+  font-size: 20px;
 }
-input::-moz-focus-inner { 
-  border: 0; 
+.message{
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  padding: 15px;
+  font-size: 13px;
+  font-style: italic;
+  color:#ffffff;
 }
+
 body {
   background: #D1D9D3;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
   height: 100hv;
   margin: 0 auto;   
 }
