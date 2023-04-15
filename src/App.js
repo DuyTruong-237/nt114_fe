@@ -10,7 +10,9 @@ import Profile from './screen/Profile/Profile';
 import Inbox from './screen/Inbox/Inbox';
 import Home from './screen/Home/Home';
 import Login from './screen/Login/Login';
+import Student_Management from './screen/Manage/Student_Management';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Student from './components/manage/Student';
 function App() {
   return (
    
@@ -21,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
+        <Route path='/student' element={<Student_Management/>}/>
       </Routes>
       </BrowserRouter>
     </div>
