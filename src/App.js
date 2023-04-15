@@ -13,6 +13,7 @@ import Login from './screen/Login/Login';
 import Student_Management from './screen/Manage/Student_Management';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Student from './components/manage/Student';
+import ClassDetails from './screen/ClassDetails/ClassDetails'
 function App() {
   return (
    
@@ -24,6 +25,7 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
         <Route path='/student' element={<Student_Management/>}/>
+        <Route path='/class-detail' element={<ClassDetails/>}/>
       </Routes>
       </BrowserRouter>
     </div>
