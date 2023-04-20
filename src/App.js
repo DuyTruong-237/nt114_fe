@@ -14,6 +14,7 @@ import Student_Management from './screen/Manage/Student_Management';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Student from './components/manage/Student';
 import ClassDetails from './screen/ClassDetails/ClassDetails'
+import LearningResult from './screen/LearningResult/LearningResult'
 function App() {
   return (
    
@@ -26,6 +27,7 @@ function App() {
         <Route path='/inbox' element={<Inbox/>}/>
         <Route path='/student' element={<Student_Management/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
+        <Route path='/learning-result' element={<LearningResult/>}/>
       </Routes>
       </BrowserRouter>
     </div>

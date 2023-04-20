@@ -1,0 +1,25 @@
+.Study_Result_wrapper{
+    width: 100%;
+    padding: 10px 5px 5px 5px;
+    box-sizing: border-box;
+}
+
+.Study_Result_wrapper h3{
+    font-size: 35px;
+    margin: 10px 0px;
+}
+.Student_Profile_Table,
+.Student_Result_Table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: azure;
+}
+
+.Student_Profile_Table td,
+.Student_Profile_Table th,
+.Student_Result_Table td,
+.Student_Result_Table th {
+    padding: 0.5em;
+    border: 1px solid black;
+}
