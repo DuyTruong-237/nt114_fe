@@ -16,7 +16,7 @@ export default function Notification_scr() {
         <div className='SideBar'>
           <SideBar/>
         </div>
-        <div className='Main-Content'>
+        <div className='MainContent'>
           <Message/>
         </div>
         <div className='Right-Cont'>

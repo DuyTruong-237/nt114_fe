@@ -1,35 +1,49 @@
 import React from 'react'
 import './Student.css'
+import Searchicon  from '../../img/search.png'
+import Editicon from '../../img/edit.png' 
 
 export default function Student() {
   return (
     <div className='List_Wrapper'>
         <div className='List_Header'>
-            <b>DANH SÁCH SINH VIÊN</b>
+            <div>DANH SÁCH SINH VIÊN: </div>
         </div>
         <div className='List_Toolbar'>
-            <div>Tìm kiếm
-                <img src="" alt="" />
+            <div className='Search_toolbar'>Tìm kiếm
+                <img className='Search_icon' src={Searchicon} alt="" />
             </div>
             <div>
-                <img src="" alt="" />
+                <div className='Edit_btn'>
+                    <img className='Edit_icon' src={Editicon} alt="" />
+                </div>
+                <div className='Add_btn'>+ Add</div>
             </div>
-            <div>
-                + Add
-            </div>
         </div>
-        <div className='List_Title'>
-            <div><b>Student</b></div>
-            <div><b>Name</b></div>
-            <div><b>Class</b></div>
-        <div><b>Falculty</b></div>
-        </div>
-        <div className='Student_Info'>
-            <div>1</div>
-            <div>Harry Potter</div>
-            <div>Phòng chống nghệ thuật hắc ám</div>
-            <div>Gryffindor</div>
-        </div>
+        <table>
+            <thead className='List_Title'>
+                <tr>
+                    <th><b>Student</b></th>
+                    <th><b>Name</b></th>
+                    <th><b>Class</b></th>
+                    <th><b>Falculty</b></th>
+                </tr>
+            </thead>
+            <tbody className='Student_Info'>
+                <tr className='Odd'>
+                    <td>1</td>
+                    <td>Harry Potter</td>
+                    <td>Phòng chống nghệ thuật hắc ám</td>
+                    <td>Gryffindor</td>
+                </tr>
+                <tr className='Even'>
+                    <td>2</td>
+                    <td>Draco Malfoy</td>
+                    <td>Độc dược</td>
+                    <td>Slytherin</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
   )
 }

@@ -1,3 +1,110 @@
 .List_Wrapper {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 60px 40px;
+    border: solid 1px  #7B7676;
+}
+.List_Header {
+    font-size: 30px;
+    font-weight: 500;
+    background-color: #E2E5E3;
+    line-height: 50px;
+    height: 50px;
+}
+.List_Header div {
+    margin-left: 25px;
+}
+.List_Toolbar {
+    display: flex;
+    align-items: center;
+}
+.Search_toolbar {
+    background-color: #31A4E5;
+    color: #fff;
+    font-size: 14px;
+    height: 30px;
+    width: max-content;
+    margin: 12px 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 30px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.List_Toolbar img {
+    background-color: #31A4E5;
+    width: 15px;
+    line-height: 30px;
+}
+.Search_icon {
+    margin-left: 100px;
+}
+.Edit_icon {
+    padding: 0px 10px;
+    
+}
+.List_Toolbar div:nth-child(2) { 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+}
+.Add_btn {
+    background-color: #31A4E5;
+    height: 30px;
+    width: max-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 30px;
+}
+.Edit_btn {
+    background-color: #31A4E5;
+    width: max-content;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.List_Title {
+    display: table-header-group;
+    vertical-align: middle;
+    
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #31A4E5;
+    height: 60px;
+    line-height: 60px;
+}
+.Student_Info {
+    display: table-row-group;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 500;
+}
+.Odd {
+    display: table-row;
+    text-align: center;
+}
+.Even {
+    display: table-row;
+    text-align: center;
+    background-color: #D1D9D3;
+    color: #31A4E5;
+}
+td:nth-child(1) {
+    width: 20%;
+}
+td:nth-child(3) {
+    width: 30%;
+}
+table {
+    margin: 10px 30px;
 }
