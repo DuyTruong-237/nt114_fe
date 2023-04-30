@@ -2,6 +2,7 @@
     width: 100%;
     padding:16px;
     box-sizing: border-box;
+    
 }
 
 .ClassDetail_Header {
@@ -12,9 +13,12 @@
 
 .ClassDetail_Content {
     border-bottom: 1px solid #dee2e6;
-    margin-top: 1rem;
+    margin-top: 0.625rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 18px;
+    background-color: azure;
+    border-radius: 10px;
 }
 
 .List-content {

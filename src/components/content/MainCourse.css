@@ -43,6 +43,7 @@
     grid-template: auto/ auto auto auto;
     column-gap: 20px;
     justify-content: center;
+    margin: 0px 5px;
 }
 .Course {
     width: 290px;
@@ -92,5 +93,16 @@
         column-gap: 20px;
         justify-content: center;
     }
-    
+    .Searchbar
+    {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+    .Searchbox
+    {
+        margin-right: 10px;
+    }
+    .MainCourse_Title{
+        
+    }
 }

@@ -4,7 +4,7 @@ import "./ClassDetail.css"
 export default function ClassDetails(){
     return(
         <div className="ClassDetail_wrapper">
-            <h1 className="ClassDetail_Header">Đồ án chuyên ngành - NT114.N21.MMCL</h1>
+            <h1 className="ClassDetail_Header"><strong>Đồ án chuyên ngành - NT114.N21.MMCL</strong></h1>
             <div id="section-0" className="ClassDetail_Content" role="region">
                 <ul className="List-content">
                     <li className="List-item">
