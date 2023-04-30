@@ -15,6 +15,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Student from './components/manage/Student';
 import ClassDetails from './screen/ClassDetails/ClassDetails'
 import LearningResult from './screen/LearningResult/LearningResult'
+import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 function App() {
   return (
    
@@ -28,6 +29,7 @@ function App() {
         <Route path='/student' element={<Student_Management/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
         <Route path='/learning-result' element={<LearningResult/>}/>
+        <Route path='/subject-manage' element={<SubjectManagement/>}/>
       </Routes>
       </BrowserRouter>
     </div>
