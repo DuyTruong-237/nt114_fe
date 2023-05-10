@@ -23,7 +23,7 @@
 }
 
 .Subject_Table {
-    margin-top: 8px;
+    margin-top: 10px;
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -38,8 +38,12 @@
 .Button{
     padding: 0;
     border: 0px;
-    background-color: #ffffff;
+    background-color: transparent;
     margin: 3px;
+}
+.Button:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 .fa-minus-square,
 .fa-plus-square{

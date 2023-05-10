@@ -20,7 +20,11 @@
 .Noti-Content {
     margin-top: 15px;
     display: flex;
-    
+    text-decoration: none;
+}
+.Noti-Content:hover {
+    text-decoration: underline;
+    opacity: 0.8;
 }
 .arr-img {
     height: 10px;
