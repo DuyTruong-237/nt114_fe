@@ -83,7 +83,7 @@
     height: 60px;
     line-height: 60px;
 }
-.Student_Info {
+.Manage_Info {
     display: table-row-group;
     vertical-align: middle;
     font-size: 24px;
@@ -106,5 +106,5 @@ td:nth-child(3) {
     width: 30%;
 }
 table {
-    margin: 10px 30px;
+    margin: 10px 0px;
 }

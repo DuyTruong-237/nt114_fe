@@ -7,7 +7,7 @@ export default function Student() {
   return (
     <div className='List_Wrapper'>
         <div className='List_Header'>
-            <div>DANH SÁCH SINH VIÊN: </div>
+            <div>DANH SÁCH GIẢNG VIÊN: </div>
         </div>
         <div className='List_Toolbar'>
             <div className='Search_toolbar'>Tìm kiếm
@@ -32,15 +32,21 @@ export default function Student() {
             <tbody className='Manage_Info'>
                 <tr className='Odd'>
                     <td>1</td>
-                    <td>Harry Potter</td>
-                    <td>Phòng chống nghệ thuật hắc ám</td>
-                    <td>Gryffindor</td>
+                    <td>Filius Flitwick</td>
+                    <td>Bùa chú</td>
+                    <td>Ravenclaw</td>
                 </tr>
                 <tr className='Even'>
                     <td>2</td>
-                    <td>Draco Malfoy</td>
+                    <td>Severus Snape</td>
                     <td>Độc dược</td>
                     <td>Slytherin</td>
+                </tr>
+                <tr className='Odd'>
+                    <td>3</td>
+                    <td>Minerva McGonagall</td>
+                    <td>Biến hình</td>
+                    <td>Gryffindor</td>
                 </tr>
             </tbody>
         </table>

@@ -2,11 +2,15 @@
     width: 100%;
     padding: 10px 5px 5px 5px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Study_Result_wrapper h3{
     font-size: 35px;
-    margin: 10px 0px;
+    margin: 10px;
+    
 }
 .Student_Profile_Table,
 .Student_Result_Table {
@@ -22,4 +26,6 @@
 .Student_Result_Table th {
     padding: 0.5em;
     border: 1px solid black;
+    width: fit-content;
+    text-align: center;
 }

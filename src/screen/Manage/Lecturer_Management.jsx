@@ -3,10 +3,10 @@ import TopHeader from '../../components/top_header/TopHeader';
 import SideBar from '../../components/side_bar/SideBar';
 import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
-import Student from '../../components/manage/Student';
+import Lecturer from '../../components/manage/Lecturer';
 
 
-export default function Student_Management() {
+export default function Lecturer_Management() {
   return (
     <div className='homeScreen_js'>
       <div className='Header'>
@@ -17,7 +17,7 @@ export default function Student_Management() {
           <SideBar/>
         </div>
         <div className='MainContent'>
-          <Student/>
+          <Lecturer/>
         </div>
         <div className='Right-Cont'>
           <Calendar/>
