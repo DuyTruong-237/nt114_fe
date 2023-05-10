@@ -9,7 +9,7 @@ export default function login() {
         className="LoginLogo"
         src={mainlogo}
         alt="Logo"/>
-          <div className="nameapp">
+          <div className="name_app">
             <b>HOGWART</b> 
           </div>
       </div>
