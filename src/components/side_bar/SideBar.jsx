@@ -5,12 +5,12 @@ import teachericon from '../../img/teacher.png'
 import chart from '../../img/barchart.png'
 import './SideBar.css'
 //import '../../../public/img/mainlogo'
-
+import { Link } from 'react-router-dom';
 
 export default function SideBar() {
   return (
     <div className='SideBar'>
-       <div className='SideBar-item'>
+       <Link to='/' className='SideBar-item'>
             <img 
               className="icon-img"
               src={homeicon} 
@@ -19,8 +19,8 @@ export default function SideBar() {
             <div className='SideBar-title-text'>
               Trang chủ
             </div>
-        </div>
-        <div className='SideBar-item'>
+      </Link>
+      <Link to='/class-detail' className='SideBar-item'>
           <img 
             className="icon-img"
             src={studenicon} 
@@ -29,8 +29,8 @@ export default function SideBar() {
           <div className='SideBar-title-text'>
             Sinh viên    
           </div>
-       </div>
-       <div className='SideBar-item'>
+       </Link> 
+       <Link to='/' className='SideBar-item'>
           <img 
             className="icon-img"
             src={teachericon} 
@@ -39,8 +39,8 @@ export default function SideBar() {
           <div className='SideBar-title-text'>
             Giảng viên
           </div>             
-       </div>
-       <div className='SideBar-item'>
+       </Link>
+       <Link to='/' className='SideBar-item'>
           <img 
             className="icon-img"
             src={chart} 
@@ -49,9 +49,7 @@ export default function SideBar() {
           <div className='SideBar-title-text'>
             Thống kê
           </div>          
-       </div>
-       
-      
+       </Link>
     </div>
   )
 }

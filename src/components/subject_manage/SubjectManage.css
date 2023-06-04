@@ -1,0 +1,59 @@
+.SubjectManage_wrapper {
+    padding: 0px 5px 5px 5px;
+    box-sizing: border-box;
+}
+.Search {
+    display: flex;
+}
+
+.searchInput {
+    border: 1px solid #FF7B54;
+    outline: none;
+    font-size:larger;
+    padding-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.searchIcon {
+    background-color: #FF7B54;
+    height: 50px;
+    width: 50px;
+    border-color: #FF7B54;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.Subject_Table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: azure;
+}
+
+.Subject_Table td,
+.Subject_Table th {
+    padding: 0.5em;
+    border: 1px solid black;
+}
+.Button{
+    padding: 0;
+    border: 0px;
+    background-color: transparent;
+    margin: 3px;
+}
+.Button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.fa-minus-square,
+.fa-plus-square{
+    font-size: 3em;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+
+.interactive_bar {
+    display: flex;
+    justify-content: space-between;
+}

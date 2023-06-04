@@ -9,7 +9,7 @@ export default function Notification() {
             Các thông báo
         </div>
         <div className='Noti-Content-wrapper'>
-            <div className='Noti-Content'>
+            <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -17,8 +17,8 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Đổi giáo viên môn Phòng chống nghệ thuật hắc ám - 18/03/2023 - 15:15
                 </div>
-            </div>
-            <div className='Noti-Content'>
+            </a>
+            <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -26,8 +26,8 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Đăng ký học phần khóa 20 - 17/03/2023 - 0:30           
                 </div>
-            </div>
-            <div className='Noti-Content'>
+            </a>
+            <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -35,8 +35,8 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Đăng ký cứu xét môn Độc dược - 16/03/2023 - 12:00
                 </div>
-            </div>
-            <div className='Noti-Content'>
+            </a>
+            <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -44,8 +44,8 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Đón chào sinh viên Harry Porter nhập học - 15/03/2023 - 0:45
                 </div>
-            </div>
-            <div className='Noti-Content'>
+            </a>
+            <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -53,7 +53,7 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Thầy hiệu trưởng Dumbledore phát biểu đầu năm học mới 09/05/2023 - 0:00
                 </div>
-            </div>
+            </a>
         </div>
         
     </div>

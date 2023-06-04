@@ -1,0 +1,61 @@
+.ClassDetail_wrapper{
+    width: 100%;
+    padding:16px;
+    box-sizing: border-box;
+    
+}
+
+.ClassDetail_Header {
+    margin:29px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.ClassDetail_Content {
+    border-bottom: 1px solid #dee2e6;
+    margin-top: 0.625rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 18px;
+    background-color: azure;
+    border-radius: 10px;
+}
+
+.List-content {
+    list-style: none;
+    margin:16px;
+}
+
+.List-item {
+
+    padding: 0.2em;
+    clear: both;
+}
+.Item-title {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    background-color: transparent;
+}
+.activityicon {
+    margin-right: 6px;
+    vertical-align: text-bottom;
+}
+.Item-title:hover {
+    color: rgb(77, 72, 72);
+    text-decoration: underline;
+}
+.Content-title {
+    margin-left: 50px;
+    margin-bottom: 0.5rem;
+    font-weight: 350;
+    line-height: 1.2;
+    margin-top: 0;
+    font-size: 1.640625rem;
+}
+@media (min-width: 576px) {
+    .List-content {
+        margin: 1rem;
+    }
+    
+}

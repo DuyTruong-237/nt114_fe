@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+    .Main-Content {
+      flex-basis: 100%;
+    }
+    .Right-Cont {
+      display: none;
+    }
+}
+  

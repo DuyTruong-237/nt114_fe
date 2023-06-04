@@ -3,31 +3,37 @@ import './App.css';
 
 import TopHeader from './components/top_header/TopHeader';
 import SideBar from './components/side_bar/SideBar';
-import Calendar from  './components/calendar/calendar'
+import Calendar from  './components/calendar/calendar';
 import Notification from './components/notification/Notification';
-import MainContent from './components/content/MainContent';
-
+import MainCourse from './components/content/MainCourse';
+import Profile from './screen/Profile/Profile';
+import Inbox from './screen/Inbox/Inbox';
+import Home from './screen/Home/Home';
+import Login from './screen/Login/Login';
+import Student_Management from './screen/Manage/Student_Management';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Student from './components/manage/Student';
+import ClassDetails from './screen/ClassDetails/ClassDetails'
+import LearningResult from './screen/LearningResult/LearningResult'
+import SubjectManagement from './screen/SubjectManagement/Subject_Management';
+import Lecturer_Management from './screen/Manage/Lecturer_Management';
 function App() {
   return (
    
     <div className='app_js'>
-      <div className='Header'>
-        <TopHeader/>
-      </div>
-      <div className='Body'> 
-        <div className='SideBar'>
-          <SideBar/>
-        </div>
-        <div className='Main-Content'>
-          <MainContent/>
-        </div>
-        <div className='Right-Cont'>
-          <Calendar/>
-          <Notification/>
-        </div>
-      </div>
-      
-    
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/inbox' element={<Inbox/>}/>
+        <Route path='/student' element={<Student_Management/>}/>
+        <Route path='/lecturer' element={<Lecturer_Management/>}/>
+        <Route path='/class-detail' element={<ClassDetails/>}/>
+        <Route path='/learning-result' element={<LearningResult/>}/>
+        <Route path='/subject-manage' element={<SubjectManagement/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
     
     

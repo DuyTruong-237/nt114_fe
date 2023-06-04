@@ -1,13 +1,11 @@
-.MainContent {
-    
-}
-.MainContent_Title {
+.MainCourse_Title {
     font-size: 40px;
     font-weight: 400;
     margin-left: 20px;
     margin-top: 20px;
 }
-.MainContent_Search {
+.MainCourse_Search {
+    justify-content: center;
     display: flex;
 }
 .Searchbar {
@@ -15,33 +13,43 @@
     width: 323px;
     box-sizing: border-box;
     border: 3px solid #0A7ACC;
-    margin-top: 50px;
-    margin-left: 300px;
+    margin: 30px 0px;
 }
+.Searchbar-input{
+    height: 95%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size:larger;
+    padding-left: 5px;
+}
+
 .Searchbox {
     height: 50px;
     width: 50px;
     box-sizing: border-box;
     background-color: #0A7ACC;
-    margin-top: 50px;
+    margin: 30px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.Searchimg {
+.Searching {
     height: 28px;
 }
+
 .Courses_Wrapper {
     display: grid;
     grid-template: auto/ auto auto auto;
     column-gap: 20px;
     justify-content: center;
+    margin: 0px 5px;
 }
 .Course {
     width: 290px;
     height: 135px;
     border-radius: 10px;
-    margin-top: 60px;
+    margin-top: 24px;
 }
 .Gryffindor {
     background-color: #DA4949;
@@ -76,4 +84,22 @@
 .Icon-img {
     height: 55px;
     margin-right: 10px;
+}
+@media only screen and (max-width: 1024px) {
+    
+    .Courses_Wrapper {
+        display: grid;
+        grid-template: auto/ auto auto;
+        column-gap: 20px;
+        justify-content: center;
+    }
+    .Searchbar
+    {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+    .Searchbox
+    {
+        margin-right: 10px;
+    }
 }
