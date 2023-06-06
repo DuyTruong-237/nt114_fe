@@ -1,9 +1,22 @@
-import React from 'react'
+import React,  { useState, useEffect } from 'react'
 import './Manage.css'
 import Searchicon  from '../../img/search.png'
 import Editicon from '../../img/edit.png' 
+import axios from 'axios'
 
 export default function Student() {
+    const [students, setData] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:3001/v1/student/getAllStudent/')
+        .then(response=> {
+            const students = response.data;
+            console.log(students)
+            setData(students);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    },[])
   return (
     <div className='List_Wrapper'>
         <div className='List_Header'>
@@ -30,18 +43,19 @@ export default function Student() {
                 </tr>
             </thead>
             <tbody className='Manage_Info'>
-                <tr className='Odd'>
-                    <td>1</td>
-                    <td>Harry Potter</td>
-                    <td>Phòng chống nghệ thuật hắc ám</td>
-                    <td>Gryffindor</td>
-                </tr>
-                <tr className='Even'>
+                {students.map(student =>( <tr className='Odd'>
+                    <td>{student.id}</td>
+                    <td>{student.name || ""}</td>
+                    <td>{student.acclass_id.name || ""}</td>
+                    <td>{student.department_id.name || ""}</td>
+                </tr>))}
+               
+                {/* <tr className='Even'>
                     <td>2</td>
                     <td>Draco Malfoy</td>
                     <td>Độc dược</td>
                     <td>Slytherin</td>
-                </tr>
+                </tr> */}
             </tbody>
         </table>
     </div>

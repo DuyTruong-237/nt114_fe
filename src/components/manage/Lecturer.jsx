@@ -1,9 +1,22 @@
-import React from 'react'
+import React,  { useState, useEffect } from 'react'
 import './Manage.css'
 import Searchicon  from '../../img/search.png'
 import Editicon from '../../img/edit.png' 
+import axios from 'axios'
 
 export default function Student() {
+     const [lecturers, setData] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:3001/v1/lecturer/getAllLecturer')
+        .then(response=> {
+            const lecturer = response.data;
+            console.log(lecturer)
+            setData(lecturer);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    },[])
   return (
     <div className='List_Wrapper'>
         <div className='List_Header'>
@@ -25,29 +38,29 @@ export default function Student() {
                 <tr>
                     <th><b>ID</b></th>
                     <th><b>Name</b></th>
-                    <th><b>Class</b></th>
+                    
                     <th><b>Falculty</b></th>
                 </tr>
             </thead>
             <tbody className='Manage_Info'>
-                <tr className='Odd'>
-                    <td>1</td>
-                    <td>Filius Flitwick</td>
-                    <td>Bùa chú</td>
-                    <td>Ravenclaw</td>
-                </tr>
-                <tr className='Even'>
+                {lecturers.map(lecturer =>(<tr className='Odd'>
+                    <td>{lecturer.id}</td>
+                    <td>{lecturer.name}</td>
+                   
+                    <td>{lecturer.department_id.name}</td>
+                </tr>))}
+                {/* <tr className='Even'>
                     <td>2</td>
                     <td>Severus Snape</td>
-                    <td>Độc dược</td>
+                   
                     <td>Slytherin</td>
                 </tr>
                 <tr className='Odd'>
                     <td>3</td>
                     <td>Minerva McGonagall</td>
-                    <td>Biến hình</td>
+                    
                     <td>Gryffindor</td>
-                </tr>
+                </tr> */}
             </tbody>
         </table>
     </div>
