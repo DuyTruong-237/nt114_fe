@@ -1,24 +1,51 @@
-import React from 'react'
+import React,  { useState, useEffect } from 'react'
 import './Notification.css'
+import axios from 'axios'
 import arrow from "../../img/previous.png"
 
+function formatDateTime(dateTimeString) {
+    const dateTime = new Date(dateTimeString);
+    const year = dateTime.getFullYear();
+    const month = String(dateTime.getMonth() + 1).padStart(2, '0');
+    const date = String(dateTime.getDate()).padStart(2, '0');
+    const hours = String(dateTime.getHours()).padStart(2, '0');
+    const minutes = String(dateTime.getMinutes()).padStart(2, '0');
+    
+    return `${year}/${month}/${date} - ${hours}:${minutes}`;
+  }
 export default function Notification() {
+   
+    const [notis, setData] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:3001/v1/abc/getAll/notification')
+        .then(response =>{
+           
+             const notis= response.data;
+            console.log(notis)
+           
+            setData(notis);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, []);
   return (
     <div className='Notification-wrapper'>
         <div className='Noti-Title'>
             Các thông báo
         </div>
         <div className='Noti-Content-wrapper'>
-            <a className='Noti-Content' href=''>
+            {notis.map(noti =>(<a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
                     alt="arrow" />
                 <div className='Content-Title'>
-                    Đổi giáo viên môn Phòng chống nghệ thuật hắc ám - 18/03/2023 - 15:15
+                    {noti.title+" - "+ formatDateTime(noti.day)}
                 </div>
-            </a>
-            <a className='Noti-Content' href=''>
+            </a>))}
+            
+            {/* <a className='Noti-Content' href=''>
                 <img 
                     className='arr-img' 
                     src={arrow} 
@@ -53,7 +80,7 @@ export default function Notification() {
                 <div className='Content-Title'>
                     Thầy hiệu trưởng Dumbledore phát biểu đầu năm học mới 09/05/2023 - 0:00
                 </div>
-            </a>
+            </a> */}
         </div>
         
     </div>

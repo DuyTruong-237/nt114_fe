@@ -20,7 +20,7 @@ export default function SideBar() {
               Trang chủ
             </div>
       </Link>
-      <Link to='/class-detail' className='SideBar-item'>
+      <Link to='/student' className='SideBar-item'>
           <img 
             className="icon-img"
             src={studenicon} 
@@ -30,7 +30,7 @@ export default function SideBar() {
             Sinh viên    
           </div>
        </Link> 
-       <Link to='/' className='SideBar-item'>
+       <Link to='/lecturer' className='SideBar-item'>
           <img 
             className="icon-img"
             src={teachericon} 
