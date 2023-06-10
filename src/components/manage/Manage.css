@@ -53,14 +53,14 @@
     background-color: #31A4E5;
     height: 30px;
     width: max-content;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
     line-height: 30px;
     border-radius: 5px;
     font-size: 14px;
     color: #fff;
     font-weight: 600;
     margin-right: 30px;
+    cursor: pointer;
 }
 .Edit_btn {
     background-color: #31A4E5;
@@ -71,6 +71,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    cursor: pointer;
 }
 .List_Title {
     display: table-header-group;
@@ -116,4 +117,8 @@ td:nth-child(3) {
 }
 table {
     margin: 10px 0px;
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
