@@ -1,8 +1,9 @@
 .List_Wrapper {
     display: flex;
     flex-direction: column;
-    margin: 60px 40px;
+    margin: 50px 30px;
     border: solid 1px  #7B7676;
+    border-radius: 5px;
 }
 .List_Header {
     font-size: 30px;
@@ -115,8 +116,8 @@ td:nth-child(1) {
 td:nth-child(3) {
     width: 30%;
 }
-table {
-    margin: 10px 0px;
+.List_Wrapper > table {
+    margin: 10px 5px;
 }
 
 .btn:hover {

@@ -16,8 +16,8 @@
 
 .searchIcon {
     background-color: #FF7B54;
-    height: 50px;
-    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
     border-color: #FF7B54;
     border-radius: 0px 5px 5px 0px;
 }

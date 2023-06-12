@@ -1,61 +1,51 @@
 import React from 'react';
-import './AddData.css'
+import './AddData.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
-export default function Modal({
+export default function AddLecturer({
   closeModal,
-  newStudent,
+  newLecturer,
   handleChange,
-  addStudent
+  addLecturer
 }) {
   return (
     <div className="modal">
-        <div className="modal-header">
-          <span className="close" onClick={closeModal}>
-            <FontAwesomeIcon icon={faWindowClose} size="lg" style={{color: "#f8e3e3",}} />
-          </span>
-          <h2>Add Student</h2>
-        </div>
+      <div className="modal-header">
+        <span className="close" onClick={closeModal}>
+          <FontAwesomeIcon icon={faWindowClose} size="lg" style={{color: "#f8e3e3",}}/>
+        </span>
+        <h2>Add Lecturer</h2>
+      </div>
       <div className="modal-content">
-        {/* Nội dung của modal */}
-
-        <label>Mã số sinh viên</label>
+        <label>ID</label>
         <input
           type="text"
           placeholder="ID"
           name="id"
-          value={newStudent.id}
+          value={newLecturer.id}
           onChange={handleChange}
         />
-        <label>Họ và tên</label>
+        <label>Name</label>
         <input
           type="text"
           placeholder="Name"
           name="name"
-          value={newStudent.name}
+          value={newLecturer.name}
           onChange={handleChange}
         />
-        <label>Lớp</label>
+        <label>Falculty</label>
         <input
           type="text"
-          placeholder="Class"
-          name="class"
-          value={newStudent.class}
-          onChange={handleChange}
-        />
-        <label>Khoa</label>
-        <input
-          type="text"
-          placeholder="Faculty"
+          placeholder="Falculty"
           name="faculty"
-          value={newStudent.faculty}
+          value={newLecturer.faculty}
           onChange={handleChange}
         />
-        <button onClick={addStudent}>Add</button>
+        <button onClick={addLecturer}>Add</button>
       </div>
     </div>
   );
