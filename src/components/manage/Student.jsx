@@ -8,10 +8,10 @@ export default function Student() {
   const [students, setStudents] = useState([]);
   const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
   const [newStudent, setNewStudent] = useState({
-    id: '',
+    
     name: '',
-    class: '',
-    faculty: ''
+    acclass_id: '',
+    department_id: ''
   });
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function Student() {
   };
 
   const closeModal = () => {
+    window.location.reload();
     setShowModal(false); // Đóng modal
   };
 
