@@ -18,11 +18,11 @@ export default function Modal({
           <span className="close" onClick={closeModal}>
             <FontAwesomeIcon icon={faWindowClose} size="lg" style={{color: "#f8e3e3",}} />
           </span>
-          <h2>Add Student</h2>
+          <h2>Add Department</h2>
         </div>
       <div className="modal-content">
         {/* Nội dung của modal */}
-        <label>Họ và tên</label>
+        <label>Tên khoa</label>
         <input
           type="text"
           placeholder="Name"
@@ -30,18 +30,18 @@ export default function Modal({
           value={newStudent.name}
           onChange={handleChange}
         />
-        <label>Lớp</label>
+        <label>Trưởng Khoa</label>
         <input
           type="text"
-          placeholder="Class"
+          placeholder="Dean"
           name="class"
           value={newStudent.class}
           onChange={handleChange}
         />
-        <label>Khoa</label>
+        <label>Mô tả</label>
         <input
           type="text"
-          placeholder="Faculty"
+          placeholder="Description"
           name="faculty"
           value={newStudent.faculty}
           onChange={handleChange}

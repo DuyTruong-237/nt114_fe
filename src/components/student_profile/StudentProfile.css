@@ -47,9 +47,29 @@
     margin-left: auto;
     
 }
-.Edit_btn {
-    width: 160px;
-    height: 40px
+
+.Edit_btn_profile_wrapper { 
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    line-height: 30px;
+}
+.Edit_btn_profile:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    background-color: #066ca6;
+}
+
+.Edit_btn_profile {
+    background-color: #31A4E5;
+    color: #fff;
+    height: 30px;
+    border: solid 2px #000;
+    text-align: center;
+    padding: 0px 10px;
 }
 .Info_Profile {
     font-size: 18px;

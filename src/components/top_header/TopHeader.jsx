@@ -2,17 +2,25 @@ import React from 'react'
 import mainlogo from '../../img/mainlogo.png'
 import userimg from '../../img/user.png'
 import './TopHeader.css'
+import { Navigate, useNavigate } from 'react-router-dom';
+
 //import '../../../public/img/mainlogo'
 
 import { useState } from 'react';
 export default function TopHeader() {
+ 
   const [isOpen, setIsOpen] = useState(false);
 
   function handleUserImgClick() {
-    setIsOpen(!isOpen);}
+    setIsOpen(!isOpen);
+  };
+  const Navigate = useNavigate();
+  function handleLogoClick() {
+      Navigate('/');
+  }
   return (
     <div className='topheader'>
-        <div className='topHeader-part'> 
+      <div  onClick = {handleLogoClick} className='topHeader-part'> 
          <img
           className="Header_Logo"
           src={mainlogo}
@@ -53,8 +61,7 @@ export default function TopHeader() {
             </div>
             
             )}
-        </div>
-      
+        </div>    
     </div>
   )
 }

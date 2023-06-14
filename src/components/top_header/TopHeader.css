@@ -9,6 +9,11 @@
     display: flex;
     width: 100px;
 }
+
+.topHeader-part:hover {
+  cursor: pointer;
+}
+
 .Header_Logo{
     height: 50px;
     padding: 8px;

@@ -40,16 +40,17 @@ export default function SideBar() {
             Giảng viên
           </div>             
        </Link>
-       <Link to='/' className='SideBar-item'>
+       <Link to='/department' className='SideBar-item'>
           <img 
             className="icon-img"
             src={chart} 
             alt="statistic" />
              
           <div className='SideBar-title-text'>
-            Thống kê
+            Khoa
           </div>          
        </Link>
+
     </div>
   )
 }

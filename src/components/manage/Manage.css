@@ -94,11 +94,15 @@
     margin-right: 30px;
     cursor: pointer;
 }
+.Edit_btn_wrapper {
+    display: flex;
+}
 .Edit_btn {
     background-color: #31A4E5;
+    color: #fff;
     width: max-content;
     height: 30px;
-    margin-right: 10px;
+    margin-right: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,12 +145,17 @@ table .Odd:nth-child(even) {
     background-color: #D1D9D3;
     color: #31A4E5;
 }
-td:nth-child(1) {
+
+td:hover {
+    cursor: pointer;
+}
+
+/* td:nth-child(1) {
     width: 20%;
 }
 td:nth-child(3) {
-    width: 30%;
-}
+    width: 40%;
+} */
 .List_Wrapper > table {
     margin: 10px 5px;
 }
