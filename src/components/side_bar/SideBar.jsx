@@ -2,7 +2,9 @@ import React from 'react'
 import homeicon from '../../img/home-icon-silhouette.png'
 import studenicon from '../../img/student.png'
 import teachericon from '../../img/teacher.png'
-import chart from '../../img/barchart.png'
+import departmenticon from '../../img/department.png'
+import classicon from '../../img/books (1).png'
+import result from '../../img/score.png'
 import './SideBar.css'
 //import '../../../public/img/mainlogo'
 import { Link } from 'react-router-dom';
@@ -43,11 +45,31 @@ export default function SideBar() {
        <Link to='/department' className='SideBar-item'>
           <img 
             className="icon-img"
-            src={chart} 
+            src={departmenticon} 
             alt="statistic" />
              
           <div className='SideBar-title-text'>
             Khoa
+          </div>          
+       </Link>
+       <Link to='/learning-result' className='SideBar-item'>
+          <img 
+            className="icon-img"
+            src={result} 
+            alt="statistic" />
+             
+          <div className='SideBar-title-text'>
+            Bảng điểm
+          </div>          
+       </Link>
+       <Link to='/subject-manage' className='SideBar-item'>
+          <img 
+            className="icon-img"
+            src={classicon} 
+            alt="statistic" />
+             
+          <div className='SideBar-title-text'>
+            Môn học
           </div>          
        </Link>
 
