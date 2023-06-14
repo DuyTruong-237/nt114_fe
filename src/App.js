@@ -6,6 +6,7 @@ import SideBar from './components/side_bar/SideBar';
 import Calendar from  './components/calendar/calendar';
 import Notification from './components/notification/Notification';
 import MainCourse from './components/content/MainCourse';
+import Department_Management from './screen/Manage/Department_Management';
 import Profile from './screen/Profile/Profile';
 import Inbox from './screen/Inbox/Inbox';
 import Home from './screen/Home/Home';
@@ -19,6 +20,7 @@ import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import Lecturer_Management from './screen/Manage/Lecturer_Management';
 import Faculty from './screen/Faculty/Faculty';
 function App() {
+
   return (
    
     <div className='app_js'>
@@ -26,10 +28,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile/:id' element={<Profile/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
         <Route path='/student' element={<Student_Management/>}/>
         <Route path='/lecturer' element={<Lecturer_Management/>}/>
+        <Route path='/department' element={<Department_Management/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
         <Route path='/learning-result' element={<LearningResult/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>

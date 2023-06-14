@@ -4,24 +4,24 @@ import './Manage.css';
 import Searchicon from '../../img/search.png';
 import Editicon from '../../img/edit.png';
 import axios from 'axios';
-import AddStudent from '../modal/AddStudent';
+import AddDepartment from '../modal/AddDepartment';
 
-export default function Student() {
-  const [students, setStudents] = useState([]);
+export default function Department() {
+  const [departments, setDepartments] = useState([]);
   const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
-  const [newStudent, setNewStudent] = useState({
-    
+  const [newDepartment, setNewDepartment] = useState({
+    id: '',
     name: '',
-    acclass_id: '',
-    department_id: ''
+    description: '',
+    dean: ''
   });
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/v1/student/getAllStudent/')
+      .get('http://localhost:3001/v1/depart/getAllDepartment/')
       .then((response) => {
-        const students = response.data;
-        setStudents(students);
+        const departments = response.data;
+        setDepartments(departments);
       })
       .catch((error) => {
         console.log(error);
@@ -33,27 +33,26 @@ export default function Student() {
   };
 
   const closeModal = () => {
-    window.location.reload();
     setShowModal(false); // Đóng modal
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewStudent((prevStudent) => ({
-      ...prevStudent,
+    setNewDepartment((prevDepartment) => ({
+      ...prevDepartment,
       [name]: value
     }));
   };
 
-  const addStudent = () => {
+  const addDepartment = () => {
     axios
-      .post('http://localhost:3001/v1/student/addStudent/', newStudent)
+      .post('http://localhost:3001/v1/student/addStudent/', newDepartment)
       .then((response) => {
         // Xử lý phản hồi từ server khi thêm thành công
         console.log(response.data);
 
         // Sau khi thêm thành công, đặt lại trạng thái và đóng modal
-        setNewStudent({
+        setNewDepartment({
           id: '',
           name: '',
           class: '',
@@ -69,15 +68,15 @@ export default function Student() {
 
   const Navigate = useNavigate();
 
-  const handleRowClick = (studentId) => {
+  const handleRowClick = (departmentid) => {
     // Chuyển đến trang profile sinh viên với studentId
-    Navigate(`/profile/${studentId}`);
+    Navigate(`/profile/${departmentid}`);
   };
 
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
-        <div>DANH SÁCH SINH VIÊN: </div>
+        <div>DANH SÁCH KHOA: </div>
       </div>
       <div className="List_Toolbar">
         <div className="Search_toolbar">
@@ -98,30 +97,26 @@ export default function Student() {
         <thead className="List_Title">
           <tr>
             <th>
-              <b>ID</b>
-            </th>
-            <th>
               <b>Name</b>
             </th>
             <th>
-              <b>Class</b>
+              <b>Dean</b>
             </th>
             <th>
-              <b>Falculty</b>
+              <b>Description</b>
             </th>
           </tr>
         </thead>
         <tbody className="Manage_Info">
-          {students.map((student) => (
+          {departments.map((department) => (
             <tr
               className="Odd"
-              key={student.id}
-              onDoubleClick={() => handleRowClick(student._id)}
+              key={department.id}
+              onDoubleClick={() => handleRowClick(department._id)}
             >
-              <td className="studentId">{student.id}</td>
-              <td>{student.name || ''}</td>
-              <td>{student.acclass_id?.name || ''}</td>
-              <td>{student.department_id?.name || ''}</td>
+              <td className="departmentId">{department.name}</td>
+              <td>{department.dean || ''}</td>
+              <td>{department.des || ''}</td>
             </tr>
           ))}
         </tbody>
@@ -129,11 +124,11 @@ export default function Student() {
 
       {/* Modal */}
       {showModal && (
-        <AddStudent
+        <AddDepartment
           closeModal={closeModal}
-          newStudent={newStudent}
+          newStudent={newDepartment}
           handleChange={handleChange}
-          addStudent={addStudent}
+          addStudent={addDepartment}
         />
       )}
     </div>
