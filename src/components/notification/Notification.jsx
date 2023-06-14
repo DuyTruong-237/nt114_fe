@@ -19,7 +19,6 @@ export default function Notification() {
     useEffect(()=>{
         axios.get('http://localhost:3001/v1/abc/getAll/notification')
         .then(response =>{
-           
              const notis= response.data;
             console.log(notis)
            
