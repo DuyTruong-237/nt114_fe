@@ -54,7 +54,7 @@
 }
 
 .Search_toolbar:focus-within > input::placeholder{
-    color:#e1e1e1
+    opacity: 0.8;
 }
 
 

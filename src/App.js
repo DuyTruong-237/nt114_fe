@@ -17,6 +17,7 @@ import ClassDetails from './screen/ClassDetails/ClassDetails'
 import LearningResult from './screen/LearningResult/LearningResult'
 import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import Lecturer_Management from './screen/Manage/Lecturer_Management';
+import Faculty from './screen/Faculty/Faculty';
 function App() {
   return (
    
@@ -32,6 +33,7 @@ function App() {
         <Route path='/class-detail' element={<ClassDetails/>}/>
         <Route path='/learning-result' element={<LearningResult/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>
+        <Route path='/faculty' element={<Faculty/>}/>
       </Routes>
       </BrowserRouter>
     </div>
