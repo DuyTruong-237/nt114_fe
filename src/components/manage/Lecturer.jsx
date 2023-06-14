@@ -71,8 +71,9 @@ export default function Lecturer() {
         <div>DANH SÁCH GIẢNG VIÊN:</div>
       </div>
       <div className="List_Toolbar">
-        <div className="Search_toolbar">
-          Tìm kiếm
+      <div className="Search_toolbar">
+          <input type="text" placeholder='Tìm kiếm'/>
+         
           <img className="Search_icon" src={Searchicon} alt="" />
         </div>
         <div>

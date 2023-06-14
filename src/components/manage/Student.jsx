@@ -71,7 +71,8 @@ export default function Student() {
       </div>
       <div className="List_Toolbar">
         <div className="Search_toolbar">
-          Tìm kiếm
+          <input type="text" placeholder='Tìm kiếm'/>
+         
           <img className="Search_icon" src={Searchicon} alt="" />
         </div>
         <div>

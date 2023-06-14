@@ -20,7 +20,6 @@
     align-items: center;
 }
 .Search_toolbar {
-    background-color: #31A4E5;
     color: #fff;
     font-size: 14px;
     height: 30px;
@@ -31,15 +30,47 @@
     line-height: 30px;
     font-weight: 600;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
+
+.Search_toolbar > input {
+    background-color: #31A4E5;
+    border: 0;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 18px;
+    padding: 0 15px;
+    height: 30px;
+    width: max-content;
+    color:#ffff;
+}
+
+.Search_toolbar > input::placeholder {
+    color: #ffffff; /* Màu cho placeholder */
+  }
+  
+.Search_toolbar > input:focus {
+    outline: none;
+}
+
+.Search_toolbar:focus-within > input::placeholder{
+    color:#e1e1e1
+}
+
+
 .List_Toolbar img {
     background-color: #31A4E5;
     width: 15px;
     line-height: 30px;
 }
 .Search_icon {
-    margin-left: 100px;
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 0px 5px 5px 0px;
+    padding: 3px;
+    box-sizing: border-box;
 }
+
 .Edit_icon {
     padding: 0px 10px;
     
