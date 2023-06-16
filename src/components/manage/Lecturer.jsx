@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './Manage.css';
-import Searchicon from '../../img/search.png';
-import Editicon from '../../img/edit.png';
+import SearchIcon from '../../img/search.png';
+import EditIcon from '../../img/edit.png';
 import axios from 'axios';
-import AddLecturer from '../modal/AddLecturer'
+import AddLecturer from '../modal/AddLecturer';
 
 export default function Lecturer() {
   const [lecturers, setLecturers] = useState([]);
+  const [filteredLecturers, setFilteredLecturers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [newLecturer, setNewLecturer] = useState({
     id: '',
     name: '',
     faculty: '',
   });
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
       .get('http://localhost:3001/v1/lecturer/getAllLecturer')
       .then((response) => {
         const lecturerData = response.data;
-        console.log(lecturerData);
         setLecturers(lecturerData);
+        setFilteredLecturers(lecturerData);
       })
       .catch((error) => {
         console.log(error);
@@ -56,14 +58,28 @@ export default function Lecturer() {
         setNewLecturer({
           id: '',
           name: '',
-          faculty: ''
+          faculty: '',
         });
         setShowModal(false);
       })
       .catch((error) => {
         console.log(error);
       });
-    };
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearch = () => {
+    const filtered = lecturers.filter((lecturer) => {
+      return (
+        lecturer.id.includes(searchTerm) ||
+        lecturer.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+    setFilteredLecturers(filtered);
+  };
 
   return (
     <div className="List_Wrapper">
@@ -71,14 +87,20 @@ export default function Lecturer() {
         <div>DANH SÁCH GIẢNG VIÊN:</div>
       </div>
       <div className="List_Toolbar">
-      <div className="Search_toolbar">
-          <input type="text" placeholder='Tìm kiếm'/>
-         
-          <img className="Search_icon" src={Searchicon} alt="" />
+        <div className="Search_toolbar">
+          <input
+            type="text"
+            placeholder="Tìm kiếm"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button className="Search_btn" onClick={handleSearch}>
+            <img className="Search_icon" src={SearchIcon} alt="" />
+          </button>
         </div>
         <div>
           <div className="Edit_btn btn">
-            <img className="Edit_icon" src={Editicon} alt="" />
+            <img className="Edit_icon" src={EditIcon} alt="" />
           </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
@@ -100,7 +122,7 @@ export default function Lecturer() {
           </tr>
         </thead>
         <tbody className="Manage_Info">
-          {lecturers.map((lecturer) => (
+          {filteredLecturers.map((lecturer) => (
             <tr className="Odd" key={lecturer.id}>
               <td>{lecturer.id}</td>
               <td>{lecturer.name}</td>

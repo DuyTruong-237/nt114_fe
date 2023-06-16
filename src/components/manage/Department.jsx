@@ -8,6 +8,7 @@ import AddDepartment from '../modal/AddDepartment';
 
 export default function Department() {
   const [departments, setDepartments] = useState([]);
+  const [filteredDepartments, setFilteredDepartments] = useState([]);
   const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
   const [newDepartment, setNewDepartment] = useState({
     id: '',
@@ -15,13 +16,14 @@ export default function Department() {
     description: '',
     dean: ''
   });
-
+  const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {
     axios
       .get('http://localhost:3001/v1/depart/getAllDepartment/')
       .then((response) => {
         const departments = response.data;
         setDepartments(departments);
+        setFilteredDepartments(departments);
       })
       .catch((error) => {
         console.log(error);
@@ -73,6 +75,16 @@ export default function Department() {
     Navigate(`/profile/${departmentid}`);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearch = () => {
+    const filtered = departments.filter((department) =>
+      department.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredDepartments(filtered);
+  };
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
@@ -80,9 +92,15 @@ export default function Department() {
       </div>
       <div className="List_Toolbar">
         <div className="Search_toolbar">
-          <input type="text" placeholder="Tìm kiếm" />
-
-          <img className="Search_icon" src={Searchicon} alt="" />
+        <input
+            type="text"
+            placeholder="Tìm kiếm"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button className="Search_btn" onClick={handleSearch}>
+            <img className="Search_icon" src={Searchicon} alt="" />
+          </button>
         </div>
         <div>
           <div className="Edit_btn btn">
@@ -108,7 +126,7 @@ export default function Department() {
           </tr>
         </thead>
         <tbody className="Manage_Info">
-          {departments.map((department) => (
+          {filteredDepartments.map((department) => (
             <tr
               className="Odd"
               key={department.id}

@@ -14,10 +14,18 @@
     position: relative;
     text-decoration: none;
 }
-
+.SideBar-item:hover {
+    transition-duration: 300ms;
+    transform: scale(1.1);
+    /* background-color: #FF7B54;
+    border-radius: 10px; */
+}
+.SideBar-item:active {
+    transition-duration: 200ms;
+    transform: scale(0.9);
+}
 .SideBar-item:hover .SideBar-title-text {
   color: #FF7B54;
-  
 }
 
 .icon-img {
