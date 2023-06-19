@@ -1,27 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Faculty.css'
+import { useParams } from 'react-router-dom';
 
 export default function Faculty(){
-    const [department, setSelectedDepartment] = useState(null);
+    const { id } = useParams();
+    const [department, setDepartment] = useState(null);
+    const [subjects, setSubjects] = useState([]);
     useEffect(() => {
         axios
-          .get('http://localhost:3001/v1/depart/getAllDepartment/')
-          .then((response) => {
-            const departments = response.data;
-            setSelectedDepartment(departments[0]);
-          })
-          .catch((error) => {
+        .get(`http://localhost:3001/v1/abc/getID/department/${id}`)
+        .then((response) => {
+            const departmentData = response.data;
+            setDepartment(departmentData);
+        })
+        .catch((error) => {
             console.log(error);
-          });
-      }, []);
-      const handleDepartmentChange = (department) => {
-        setSelectedDepartment(department);
-      };
+        });
+        axios
+        .get('http://localhost:3001/v1/abc/getAll/subject')
+        .then((response) => {
+            const subjects = response.data;  
+            setSubjects(subjects);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, [id]);
+
+    if (!department) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className="Faculty_wrapper">           
             <div className="Faculty_Header">
-                <h1 className="Header_Title"><center>{department?.name}</center></h1>
+                <h1 className="Header_Title"><center>{department.name}</center></h1>
             </div>
             <div className="Faculty_Content">
                 <div className="Content_wrap">
@@ -89,11 +102,17 @@ export default function Faculty(){
                                                 </tr>
                                             </thead>
                                             <tbody className="FacultyTable_Body">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>ThS. Trần Thị Dung</td>
-                                                    <td>Truyền thông</td>
+                                                {subjects.map((subject) => (
+                                                    <tr
+                                                        className="Odd"
+                                                        key={subject.id}    
+                                                    >
+                                                    <td>{subject.subject_id}</td>
+                                                    <td>{subject.name}</td>
+                                                    <td>{subject.desText}</td>
                                                 </tr>
+                                                ))}
+                                                
                                             </tbody>
                                         </table>
                                     </div>

@@ -70,8 +70,8 @@ export default function Department() {
 
   const Navigate = useNavigate();
 
-  const handleRowClick = (departmentid) => {
-    Navigate(`/faculty/${departmentid}`);
+  const handleRowClick = (departmentId) => {
+    Navigate(`/faculty/${departmentId}`);
   };
 
   const handleSearchChange = (event) => {
