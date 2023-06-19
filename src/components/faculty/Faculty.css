@@ -1,0 +1,64 @@
+.Faculty_wrapper {
+    background-color: #fafdff;
+    min-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.Faculty_Header {
+    padding: 10px;
+    background-color: #8ac3ed;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 30px !important;
+}
+
+.Header_Title {
+    color:#376bb4;
+    font-size: 35px;
+}
+
+.Faculty_Content {
+    background-color: #ffffff;
+    min-height: 100%;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.Content_wrap {
+    padding: 10px;
+    font-size: 25px;
+    background-color:#d5edff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.Content_Intro {
+    background-color: #ff8058;
+    padding: 10px;
+}
+
+.Content_List {
+    color: floralwhite;
+}
+
+.Lecturer_Table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 2em;
+}
+
+.Lecturer_Table_Head > tr {
+    background-color: #376bb4;
+    color: #fff;
+    text-align: center;
+    font-size: 28px;
+}
+
+.Lecturer_Table_Body {
+    background-color: #ffffff;
+}
+
+.Lecturer_Table_Body td {
+    padding: 5px 15px;
+}

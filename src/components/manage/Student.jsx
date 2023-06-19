@@ -8,13 +8,14 @@ import AddStudent from '../modal/AddStudent';
 
 export default function Student() {
   const [students, setStudents] = useState([]);
-  const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
+  const [filteredStudents, setFilteredStudents] = useState([]); // Danh sách sinh viên sau khi lọc
+  const [showModal, setShowModal] = useState(false);
   const [newStudent, setNewStudent] = useState({
-    
     name: '',
     acclass_id: '',
     department_id: ''
   });
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
@@ -22,6 +23,7 @@ export default function Student() {
       .then((response) => {
         const students = response.data;
         setStudents(students);
+        setFilteredStudents(students);
       })
       .catch((error) => {
         console.log(error);
@@ -29,12 +31,12 @@ export default function Student() {
   }, []);
 
   const handleAddButtonClick = () => {
-    setShowModal(true); // Hiển thị modal khi người dùng nhấp vào nút "Add_btn"
+    setShowModal(true);
   };
 
   const closeModal = () => {
     window.location.reload();
-    setShowModal(false); // Đóng modal
+    setShowModal(false);
   };
 
   const handleChange = (e) => {
@@ -49,10 +51,7 @@ export default function Student() {
     axios
       .post('http://localhost:3001/v1/student/addStudent/', newStudent)
       .then((response) => {
-        // Xử lý phản hồi từ server khi thêm thành công
         console.log(response.data);
-
-        // Sau khi thêm thành công, đặt lại trạng thái và đóng modal
         setNewStudent({
           id: '',
           name: '',
@@ -62,16 +61,29 @@ export default function Student() {
         setShowModal(false);
       })
       .catch((error) => {
-        // Xử lý phản hồi từ server khi có lỗi
         console.log(error);
       });
   };
 
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleRowClick = (studentId) => {
-    // Chuyển đến trang profile sinh viên với studentId
-    Navigate(`/profile/${studentId}`);
+    navigate(`/profile/${studentId}`);
+  };
+
+  const handleSearchChange = (event) => {
+  setSearchTerm(event.target.value);
+  handleSearch(); // Tự động lọc danh sách khi người dùng nhập giá trị
+};
+
+  const handleSearch = () => {
+    const filtered = students.filter((student) => {
+      return (
+        student.id.includes(searchTerm) ||
+        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+    setFilteredStudents(filtered);
   };
 
   return (
@@ -81,9 +93,15 @@ export default function Student() {
       </div>
       <div className="List_Toolbar">
         <div className="Search_toolbar">
-          <input type="text" placeholder="Tìm kiếm" />
-
-          <img className="Search_icon" src={Searchicon} alt="" />
+          <input
+            type="text"
+            placeholder="Tìm kiếm"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button className="Search_btn" onClick={handleSearch}>
+            <img className="Search_icon" src={Searchicon} alt="" />
+          </button>
         </div>
         <div>
           <div className="Edit_btn btn">
@@ -112,7 +130,7 @@ export default function Student() {
           </tr>
         </thead>
         <tbody className="Manage_Info">
-          {students.map((student) => (
+          {filteredStudents.map((student) => (
             <tr
               className="Odd"
               key={student.id}
@@ -127,7 +145,6 @@ export default function Student() {
         </tbody>
       </table>
 
-      {/* Modal */}
       {showModal && (
         <AddStudent
           closeModal={closeModal}
