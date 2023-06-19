@@ -69,6 +69,7 @@ export default function Lecturer() {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+    handleSearch(); // Tự động lọc danh sách khi người dùng nhập giá trị
   };
 
   const handleSearch = () => {
