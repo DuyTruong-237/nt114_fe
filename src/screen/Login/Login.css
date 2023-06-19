@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   margin-left: 10px;
+  background-color: #ffede6;
 }
 .Login-part{
   display: block;
@@ -79,6 +80,7 @@
   background: #4A4747;
   height: auto;
   width: 300px;
+  box-shadow: -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
 .login-form{
   margin: 20px;

@@ -43,30 +43,63 @@ export default function Faculty(){
                 </div>
 
                 <div className="Content_wrap">
-                    <h2 className="Content_Title">Giảng viên</h2>
-                    <div className="FacultyLecturer_wrap">
-                        <table className="Lecturer_Table">
-                            <thead className="Lecturer_Table_Head">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Họ và tên</th>
-                                    <th>Ngành</th>
-                                    <th>Bộ môn giảng dạy</th>
-                                </tr>
-                            </thead>
-                            <tbody className="Lecturer_Table_Body">
-                                <tr>
-                                    <td>1</td>
-                                    <td>ThS. Trần Thị Dung</td>
-                                    <td>Truyền thông</td>
-                                    <td>
-                                        <ul>
-                                            <li>Quản trị mạng và hệ thống</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="tabs_wrapper">
+                        <div class="tabs">
+                            <div class="tab">
+                                <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch"/>
+                                <label for="tab-1" class="tab-label">Giảng viên</label>
+                                <div class="tab-content">
+                                    <div className="FacultyTable_wrap">
+                                        <table className="Faculty_Table">
+                                            <thead className="FacultyTable_Head">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Họ và tên</th>
+                                                    <th>Ngành</th>
+                                                    <th>Bộ môn giảng dạy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="FacultyTable_Body">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>ThS. Trần Thị Dung</td>
+                                                    <td>Truyền thông</td>
+                                                    <td>
+                                                        <ul>
+                                                            <li>Quản trị mạng và hệ thống</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <input type="radio" name="css-tabs" id="tab-2" class="tab-switch"/>
+                                <label for="tab-2" class="tab-label">Các môn học</label>
+                                <div class="tab-content">
+                                <div className="FacultyTable_wrap">
+                                        <table className="Faculty_Table">
+                                            <thead className="FacultyTable_Head">
+                                                <tr>
+                                                    <th>Mã MH</th>
+                                                    <th>Tên MH</th>
+                                                    <th>Mô tả môn học</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="FacultyTable_Body">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>ThS. Trần Thị Dung</td>
+                                                    <td>Truyền thông</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
