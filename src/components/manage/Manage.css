@@ -39,7 +39,7 @@
     border: 0;
     border-radius: 5px 0px 0px 5px;
     font-size: 18px;
-    padding: 0 15px;
+    padding: 5px 15px;
     height: 30px;
     width: max-content;
     color:#ffff;
@@ -74,8 +74,7 @@
     min-height: 30px;
     min-width: 30px;
     border-radius: 0px 5px 5px 0px;
-    padding: 3px;
-    box-sizing: border-box;
+    padding: 5px;
     display: block;
 }
 .Search_btn:active img {
