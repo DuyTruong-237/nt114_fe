@@ -1,7 +1,18 @@
 import "./Login.css"
-import React from 'react'
+import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../redux/loginActions';
 import mainlogo from '../../img/mainlogo.png'
-export default function login() {
+import { useNavigate, Link } from "react-router-dom";
+export default function Login() {
+  const dispatch = useDispatch();
+  const loginState = useSelector((state) => state.login);
+  const [userName, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    dispatch(login({ userName, password },navigate));
+  };
   return(
     <div className="Login">
       <div className="Login-part">
@@ -24,10 +35,10 @@ export default function login() {
         <div className="form">
           <div className="login-form">
             <div>Student ID</div>
-            <input type="text" className="login_details" placeholder="username" />
+            <input type="text" className="login_details" placeholder="username" value={userName} onChange={(e) => setUsername(e.target.value)} />
             <div>Password</div>
-            <input type="password" className="login_details" placeholder="password" />
-            <button class="buttonLogin"><b>LOG IN</b></button>
+            <input type="password" className="login_details" placeholder="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <button class="buttonLogin"  onClick={handleLogin} disabled={loginState.loading}><b>LOG IN</b></button>
             <div className="message">Forgot your password? <a href=" ">Forgot password</a></div>
           </div>
         </div>

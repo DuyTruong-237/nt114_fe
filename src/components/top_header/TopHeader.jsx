@@ -3,14 +3,16 @@ import mainlogo from '../../img/mainlogo.png'
 import userimg from '../../img/user.png'
 import './TopHeader.css'
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //import '../../../public/img/mainlogo'
 
 import { useState } from 'react';
 export default function TopHeader() {
- 
+  const user= useSelector((state)=> state.login?.currentUser);
   const [isOpen, setIsOpen] = useState(false);
-
+  console.log("abc")
+  console.log(user)
   function handleUserImgClick() {
     setIsOpen(!isOpen);
   };
@@ -32,7 +34,7 @@ export default function TopHeader() {
         </div>
         <div className='topHeader-part topHeader-part-user'>
             <div className='topHeader-user-username'>
-                Harry Porter
+                { user?.userName || "" }
             </div>
             <img
           className="topHeader-userimg"
