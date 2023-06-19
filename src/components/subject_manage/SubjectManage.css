@@ -4,6 +4,7 @@
 }
 .Search {
     display: flex;
+    margin-left: 30px;
 }
 
 .searchInput {
@@ -30,6 +31,9 @@
     background-color: azure;
 }
 
+.manage_button {
+    margin-right: 30px;
+}
 .Subject_Table td,
 .Subject_Table th {
     padding: 0.5em;
