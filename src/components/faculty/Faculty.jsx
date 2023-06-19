@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Faculty.css'
 
 export default function Faculty(){
+    const [department, setSelectedDepartment] = useState(null);
+    useEffect(() => {
+        axios
+          .get('http://localhost:3001/v1/depart/getAllDepartment/')
+          .then((response) => {
+            const departments = response.data;
+            setSelectedDepartment(departments[0]);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, []);
+      const handleDepartmentChange = (department) => {
+        setSelectedDepartment(department);
+      };
     return (
-        <div className="Faculty_wrapper">
+        <div className="Faculty_wrapper">           
             <div className="Faculty_Header">
-                <h1 className="Header_Title"><center>KHOA MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG</center></h1>
+                <h1 className="Header_Title"><center>{department?.name}</center></h1>
             </div>
             <div className="Faculty_Content">
                 <div className="Content_wrap">
                     <h2 className="Content_Title">Giới thiệu khoa</h2>
                     <div className="Content_Intro">
                         <ul className="Content_List">
-                            <li className="List-Content">Khoa được thành lập vào tháng 9 năm 2006 </li>
+                            <li className="List-Content">{department?.des} </li>
+                            <li className="List-Content">Trưởng khoa: {department?.dean} </li>
                             <li className="List-Content">
                             Khoa có nhiệm vụ đào tạo sinh viên theo 2 ngành: 
                                 <ul className="Content_SubList">
