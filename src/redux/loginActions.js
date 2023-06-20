@@ -30,6 +30,7 @@ export const loginRequest = () => ({
           // ...
           console.log(user)
           Cookies.set('token', token, { expires: 7 });
+          localStorage.setItem('currentUser', JSON.stringify(user));
           dispatch(loginSuccess(user));
           navigate("/")
          

@@ -1,8 +1,8 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './constants';
-
+const savedUser = localStorage.getItem('currentUser')
 const initialState = {
   loading: false,
-  currentUser: null,
+  currentUser:  savedUser ? JSON.parse(savedUser) : null,
   error: null,
 };
 
