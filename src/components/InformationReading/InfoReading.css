@@ -1,0 +1,33 @@
+.Info_Reading_Wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .Info_Reading_Title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .Info_Reading_Date {
+    text-align: end;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .Info_Reading_Info {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  
+  .Info_Reading_Content {
+    font-size: 25px;
+    margin-left: 50px;
+    margin-top: 50px;
+    
+  }
+  

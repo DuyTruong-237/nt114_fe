@@ -9,7 +9,6 @@ import axios from 'axios';
 
 export default function StudentProfile() {
   const { id } = useParams();
-  console.log(id);
   const [student, setStudent] = useState(null);
   useEffect(() => {
     axios

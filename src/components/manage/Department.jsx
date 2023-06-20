@@ -48,7 +48,7 @@ export default function Department() {
 
   const addDepartment = () => {
     axios
-      .post('http://localhost:3001/v1/student/addStudent/', newDepartment)
+      .post('http://localhost:3001/v1/depart/addDepartment', newDepartment)
       .then((response) => {
         // Xử lý phản hồi từ server khi thêm thành công
         console.log(response.data);
@@ -70,9 +70,8 @@ export default function Department() {
 
   const Navigate = useNavigate();
 
-  const handleRowClick = (departmentid) => {
-    // Chuyển đến trang profile sinh viên với studentId
-    Navigate(`/profile/${departmentid}`);
+  const handleRowClick = (departmentId) => {
+    Navigate(`/faculty/${departmentId}`);
   };
 
   const handleSearchChange = (event) => {
@@ -115,7 +114,7 @@ export default function Department() {
       <table>
         <thead className="List_Title">
           <tr>
-            <th>
+            <th >
               <b>Name</b>
             </th>
             <th>

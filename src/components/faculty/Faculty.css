@@ -42,6 +42,7 @@
 }
 
 .Faculty_Table {
+    text-align: center;
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -55,12 +56,17 @@
     font-size: 28px;
 }
 
+.FacultyTable_Head > tr > th {
+    border: solid 1px #000;
+}
+
 .FacultyTable_Body {
     background-color: #ffffff;
 }
 
 .FacultyTable_Body td {
     padding: 5px 15px;
+    border: solid 1px #000;
 }
 /* TAB */
 .tabs_wrapper {
@@ -113,15 +119,14 @@ transition: top 0.25s;
 }
 
 .tab-content {
-height: 12rem;
+height: -webkit-fill-available;
 position: absolute;
 z-index: 1;
 top: 2.75em;
 left: 0;
 padding: 0.75rem;
-background: #eee;
+background: #d5edff;
 color: #2c3e50;
-border-bottom: 0.25rem solid #bdc3c7;
 opacity: 0;
 transition: all 0.35s;
 min-width: -webkit-fill-available;

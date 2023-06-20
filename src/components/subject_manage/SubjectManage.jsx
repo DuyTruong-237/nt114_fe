@@ -2,13 +2,14 @@ import React from "react";
 import './SubjectManage.css';
 import SearchIcon from "../../img/search.png"
 
+
 export default function SubjectManage(){
     return (
         <div className="SubjectManage_wrapper">
             <center className="Title" >
                 <h3>
                     <strong>
-                        Danh sách môn học
+                        DANH SÁCH MÔN HỌC
                     </strong>
                 </h3>
             </center>
@@ -28,34 +29,41 @@ export default function SubjectManage(){
                     </button>
                 </div>
             </div>
-
-            <table className="Subject_Table">
-                <thead>
-                    <tr>
-                        <th>Số TT</th>
-                        <th>Mã MH</th>
-                        <th>Tên MH</th>
-                        <th>Đơn vị quản lý chuyên môn</th>
-                        <th>Số lượng tín chỉ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>ACCT3603</td>
-                        <td>Hệ thống thông tin kế toán</td>
-                        <td>HTTT</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ACCT5123</td>
-                        <td>Hoạch định nguồn lực doanh nghiệp</td>
-                        <td>HTTT</td>
-                        <td>3</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="List_Wrapper">
+                <table>
+                    <thead className="List_Title">
+                        <tr>
+                            <th>
+                                <b>Subject ID</b>
+                            </th>
+                            <th>
+                                <b>Name</b>
+                            </th>
+                            <th>
+                                <b>Department</b>
+                            </th>
+                            <th>
+                                <b>Credit Unique</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="Manage_Info">
+                        <tr className="Odd">
+                            <td>ACCT3603</td>
+                            <td>Hệ thống thông tin kế toán</td>
+                            <td>HTTT</td>
+                            <td>3</td>
+                        </tr>
+                        <tr className="Odd">
+                            <td>ACCT5123</td>
+                            <td>Hoạch định nguồn lực doanh nghiệp</td>
+                            <td>HTTT</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     )
 }

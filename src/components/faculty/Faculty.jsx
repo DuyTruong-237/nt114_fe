@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Faculty.css'
+import { useParams } from 'react-router-dom';
 
 export default function Faculty(){
+    const { id } = useParams();
+    const [department, setDepartment] = useState(null);
+    const [subjects, setSubjects] = useState([]);
+    useEffect(() => {
+        axios
+        .get(`http://localhost:3001/v1/abc/getID/department/${id}`)
+        .then((response) => {
+            const departmentData = response.data;
+            setDepartment(departmentData);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+        axios
+        .get('http://localhost:3001/v1/abc/getAll/subject')
+        .then((response) => {
+            const subjects = response.data;  
+            setSubjects(subjects);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, [id]);
+
+    if (!department) {
+        return <div>Loading...</div>;
+    }
     return (
-        <div className="Faculty_wrapper">
+        <div className="Faculty_wrapper">           
             <div className="Faculty_Header">
-                <h1 className="Header_Title"><center>KHOA MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG</center></h1>
+                <h1 className="Header_Title"><center>{department.name}</center></h1>
             </div>
             <div className="Faculty_Content">
                 <div className="Content_wrap">
                     <h2 className="Content_Title">Giới thiệu khoa</h2>
                     <div className="Content_Intro">
                         <ul className="Content_List">
-                            <li className="List-Content">Khoa được thành lập vào tháng 9 năm 2006 </li>
+                            <li className="List-Content">{department?.des} </li>
+                            <li className="List-Content">Trưởng khoa: {department?.dean} </li>
                             <li className="List-Content">
                             Khoa có nhiệm vụ đào tạo sinh viên theo 2 ngành: 
                                 <ul className="Content_SubList">
@@ -72,11 +102,17 @@ export default function Faculty(){
                                                 </tr>
                                             </thead>
                                             <tbody className="FacultyTable_Body">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>ThS. Trần Thị Dung</td>
-                                                    <td>Truyền thông</td>
+                                                {subjects.map((subject) => (
+                                                    <tr
+                                                        className="Odd"
+                                                        key={subject.id}    
+                                                    >
+                                                    <td>{subject.subject_id}</td>
+                                                    <td>{subject.name}</td>
+                                                    <td>{subject.desText}</td>
                                                 </tr>
+                                                ))}
+                                                
                                             </tbody>
                                         </table>
                                     </div>
