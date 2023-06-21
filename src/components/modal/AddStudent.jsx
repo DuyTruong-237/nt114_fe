@@ -5,7 +5,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import React,  { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from '../../redux/axios-interceptor'
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
 export default function Modal({
   closeModal,

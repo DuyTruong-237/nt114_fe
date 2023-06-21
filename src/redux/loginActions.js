@@ -29,7 +29,10 @@ export const loginRequest = () => ({
           // Lưu token vào cookie hoặc local storage
           // ...
           console.log(user)
+          //document.cookie =("token="+token);
+          //setCookie("tokens", token, 7);
           Cookies.set('token', token, { expires: 7 });
+          console.log(Cookies.get('token'))
           localStorage.setItem('currentUser', JSON.stringify(user));
           dispatch(loginSuccess(user));
           navigate("/")

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Manage.css';
 import SearchIcon from '../../img/search.png';
 import EditIcon from '../../img/edit.png';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import AddLecturer from '../modal/AddLecturer';
-
+import Cookies from 'js-cookie';
 export default function Lecturer() {
   const [lecturers, setLecturers] = useState([]);
   const [filteredLecturers, setFilteredLecturers] = useState([]);
