@@ -12,14 +12,13 @@ import Inbox from './screen/Inbox/Inbox';
 import Home from './screen/Home/Home';
 import Login from './screen/Login/Login';
 import Student_Management from './screen/Manage/Student_Management';
-import Info_Reading from './screen/ReadingScreen/Reading_Screen';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Student from './components/manage/Student';
 import ClassDetails from './screen/ClassDetails/ClassDetails'
 import LearningResult from './screen/LearningResult/LearningResult'
 import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import Lecturer_Management from './screen/Manage/Lecturer_Management';
-import Faculty from './screen/Faculty/Faculty';
+import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
 function App() {
 
   return (
@@ -30,7 +29,6 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/profile/:id' element={<Profile/>}/>
-        <Route path='/noti/:id' element = {<Info_Reading/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
         <Route path='/student' element={<Student_Management/>}/>
         <Route path='/lecturer' element={<Lecturer_Management/>}/>
@@ -38,7 +36,7 @@ function App() {
         <Route path='/class-detail' element={<ClassDetails/>}/>
         <Route path='/learning-result' element={<LearningResult/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>
-        <Route path='/faculty/:id' element={<Faculty/>}/>
+        <Route path='/forgotpassword' element={<ForgotPassword/>}/>
       </Routes>
       </BrowserRouter>
     </div>

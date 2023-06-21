@@ -59,7 +59,7 @@ export default function StudyResult () {
                         <th>Ghi chú</th>
                     </tr>
                     <tr>
-                        <td colSpan={10}><center><b>Học kỳ 1 - Năm học 2020-2021</b></center></td> 
+                        <td colSpan={10} style={{background:"white"}}><center><b>Học kỳ 1 - Năm học 2020-2021</b></center></td> 
                     </tr>
                     <tr>
                         <td>1</td>
@@ -98,7 +98,7 @@ export default function StudyResult () {
                         <td></td>
                     </tr>
                     <tr>
-                        <td colSpan={10}><center><b>Học kỳ 2 - Năm học 2020-2021</b></center></td> 
+                        <td colSpan={10} style={{background:"white"}}><center><b>Học kỳ 2 - Năm học 2020-2021</b></center></td> 
                     </tr>
                     <tr>
                         <td>1</td>
