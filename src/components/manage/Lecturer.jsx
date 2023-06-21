@@ -88,9 +88,9 @@ export default function Lecturer() {
 
   const handleRowClick = (lecturerId) => {
     navigate(`/profile/lecturer/${lecturerId}`);
-
     console.log(lecturerId);
   };
+  
 
   return (
     <div className="List_Wrapper">
