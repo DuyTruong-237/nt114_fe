@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SubjectManage.css';
 import SearchIcon from "../../img/search.png"
-
+import AddSubject from '../modal/AddSubject';
 
 export default function SubjectManage(){
     const [subjects, setSubjects] = useState([]);
@@ -15,7 +15,6 @@ export default function SubjectManage(){
         departmentId: '',
         cre: ''
     });
-    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     useEffect (() => {
         axios
@@ -28,14 +27,14 @@ export default function SubjectManage(){
         .catch((error) => {
             console.log(error);
         });
-    });
-
+    },[]);
     if (!subjects) {
         return <div>Loading...</div>;
-    };
+    }
 
     const handleAddButtonClick = () => {
         setShowModal(true);
+        
     };
 
     const closeModal = () => {
@@ -57,30 +56,37 @@ export default function SubjectManage(){
         setFilteredSubjects(filtered);
     };
 
-    
+    // const navigate = useNavigate();
+
+    // const handleRowClick = (subjectId) => {
+    //     navigate(`/profile/${subjectId}`);
+    // };
 
     const addSubject = () => {
         axios
           .post('http://localhost:3001/v1/subject/addSubject', newSubject)
           .then((response) => {
-                console.log(response.data);
-                setNewSubject({
-                    subject_id: '',
-                    name: '',
-                    departmentId: '',
-                    cre: ''
-                    });
-                setShowModal(false);
-            })
-          .catch((error) => {
-                console.log(error);
+            console.log(response.data);
+            setNewSubject({
+                subject_id: '',
+                name: '',
+                departmentId: '',
+                cre: ''
             });
-    };
-   
-
-    const handleRowClick = (subjectId) => {
-        navigate(`/class-detail/${subjectId}`);
-    };
+            setShowModal(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+      const handleChange = (event) => {
+        const { name, value } = event.target;
+        setNewSubject((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+      };
+      
     return (
         <div className="SubjectManage_wrapper">
             <center className="Title" >
@@ -104,10 +110,10 @@ export default function SubjectManage(){
                     </button>
                 </div>
                 <div className="manage_button">
-                    <button className="Delete_btn Button" onClick={handleAddButtonClick}>
+                    <button className="Delete_btn Button">
                         <i class="fas fa-minus-square" style={{color: "#ff7b54",}}></i>
                     </button>
-                    <button className="Delete_btn Button">
+                    <button className="Add_btn Button" onClick={handleAddButtonClick}>
                         <i class="fas fa-plus-square" style={{color: "#ff7b54",}}></i>
                     </button>
                 </div>
@@ -135,7 +141,7 @@ export default function SubjectManage(){
                             <tr 
                                 className="Odd"
                                 key = {subject.subject_id}
-                                onDoubleClick={() => handleRowClick(subject.subject_id)}
+                                // onDoubleClick={() => handleRowClick(subject.subject_id)}
                             >
                             <td className='subjectId'>{subject.subject_id}</td>
                             <td>{subject.name}</td>
@@ -146,13 +152,14 @@ export default function SubjectManage(){
                         
                     </tbody>
                 </table>
-                {/* {showModal && (
+                {showModal && (
                     <AddSubject
-                    closeModal={closeModal}
-                    newStudent={newSubject}
-                    addStudent={addSubject}
-                />
-                )} */}
+                        closeModal={closeModal}
+                        newSubject={newSubject}
+                        handleChange={handleChange}
+                        addSubject={addSubject}
+                    />
+                )}
             </div>
             
         </div>

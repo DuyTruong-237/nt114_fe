@@ -102,3 +102,13 @@
     font-size: 18px;
     margin-top: 5px;
 }
+
+.Infobar-input[readonly] {
+    background-color: #f5f5f5; /* Màu nền xám */
+    cursor: default; /* Hiển thị con trỏ không cho phép */
+    border-color: aliceblue;
+}
+
+.Infobar-input[readonly]:focus {
+    outline: none;
+}
