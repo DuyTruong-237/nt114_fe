@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SubjectManage.css';
 import SearchIcon from "../../img/search.png"
-
+import AddSubject from '../modal/AddSubject';
 
 export default function SubjectManage(){
     const [subjects, setSubjects] = useState([]);
@@ -27,13 +27,14 @@ export default function SubjectManage(){
         .catch((error) => {
             console.log(error);
         });
-    });
+    },[]);
     if (!subjects) {
         return <div>Loading...</div>;
     }
 
     const handleAddButtonClick = () => {
         setShowModal(true);
+        
     };
 
     const closeModal = () => {
@@ -78,7 +79,14 @@ export default function SubjectManage(){
             console.log(error);
           });
       };
-
+      const handleChange = (event) => {
+        const { name, value } = event.target;
+        setNewSubject((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+      };
+      
     return (
         <div className="SubjectManage_wrapper">
             <center className="Title" >
@@ -102,10 +110,10 @@ export default function SubjectManage(){
                     </button>
                 </div>
                 <div className="manage_button">
-                    <button className="Delete_btn Button" onClick={handleAddButtonClick}>
+                    <button className="Delete_btn Button">
                         <i class="fas fa-minus-square" style={{color: "#ff7b54",}}></i>
                     </button>
-                    <button className="Delete_btn Button">
+                    <button className="Add_btn Button" onClick={handleAddButtonClick}>
                         <i class="fas fa-plus-square" style={{color: "#ff7b54",}}></i>
                     </button>
                 </div>
@@ -144,13 +152,14 @@ export default function SubjectManage(){
                         
                     </tbody>
                 </table>
-                {/* {showModal && (
+                {showModal && (
                     <AddSubject
-                    closeModal={closeModal}
-                    newStudent={newSubject}
-                    addStudent={addSubject}
-                />
-                )} */}
+                        closeModal={closeModal}
+                        newSubject={newSubject}
+                        handleChange={handleChange}
+                        addSubject={addSubject}
+                    />
+                )}
             </div>
             
         </div>
