@@ -62,18 +62,20 @@
     font-weight: 500;
   }
   
-  .modal-content > input {
-    padding: 5px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    border-color: powderblue;
-  }
+  .modal-content > input,
+  .modal-content > textarea,
   .modal-content > select {
     padding: 5px;
     margin-bottom: 10px;
     font-size: 20px;
     border-color: powderblue;
   }
+
+  .modal-content > textarea {
+    font-family: none;
+    resize: vertical;
+  }
+  
   .modal-content > button {
     background-color: #31A4E5;
     color: white;

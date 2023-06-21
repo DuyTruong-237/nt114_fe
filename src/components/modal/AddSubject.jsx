@@ -9,7 +9,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
 
 export default function AddSubject({ 
-  closeModal, 
+  closeAddModal, 
   newSubject, 
   handleChange
 }) {
@@ -46,7 +46,7 @@ export default function AddSubject({
       .then((response) => {
         const newData = response.data;
         setNewData(newData);
-        closeModal();
+        closeAddModal();
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +56,7 @@ export default function AddSubject({
   return (
     <div className="modal">
       <div className="modal-header">
-        <span className="close" onClick={closeModal}>
+        <span className="close" onClick={closeAddModal}>
           <FontAwesomeIcon icon={faWindowClose} size="lg" style={{ color: '#f8e3e3' }} />
         </span>
         <h2>Add Subject</h2>

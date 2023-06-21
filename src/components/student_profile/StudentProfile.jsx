@@ -35,7 +35,7 @@ export default function StudentProfile() {
     <div className='Profile_wrapper'>
         <div className='Title'>THÔNG TIN SINH VIÊN</div>
         <div className='Student_wrapper'>
-            <img className='Avatar_Profile' src={avatar}  />
+            <img className='Avatar_Profile' src={avatar} alt="Avatar Profile"/>
             <div className='Name_ID_wrapper'>
                 <div className='Student_name'>{student.name}</div>
                 <div className='Student_ID'>{student.id} | Sinh viên</div>

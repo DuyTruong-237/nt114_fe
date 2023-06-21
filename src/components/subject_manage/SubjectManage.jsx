@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SubjectManage.css';
 import SearchIcon from "../../img/search.png"
 import AddSubject from '../modal/AddSubject';
+import UpdateSubject from '../modal/UpdateSubject';
 
 export default function SubjectManage(){
+    // const navigate = useNavigate();
+
+    // const handleRowClick = (subjectId) => {
+    //     navigate(`/profile/${subjectId}`);
+    // };
+    const [selectedSubject, setSelectedSubject] = useState(null);
+
     const [subjects, setSubjects] = useState([]);
     const [filteredSubjects, setFilteredSubjects] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
     const [newSubject, setNewSubject] = useState({
         subject_id: '',
         name: '',
@@ -33,14 +41,41 @@ export default function SubjectManage(){
     }
 
     const handleAddButtonClick = () => {
-        setShowModal(true);
-        
+        setShowAddModal(true);   
+    };
+    
+    const closeAddModal = () => {
+        window.location.reload();
+        setShowAddModal(false);
     };
 
-    const closeModal = () => {
+    const closeUpdateModal = () => {
         window.location.reload();
-        setShowModal(false);
+        setShowUpdateModal(false);
     };
+
+    const handleUpdateButtonClick = (subject) => {
+        setSelectedSubject(subject);
+        setShowUpdateModal(true);
+    };
+
+    const updateSubjectDetails = (subjectId, updatedDetails) => {
+        axios
+          .put(`http://localhost:3001/v1/subject/${subjectId}`, updatedDetails)
+          .then((response) => {
+            console.log(response.data);
+            // Update the subjects state with the updated subject details
+            const updatedSubjects = subjects.map((subject) =>
+              subject.subject_id === subjectId ? { ...subject, ...updatedDetails } : subject
+            );
+            setSubjects(updatedSubjects);
+            setShowUpdateModal(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
         handleSearch(); 
@@ -56,12 +91,6 @@ export default function SubjectManage(){
         setFilteredSubjects(filtered);
     };
 
-    // const navigate = useNavigate();
-
-    // const handleRowClick = (subjectId) => {
-    //     navigate(`/profile/${subjectId}`);
-    // };
-
     const addSubject = () => {
         axios
           .post('http://localhost:3001/v1/subject/addSubject', newSubject)
@@ -73,7 +102,7 @@ export default function SubjectManage(){
                 departmentId: '',
                 cre: ''
             });
-            setShowModal(false);
+            setShowAddModal(false);
           })
           .catch((error) => {
             console.log(error);
@@ -123,16 +152,19 @@ export default function SubjectManage(){
                     <thead className="List_Title">
                         <tr>
                             <th>
-                                <b>Subject ID</b>
+                            <b>Subject ID</b>
                             </th>
                             <th>
-                                <b>Name</b>
+                            <b>Name</b>
                             </th>
                             <th>
-                                <b>Department</b>
+                            <b>Department</b>
                             </th>
                             <th>
-                                <b>Credit Unique</b>
+                            <b>Credit Unique</b>
+                            </th>
+                            <th>
+                            <b>Actions</b>
                             </th>
                         </tr>
                     </thead>
@@ -147,17 +179,27 @@ export default function SubjectManage(){
                             <td>{subject.name}</td>
                             <td>{subject.departmentId}</td>
                             <td>{subject.cre}</td>
+                            <td>
+                                <button className='Update_btn' onClick={() => handleUpdateButtonClick(subject)}>Update</button>
+                            </td>
                         </tr>
                         ))}
                         
                     </tbody>
                 </table>
-                {showModal && (
+                {showAddModal && (
                     <AddSubject
-                        closeModal={closeModal}
+                        closeAddModal={closeAddModal}
                         newSubject={newSubject}
                         handleChange={handleChange}
                         addSubject={addSubject}
+                    />
+                )}
+                {showUpdateModal && (
+                    <UpdateSubject
+                        closeUpdateModal={closeUpdateModal}
+                        selectedSubject={selectedSubject}
+                        updateSubjectDetails={updateSubjectDetails}
                     />
                 )}
             </div>
