@@ -7,11 +7,13 @@ export default function Faculty(){
     const { id } = useParams();
     const [department, setDepartment] = useState(null);
     const [subjects, setSubjects] = useState([]);
+    console.log("abc");
     useEffect(() => {
         axios
         .get(`http://localhost:3001/v1/abc/getID/department/${id}`)
         .then((response) => {
             const departmentData = response.data;
+            
             setDepartment(departmentData);
         })
         .catch((error) => {
