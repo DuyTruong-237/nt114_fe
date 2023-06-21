@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./ClassDetail.css"
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function ClassDetails(){
+    // const { id } = useParams();
+    // const [classes, setClassess] = useState([]);
+    // useEffect (() => {
+    //     axios
+    //     .get()
+    // })
     return(
         <div className="ClassDetail_wrapper">
             <h1 className="ClassDetail_Header"><strong>Đồ án chuyên ngành - NT114.N21.MMCL</strong></h1>
