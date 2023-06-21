@@ -6,6 +6,7 @@ import SearchIcon from "../../img/search.png"
 import AddSubject from '../modal/AddSubject';
 
 export default function SubjectManage(){
+    const navigate = useNavigate();
     const [subjects, setSubjects] = useState([]);
     const [filteredSubjects, setFilteredSubjects] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -56,11 +57,11 @@ export default function SubjectManage(){
         setFilteredSubjects(filtered);
     };
 
-    // const navigate = useNavigate();
+    
 
-    // const handleRowClick = (subjectId) => {
-    //     navigate(`/profile/${subjectId}`);
-    // };
+    const handleRowClick = (subjectId) => {
+        navigate(`/profile/${subjectId}`);
+    };
 
     const addSubject = () => {
         axios
@@ -141,7 +142,7 @@ export default function SubjectManage(){
                             <tr 
                                 className="Odd"
                                 key = {subject.subject_id}
-                                // onDoubleClick={() => handleRowClick(subject.subject_id)}
+                                onDoubleClick={() => handleRowClick(subject.subject_id)}
                             >
                             <td className='subjectId'>{subject.subject_id}</td>
                             <td>{subject.name}</td>
