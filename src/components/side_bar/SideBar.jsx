@@ -72,6 +72,16 @@ export default function SideBar() {
             Môn học
           </div>          
        </Link>
+       <Link to='/class-detail' className='SideBar-item'>
+          <img 
+            className="icon-img"
+            src={classicon} 
+            alt="statistic" />
+             
+          <div className='SideBar-title-text'>
+            Lớp học
+          </div>          
+       </Link>
 
     </div>
   )

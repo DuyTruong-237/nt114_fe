@@ -15,6 +15,7 @@ export default function SubjectManage(){
         departmentId: '',
         cre: ''
     });
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     useEffect (() => {
         axios
@@ -28,9 +29,10 @@ export default function SubjectManage(){
             console.log(error);
         });
     });
+
     if (!subjects) {
         return <div>Loading...</div>;
-    }
+    };
 
     const handleAddButtonClick = () => {
         setShowModal(true);
@@ -55,30 +57,30 @@ export default function SubjectManage(){
         setFilteredSubjects(filtered);
     };
 
-    // const navigate = useNavigate();
-
-    // const handleRowClick = (subjectId) => {
-    //     navigate(`/profile/${subjectId}`);
-    // };
+    
 
     const addSubject = () => {
         axios
           .post('http://localhost:3001/v1/subject/addSubject', newSubject)
           .then((response) => {
-            console.log(response.data);
-            setNewSubject({
-                subject_id: '',
-                name: '',
-                departmentId: '',
-                cre: ''
-            });
-            setShowModal(false);
-          })
+                console.log(response.data);
+                setNewSubject({
+                    subject_id: '',
+                    name: '',
+                    departmentId: '',
+                    cre: ''
+                    });
+                setShowModal(false);
+            })
           .catch((error) => {
-            console.log(error);
-          });
-      };
+                console.log(error);
+            });
+    };
+   
 
+    const handleRowClick = (subjectId) => {
+        navigate(`/class-detail/${subjectId}`);
+    };
     return (
         <div className="SubjectManage_wrapper">
             <center className="Title" >
@@ -133,7 +135,7 @@ export default function SubjectManage(){
                             <tr 
                                 className="Odd"
                                 key = {subject.subject_id}
-                                // onDoubleClick={() => handleRowClick(subject.subject_id)}
+                                onDoubleClick={() => handleRowClick(subject.subject_id)}
                             >
                             <td className='subjectId'>{subject.subject_id}</td>
                             <td>{subject.name}</td>
