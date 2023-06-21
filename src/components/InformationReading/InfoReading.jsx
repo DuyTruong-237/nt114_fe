@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './InfoReading.css'
 import { useParams } from 'react-router-dom';
 
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 
 function formatDateTime(dateTimeString) {
   const dateTime = new Date(dateTimeString);

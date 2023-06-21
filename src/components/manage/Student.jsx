@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import './Manage.css';
 import Searchicon from '../../img/search.png';
 import Editicon from '../../img/edit.png';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import AddStudent from '../modal/AddStudent';
 
 export default function Student() {
@@ -68,7 +68,7 @@ export default function Student() {
   const navigate = useNavigate();
 
   const handleRowClick = (studentId) => {
-    navigate(`/profile/${studentId}`);
+    navigate(`/profile/student/${studentId}`);
   };
 
   const handleSearchChange = (event) => {

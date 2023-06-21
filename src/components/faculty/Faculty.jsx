@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import './Faculty.css'
 import { useParams } from 'react-router-dom';
 

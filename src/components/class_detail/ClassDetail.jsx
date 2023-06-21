@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./ClassDetail.css"
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 
 export default function ClassDetails() {
     const [classes, setClasses] = useState([]);
