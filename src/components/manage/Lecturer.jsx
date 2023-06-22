@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './Manage.css';
 import SearchIcon from '../../img/search.png';
 import EditIcon from '../../img/edit.png';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
+import { Navigate, useNavigate } from 'react-router-dom';
 import AddLecturer from '../modal/AddLecturer';
-
+import Cookies from 'js-cookie';
 export default function Lecturer() {
+  const navigate = useNavigate();
   const [lecturers, setLecturers] = useState([]);
   const [filteredLecturers, setFilteredLecturers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -82,6 +84,14 @@ export default function Lecturer() {
     setFilteredLecturers(filtered);
   };
 
+ 
+
+  const handleRowClick = (lecturerId) => {
+    navigate(`/profile/lecturer/${lecturerId}`);
+    console.log(lecturerId);
+  };
+  
+
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
@@ -124,8 +134,12 @@ export default function Lecturer() {
         </thead>
         <tbody className="Manage_Info">
           {filteredLecturers.map((lecturer) => (
-            <tr className="Odd" key={lecturer.id}>
-              <td>{lecturer.id}</td>
+            <tr 
+            className="Odd" 
+            key={lecturer.id}
+            onDoubleClick={() => handleRowClick(lecturer._id)}
+            >
+              <td className='lecturerId'>{lecturer.id}</td>
               <td>{lecturer.name}</td>
               <td>{lecturer.department_id.name}</td>
             </tr>

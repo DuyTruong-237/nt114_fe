@@ -10,9 +10,11 @@ import StudentManagement from './screen/Manage/Student_Management';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ClassDetails from './screen/ClassDetails/ClassDetails'
 import LearningResult from './screen/LearningResult/LearningResult'
+import ReadingScreen from './screen/ReadingScreen/Reading_Screen'
 import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import LecturerManagement from './screen/Manage/Lecturer_Management';
 import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
+import Faculty from './components/faculty/Faculty';
 function App() {
 
   return (
@@ -22,7 +24,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/profile/:id' element={<Profile/>}/>
+        <Route path='/noti/:id' element={<ReadingScreen/>} />
+        <Route path='/faculty/:id' element={<Faculty/>} />
+        <Route path='/profile/:role/:id' element={<Profile/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
         <Route path='/student' element={<StudentManagement/>}/>
         <Route path='/lecturer' element={<LecturerManagement/>}/>

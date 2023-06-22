@@ -57,12 +57,12 @@ export default function AddLecturer({
          <label>Department</label>
         <select
           type="text"
-          placeholder="Name"
-          name="name"
-          value={newLecturer.name}
+          placeholder="department_id"
+          name="department_id"
+          value={newLecturer.department_id}
           onChange={handleChange}
           >
-             {dataDepartment.map(data =>(<option value="option1">{data.name}</option>))}
+             {dataDepartment.map(data =>(<option value={data._id}>{data.name}</option>))}
         </select>
         <label>Falculty</label>
         <input

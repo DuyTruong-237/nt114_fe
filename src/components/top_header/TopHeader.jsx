@@ -2,9 +2,10 @@ import React from 'react'
 import mainlogo from '../../img/mainlogo.png'
 import userimg from '../../img/user.png'
 import './TopHeader.css'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import axios from 'axios';
+import Cookies from 'js-cookie';
 //import '../../../public/img/mainlogo'
 
 import { useState } from 'react';
@@ -15,6 +16,16 @@ export default function TopHeader() {
   console.log(user)
   function handleUserImgClick() {
     setIsOpen(!isOpen);
+  };
+  function logout() {
+   axios.post('http://localhost:3001/v1/user/logout')
+   .then((response)=>{
+    Cookies.remove('token')
+    localStorage.removeItem('currentUser');
+   })
+  .catch((error) => {
+    console.log(error);
+  });
   };
   const Navigate = useNavigate();
   function handleLogoClick() {
@@ -33,15 +44,21 @@ export default function TopHeader() {
         </div>
         </div>
         <div className='topHeader-part topHeader-part-user'>
-            <div className='topHeader-user-username'>
-                { user?.userName || "" }
-            </div>
-            <img
-          className="topHeader-userimg"
-          src={userimg}
-          alt="logo"
-          onClick={handleUserImgClick}
-        />
+          {
+            user? 
+            <>
+              <div className='topHeader-user-username'>
+                { user.userName || "" }
+              </div>
+              <img
+                className="topHeader-userimg"
+                src={userimg}
+                alt="logo"
+                onClick={handleUserImgClick}
+              /></> :<Link to='/login'> <button className='Login_btn'>Login</button></Link>
+          }
+          
+           
          {isOpen && (
               <div className="dropdown-menu">
               <a href="#" className="dropdown-item">
@@ -56,8 +73,8 @@ export default function TopHeader() {
                 <i className="fa fa-cog" aria-hidden="true"></i>
                 Tùy chọn
               </a>
-              <a href="login" className="dropdown-item">
-                <i className="fa fa-sign-out" aria-hidden="true"></i>
+              <a href='login' className="dropdown-item" onClick={logout}>
+                <i className="fa fa-sign-out" aria-hidden="true" ></i>
                 Đăng xuất
               </a>
             </div>

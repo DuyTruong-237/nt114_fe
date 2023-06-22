@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import './Manage.css';
 import Searchicon from '../../img/search.png';
 import Editicon from '../../img/edit.png';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import AddDepartment from '../modal/AddDepartment';
 
 export default function Department() {

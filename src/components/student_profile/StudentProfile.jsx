@@ -1,23 +1,30 @@
 import React, {useState, useEffect} from 'react'
 import './StudentProfile.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 import avatar from '../../img/user.png';
 import { useParams } from 'react-router-dom';
 
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 
 
 
 export default function StudentProfile() {
-  const { id } = useParams();
+  let url;
+  const { id, role } = useParams();
   const [student, setStudent] = useState(null);
   const [editable, setEditable] = useState(false); // Thêm state để theo dõi chế độ chỉnh sửa
-
+  if (role == "student" ) {
+    url = `http://localhost:3001/v1/student/getStudent/`;
+  }
+  else {
+    url = 'http://localhost:3001/v1/lecturer/getLecturer/';
+  }
   const handleEdit = () => {
     setEditable(!editable); // Khi bấm vào nút "Tùy chỉnh", cập nhật trạng thái "editable" ngược lại với giá trị hiện tại
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/v1/student/getStudent/${id}`)
+      .get(url+ id)
       .then((response) => {
         const studentData = response.data;
         setStudent(studentData);
@@ -30,10 +37,11 @@ export default function StudentProfile() {
   if (!student) {
     return <div>Loading...</div>;
   }
+
   return (
 
     <div className='Profile_wrapper'>
-        <div className='Title'>THÔNG TIN SINH VIÊN</div>
+        <div className='Title'>THÔNG TIN {(role == "student") ? "SINH VIÊN" : "GIẢNG VIÊN" }</div>
         <div className='Student_wrapper'>
             <img className='Avatar_Profile' src={avatar} alt="Avatar Profile"/>
             <div className='Name_ID_wrapper'>

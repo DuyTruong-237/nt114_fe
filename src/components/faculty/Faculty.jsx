@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import './Faculty.css'
 import { useParams } from 'react-router-dom';
 
@@ -7,11 +7,13 @@ export default function Faculty(){
     const { id } = useParams();
     const [department, setDepartment] = useState(null);
     const [subjects, setSubjects] = useState([]);
+    console.log("abc");
     useEffect(() => {
         axios
         .get(`http://localhost:3001/v1/abc/getID/department/${id}`)
         .then((response) => {
             const departmentData = response.data;
+            
             setDepartment(departmentData);
         })
         .catch((error) => {
