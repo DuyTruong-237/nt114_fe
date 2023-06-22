@@ -34,11 +34,25 @@
 .manage_button {
     margin-right: 30px;
 }
+
 .Subject_Table td,
 .Subject_Table th {
     padding: 0.5em;
     border: 1px solid black;
 }
+
+.Update_btn {
+    color: white;
+    background-color: #31A4E5;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    border-right: 2px solid #b98b7e;
+    border-bottom: 2px solid #b98b7e;
+    padding: 10px;
+}
+
 .Button{
     padding: 0;
     border: 0px;

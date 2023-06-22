@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Notification.css';
-import axios from 'axios';
+import axios from '../../redux/axios-interceptor';
 import arrow from '../../img/previous.png';
 
 function formatDateTime(dateTimeString) {
@@ -40,9 +41,9 @@ export default function Notification() {
       <div className='Noti-Title'>Các thông báo</div>
       <div className='Noti-Content-wrapper'>
         {notis.map(noti => (
-          <a
+          <Link
             className='Noti-Content'
-            href=''
+            to={`/noti/${noti._id}`}
             key={noti.id}
             onClick={() => handleNotificationClick(noti._id)}
           >
@@ -50,7 +51,7 @@ export default function Notification() {
             <div className='Content-Title'>
               {noti.title} - {formatDateTime(noti.day)}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

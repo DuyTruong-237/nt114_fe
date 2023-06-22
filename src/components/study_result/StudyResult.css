@@ -17,9 +17,21 @@
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    background-color: azure;
+    background-color: #ffffff;
 }
-
+.Student_Profile_Table caption{
+    font-size: 25px;
+}
+.Student_Result_Table caption{
+    font-size: 25px;
+}
+.Student_Result_Table b{
+    font-size: 18px;
+}
+.Student_Result_Table th{
+    font-size: 20px;
+    background-color: #FFB49E;
+}
 .Student_Profile_Table td,
 .Student_Profile_Table th,
 .Student_Result_Table td,
@@ -28,4 +40,18 @@
     border: 1px solid black;
     width: fit-content;
     text-align: center;
+    
+}
+.Title {
+    font-size: 35px;
+    font-weight: 600;
+    color: brown;
+    margin: 29px;
+}
+.Student_Profile_Table td:nth-child(odd){
+    background-color: #FFB49E;
+}
+
+.Student_Result_Table td:nth-child(1){
+    background-color: #FFB49E;
 }

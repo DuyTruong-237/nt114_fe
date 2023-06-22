@@ -6,7 +6,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
-export default function Modal({
+export default function AddDepartment({
   closeModal,
   newStudent,
   handleChange,

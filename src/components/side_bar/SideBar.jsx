@@ -1,9 +1,10 @@
 import React from 'react'
 import homeicon from '../../img/home-icon-silhouette.png'
+import classicon from '../../img/class.png'
 import studenicon from '../../img/student.png'
 import teachericon from '../../img/teacher.png'
 import departmenticon from '../../img/department.png'
-import classicon from '../../img/books (1).png'
+import subjecticon from '../../img/books (1).png'
 import result from '../../img/score.png'
 import './SideBar.css'
 //import '../../../public/img/mainlogo'
@@ -65,11 +66,21 @@ export default function SideBar() {
        <Link to='/subject-manage' className='SideBar-item'>
           <img 
             className="icon-img"
-            src={classicon} 
+            src={subjecticon} 
             alt="statistic" />
              
           <div className='SideBar-title-text'>
             Môn học
+          </div>          
+       </Link>
+       <Link to='/class-detail' className='SideBar-item'>
+          <img 
+            className="icon-img"
+            src={classicon} 
+            alt="statistic" />
+             
+          <div className='SideBar-title-text'>
+            Lớp học
           </div>          
        </Link>
 

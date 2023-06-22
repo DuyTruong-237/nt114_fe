@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import React,  { useState, useEffect } from 'react';
 import axios from '../../redux/axios-interceptor'
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
-export default function Modal({
+export default function AddStudent({
   closeModal,
   newStudent,
   handleChange,
@@ -27,6 +27,7 @@ export default function Modal({
       console.log(error);
     });
   }
+
   const [dataDepartment, setData] = useState([]);
   const [dataAcclass, setDataClass] = useState([]);
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function Modal({
         console.log(error);
       });
   }, []);
+  
   return (
     <div className="modal">
         <div className="modal-header">
