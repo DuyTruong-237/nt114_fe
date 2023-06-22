@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 //import '../../../public/img/mainlogo'
-
 import { useState } from 'react';
 export default function TopHeader() {
   const user= useSelector((state)=> state.login?.currentUser);
@@ -52,13 +51,11 @@ export default function TopHeader() {
               </div>
               <img
                 className="topHeader-userimg"
-                src={userimg}
+                src={user.avatar? "http://localhost:3001/uploads/"+user.avatar : userimg}
                 alt="logo"
                 onClick={handleUserImgClick}
               /></> :<Link to='/login'> <button>Login</button></Link>
-          }
-          
-           
+          } 
          {isOpen && (
               <div className="dropdown-menu">
               <a href="#" className="dropdown-item">
