@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SubjectManage.css';
+import { Oval } from 'react-loader-spinner';
+import Logo from '../../img/mainlogo.png'
+import { Navigate, useNavigate } from 'react-router-dom';
 import SearchIcon from "../../img/search.png"
+import Editicon from '../../img/edit.png';
 import AddSubject from '../modal/AddSubject';
 import UpdateSubject from '../modal/UpdateSubject';
 
 export default function SubjectManage(){
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const handleRowClick = (subjectId) => {
-    //     navigate(`/profile/${subjectId}`);
-    // };
+    const handleRowClick = (subjectId) => {
+        navigate(`/profile/${subjectId}`);
+    };
     const [selectedSubject, setSelectedSubject] = useState(null);
 
     const [subjects, setSubjects] = useState([]);
@@ -24,6 +28,7 @@ export default function SubjectManage(){
         cre: ''
     });
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(true);
     useEffect (() => {
         axios
         .get('http://localhost:3001/v1/abc/getAll/subject')
@@ -31,6 +36,7 @@ export default function SubjectManage(){
             const subjects = response.data
             setSubjects(subjects);
             setFilteredSubjects(subjects);
+            setLoading(false);
         })
         .catch((error) => {
             console.log(error);
@@ -57,6 +63,7 @@ export default function SubjectManage(){
     const handleUpdateButtonClick = (subject) => {
         setSelectedSubject(subject);
         setShowUpdateModal(true);
+        
     };
 
     const updateSubjectDetails = (subjectId, updatedDetails) => {
@@ -68,8 +75,10 @@ export default function SubjectManage(){
             const updatedSubjects = subjects.map((subject) =>
               subject.subject_id === subjectId ? { ...subject, ...updatedDetails } : subject
             );
+
             setSubjects(updatedSubjects);
             setShowUpdateModal(false);
+           
           })
           .catch((error) => {
             console.log(error);
@@ -115,6 +124,18 @@ export default function SubjectManage(){
           [name]: value,
         }));
       };
+      if (loading) {
+        return (
+          <div className="loading-spinner">
+            <div className="loader-container">
+              <div className="loader">
+                <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+                <img src={Logo} alt="Loading" className="logo-image" />
+              </div>
+            </div>
+          </div>
+        );
+      }
       
     return (
         <div className="SubjectManage_wrapper">
@@ -180,7 +201,9 @@ export default function SubjectManage(){
                             <td>{subject.departmentId}</td>
                             <td>{subject.cre}</td>
                             <td>
-                                <button className='Update_btn' onClick={() => handleUpdateButtonClick(subject)}>Update</button>
+                                <div className="Edit_btn" onClick={() => handleUpdateButtonClick(subject)}>
+                                    <img className="Edit_icon" src={Editicon} alt="" />
+                                </div>
                             </td>
                         </tr>
                         ))}

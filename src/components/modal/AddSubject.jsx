@@ -62,14 +62,6 @@ export default function AddSubject({
         <h2>Add Subject</h2>
       </div>
       <div className="modal-content">
-        <label>Subject ID</label>
-        <input
-          type="text"
-          placeholder="Subject ID"
-          name="id"
-          value={newSubject.id}
-          onChange={handleChange}
-        />
         <label>Name</label>
         <input
           type="text"
@@ -82,8 +74,8 @@ export default function AddSubject({
         <select
           type="text"
           placeholder="Department"
-          name="department_id"
-          value={newSubject.department_id}
+          name="departmentId"
+          value={newSubject.departmentId}
           onChange={handleChange}
         >
           <option value="">Select</option>
@@ -93,12 +85,20 @@ export default function AddSubject({
             </option>
           ))}
         </select>
+        <label>Description</label>
+        <input
+          type="text"
+          placeholder="Description"
+          name="desText"
+          value={newSubject.desText}
+          onChange={handleChange}
+        />
         <label>Credit Unique</label>
         <input
           type="text"
           placeholder="Credit Unique"
-          name="credit_unique"
-          value={newSubject.credit_unique}
+          name="cre"
+          value={newSubject.cre}
           onChange={handleChange}
         />
 

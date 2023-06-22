@@ -75,7 +75,7 @@
     font-family: none;
     resize: vertical;
   }
-  
+
   .modal-content > button {
     background-color: #31A4E5;
     color: white;
@@ -84,7 +84,26 @@
     cursor: pointer;
     font-size: 25px;
     border-radius: 10px;
-    min-width: 250px;
+    min-width: 200px;
+    align-self: center;
+    margin-top: 5px;
+  }
+  
+  .Handle_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+  }
+
+  .Handle_btn > button{  
+    background-color: #31A4E5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 10px;
+    min-width: 200px;
     align-self: center;
     margin-top: 5px;
   }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Manage.css';
+import { Oval } from 'react-loader-spinner';
+import Logo from '../../img/mainlogo.png'
 import SearchIcon from '../../img/search.png';
 import EditIcon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
@@ -17,7 +19,7 @@ export default function Lecturer() {
     faculty: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get('http://localhost:3001/v1/lecturer/getAllLecturer')
@@ -25,6 +27,7 @@ export default function Lecturer() {
         const lecturerData = response.data;
         setLecturers(lecturerData);
         setFilteredLecturers(lecturerData);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -90,6 +93,18 @@ export default function Lecturer() {
     navigate(`/profile/lecturer/${lecturerId}`);
     console.log(lecturerId);
   };
+  if (loading) {
+    return (
+      <div className="loading-spinner">
+        <div className="loader-container">
+          <div className="loader">
+            <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+            <img src={Logo} alt="Loading" className="logo-image" />
+          </div>
+        </div>
+      </div>
+    );
+  }
   
 
   return (
