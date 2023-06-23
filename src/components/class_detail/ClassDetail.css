@@ -17,8 +17,9 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 18px;
-    background-color: azure;
     border-radius: 10px;
+    border-left-style: solid;
+    border-left-color: #006aa5;
 }
 
 .List-content {
@@ -46,12 +47,14 @@
     text-decoration: underline;
 }
 .Content-title {
-    margin-left: 50px;
     margin-bottom: 0.5rem;
-    font-weight: 350;
     line-height: 1.2;
     margin-top: 0;
     font-size: 1.640625rem;
+    background-color: #006aa5;
+    margin-left: inherit;
+    padding: 3px 50px;
+    color: white;
 }
 @media (min-width: 576px) {
     .List-content {

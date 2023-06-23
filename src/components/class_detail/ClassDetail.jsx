@@ -22,7 +22,7 @@ export default function ClassDetails() {
             {classes.map(classes => (
                 <div className="ClassDetail_wrapper">
                     <h1 className="ClassDetail_Header"><strong>{classes.subname} - {classes.subclass_id}</strong></h1>
-                    <div id="section-0" className="ClassDetail_Content" role="region">
+                    <div id="section-0" className="ClassDetail_Content" role="region" style={{background:"#9dd2f1"}}>
                         <ul className="List-content">
                             <li className="List-item">
                             <a class="Item-title" href="https://courses.uit.edu.vn/mod/forum/view.php?id=157905">
@@ -34,7 +34,7 @@ export default function ClassDetails() {
                             </li>
                         </ul>              
                     </div>
-                    <div id="section-1" className="ClassDetail_Content" role="region">
+                    <div id="section-1" className="ClassDetail_Content" role="region" style={{background:"#9dd2f1"}}>
                         <h3 className="Content-title">
                                     Chủ đề 1
                                 </h3>

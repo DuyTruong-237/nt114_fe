@@ -30,7 +30,7 @@
 }
 .Student_Result_Table th{
     font-size: 20px;
-    background-color: #FFB49E;
+    background-color: #9dd2f1;
 }
 .Student_Profile_Table td,
 .Student_Profile_Table th,
@@ -49,10 +49,11 @@
     margin: 29px;
 }
 .Student_Profile_Table td:nth-child(odd){
-    background-color: #FFB49E;
+    background-color: #9dd2f1;
 }
 
 .Student_Result_Table td:nth-child(1){
+    background-color: #9dd2f1;
     background-color: #FFB49E;
     min-height: 20px;
     min-width: 20px;

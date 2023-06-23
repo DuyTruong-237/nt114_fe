@@ -36,10 +36,22 @@ export default function UpdateSubject({
 
   const handleUpdate = () => {
     axios
-      .put(`http://localhost:3001/v1/subject/updateSubject/${subject.subject_id}`, subject)
+      .put(`http://localhost:3001/v1/subject/updateSubject/${subject._id}`, subject)
       .then((response) => {
         console.log(response.data);
         closeUpdateModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:3001/v1/subject/deleteSubject/${subject._id}`)
+      .then((response) => {
+        console.log(response.data);
+        closeUpdateModal();
+        updateSubjectDetails();
       })
       .catch((error) => {
         console.log(error);
@@ -130,7 +142,10 @@ export default function UpdateSubject({
           onChange={handleChange}
         />
 
-        <button onClick={handleUpdate}>Update</button>
+        <div className='Handle_btn'>
+          <button onClick={handleUpdate}>Update</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
       </div>
     </div>
   );

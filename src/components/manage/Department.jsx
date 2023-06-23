@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import './Manage.css';
+import { Oval } from 'react-loader-spinner';
+import Logo from '../../img/mainlogo.png'
 import Searchicon from '../../img/search.png';
 import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
@@ -20,6 +22,7 @@ export default function Department() {
     dean: ''
   });
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get('http://localhost:3001/v1/depart/getAllDepartment/')
@@ -27,6 +30,7 @@ export default function Department() {
         const departments = response.data;
         setDepartments(departments);
         setFilteredDepartments(departments);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -99,6 +103,18 @@ export default function Department() {
     );
     setFilteredDepartments(filtered);
   };
+  if (loading) {
+    return (
+      <div className="loading-spinner">
+        <div className="loader-container">
+          <div className="loader">
+            <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+            <img src={Logo} alt="Loading" className="logo-image" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
     // Hàm xử lý cập nhật thông tin hàng
     const updateDepartmentDetails = () => {
