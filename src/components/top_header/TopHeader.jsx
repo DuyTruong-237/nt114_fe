@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 //import '../../../public/img/mainlogo'
-
 import { useState } from 'react';
 export default function TopHeader() {
   const user= useSelector((state)=> state.login?.currentUser);
@@ -52,16 +51,14 @@ export default function TopHeader() {
               </div>
               <img
                 className="topHeader-userimg"
-                src={userimg}
+                src={user.avatar? "http://localhost:3001/uploads/"+user.avatar : userimg}
                 alt="logo"
                 onClick={handleUserImgClick}
-              /></> :<Link to='/login'> <button className='Login_btn'>Login</button></Link>
-          }
-          
-           
+              /></> :<Link to='/login'> <button>Login</button></Link>
+          } 
          {isOpen && (
               <div className="dropdown-menu">
-              <a href="#" className="dropdown-item">
+              <a href={"profile/myprofile/"+user.idUser} className="dropdown-item">
                 <i className="fas fa-id-card" aria-hidden="true"></i>
                 Hồ sơ
               </a>
@@ -73,10 +70,11 @@ export default function TopHeader() {
                 <i className="fa fa-cog" aria-hidden="true"></i>
                 Tùy chọn
               </a>
-              <a href='login' className="dropdown-item" onClick={logout}>
+              <a href='/login' className="dropdown-item" onClick={logout}>
                 <i className="fa fa-sign-out" aria-hidden="true" ></i>
                 Đăng xuất
               </a>
+              
             </div>
             
             )}

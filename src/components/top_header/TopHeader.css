@@ -37,8 +37,11 @@
 }
 .topHeader-userimg{
     height: 50px;
+    width: 50px;
+    border-radius: 50%;
     padding: 8px;
-   
+    object-fit: cover;
+
 
 }
 .topHeader-part-user{
