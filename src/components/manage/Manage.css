@@ -133,6 +133,11 @@ transform: scale(0.99);
 .Edit_btn_wrapper {
     display: flex;
 }
+
+.Manage_Info td {
+    padding: 5px;
+}
+
 .Edit_btn {
     background-color: #31A4E5;
     color: #fff;
