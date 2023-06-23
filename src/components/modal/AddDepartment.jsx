@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
 export default function AddDepartment({
-  closeAddModal,
+  closeModal,
   newStudent,
   handleChange,
   addStudent
@@ -15,7 +15,7 @@ export default function AddDepartment({
   return (
     <div className="modal">
         <div className="modal-header">
-          <span className="close" onClick={closeAddModal}>
+          <span className="close" onClick={closeModal}>
             <FontAwesomeIcon icon={faWindowClose} size="lg" style={{color: "#f8e3e3",}} />
           </span>
           <h2>Add Department</h2>

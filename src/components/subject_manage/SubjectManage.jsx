@@ -194,7 +194,7 @@ export default function SubjectManage(){
                             <tr 
                                 className="Odd"
                                 key = {subject.subject_id}
-                                // onDoubleClick={() => handleRowClick(subject.subject_id)}
+                                onDoubleClick={() => handleRowClick(subject.subject_id)}
                             >
                             <td className='subjectId'>{subject.subject_id}</td>
                             <td>{subject.name}</td>

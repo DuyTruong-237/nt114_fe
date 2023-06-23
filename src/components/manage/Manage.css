@@ -160,11 +160,6 @@ transform: scale(0.99);
     font-size: 18px;
     font-weight: 500;
 }
-
-.Manage_Info td {
-    padding: 5px;
-}
-
 .Odd {
     display: table-row;
     text-align: center;
