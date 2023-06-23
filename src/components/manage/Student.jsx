@@ -191,7 +191,7 @@ const updateStudentDetails = (studentId, updatedDetails) => {
               <td>{student.acclass_id?.name || ''}</td>
               <td>{student.department_id?.name || ''}</td>
               <td>
-                <div className="Edit_btn" onClick={() => handleUpdateButtonClick(student)}>
+                <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(student)}>
                   <img className="Edit_icon" src={Editicon} alt="" />
                 </div>
               </td>
