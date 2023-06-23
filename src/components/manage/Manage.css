@@ -135,6 +135,11 @@ transform: scale(0.99);
     font-size: 24px;
     font-weight: 500;
 }
+
+.Manage_Info td {
+    padding: 5px;
+}
+
 .Odd {
     display: table-row;
     text-align: center;

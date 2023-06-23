@@ -5,11 +5,14 @@ import Searchicon from '../../img/search.png';
 import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import AddDepartment from '../modal/AddDepartment';
+import UpdateDepartment from '../modal/UpdateDepartment';
 
 export default function Department() {
+  const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [departments, setDepartments] = useState([]);
   const [filteredDepartments, setFilteredDepartments] = useState([]);
-  const [showModal, setShowModal] = useState(false); // Trạng thái hiển thị modal
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [newDepartment, setNewDepartment] = useState({
     id: '',
     name: '',
@@ -31,11 +34,22 @@ export default function Department() {
   }, []);
 
   const handleAddButtonClick = () => {
-    setShowModal(true); // Hiển thị modal khi người dùng nhấp vào nút "Add_btn"
+    setShowAddModal(true); // Hiển thị modal khi người dùng nhấp vào nút "Add_btn"
   };
 
-  const closeModal = () => {
-    setShowModal(false); // Đóng modal
+  const closeAddModal = () => {
+    window.location.reload();
+    setShowAddModal(false); // Đóng modal
+  };
+
+  const handleUpdateButtonClick = (department) => {
+    setSelectedDepartment(department);
+    setShowUpdateModal(true);
+};
+
+  const closeUpdateModal = () => {
+      window.location.reload();
+      setShowUpdateModal(false);
   };
 
   const handleChange = (e) => {
@@ -60,7 +74,7 @@ export default function Department() {
           class: '',
           faculty: ''
         });
-        setShowModal(false);
+        setShowAddModal(false);
       })
       .catch((error) => {
         // Xử lý phản hồi từ server khi có lỗi
@@ -85,6 +99,28 @@ export default function Department() {
     );
     setFilteredDepartments(filtered);
   };
+
+    // Hàm xử lý cập nhật thông tin hàng
+    const updateDepartmentDetails = () => {
+      axios
+        .put(
+          `http://localhost:3001/v1/depart/updateDepartment/${selectedDepartment.id}`,
+          selectedDepartment
+        )
+        .then((response) => {
+          // Xử lý phản hồi từ server khi cập nhật thành công
+          console.log(response.data);
+  
+          // Sau khi cập nhật thành công, đặt lại trạng thái và đóng modal
+          setSelectedDepartment(null);
+          setShowUpdateModal(false);
+        })
+        .catch((error) => {
+          // Xử lý phản hồi từ server khi có lỗi
+          console.log(error);
+        });
+    };
+
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
@@ -123,6 +159,9 @@ export default function Department() {
             <th>
               <b>Description</b>
             </th>
+            <th>
+              <b>Actions</b>
+            </th>
           </tr>
         </thead>
         <tbody className="Manage_Info">
@@ -135,18 +174,36 @@ export default function Department() {
               <td className="departmentId">{department.name}</td>
               <td>{department.dean || ''}</td>
               <td>{department.des || ''}</td>
+              <td>
+                <button className='Update_btn' onClick={() => handleUpdateButtonClick(department)}>Update</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {/* Modal */}
-      {showModal && (
+      {/* Add Modal */}
+      {showAddModal && (
         <AddDepartment
-          closeModal={closeModal}
+          closeAddModal={closeAddModal}
           newStudent={newDepartment}
           handleChange={handleChange}
           addStudent={addDepartment}
+        />
+      )}
+
+      {showUpdateModal && (
+        <UpdateDepartment
+          closeUpdateModal={closeUpdateModal}
+          selectedDepartment={selectedDepartment}
+          // handleChange={(e) => {
+          //   const { name, value } = e.target;
+          //   setSelectedDepartment((prevDepartment) => ({
+          //     ...prevDepartment,
+          //     [name]: value
+          //   }));
+          // }}
+          updateDepartmentDetails={updateDepartmentDetails}
         />
       )}
     </div>
