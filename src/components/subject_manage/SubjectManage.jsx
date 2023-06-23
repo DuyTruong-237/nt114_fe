@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Navigate,useNavigate } from 'react-router';
 import './SubjectManage.css';
 import SearchIcon from "../../img/search.png"
 import AddSubject from '../modal/AddSubject';
 import UpdateSubject from '../modal/UpdateSubject';
 
 export default function SubjectManage(){
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const handleRowClick = (subjectId) => {
-    //     navigate(`/profile/${subjectId}`);
-    // };
+    const handleRowClick = (subjectId) => {
+        navigate(`/profile/${subjectId}`);
+    };
     const [selectedSubject, setSelectedSubject] = useState(null);
 
     const [subjects, setSubjects] = useState([]);

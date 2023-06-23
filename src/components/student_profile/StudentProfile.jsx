@@ -3,7 +3,7 @@ import './StudentProfile.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import avatar from '../../img/user.png';
 import { useParams } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import axios from '../../redux/axios-interceptor';
 
 
@@ -11,10 +11,20 @@ import axios from '../../redux/axios-interceptor';
 export default function StudentProfile() {
   let url;
   const { id, role } = useParams();
+  const user= useSelector((state)=> state.login?.currentUser);
   const [student, setStudent] = useState(null);
   const [editable, setEditable] = useState(false); // Thêm state để theo dõi chế độ chỉnh sửa
+  let mainavatar="";
   if (role == "student" ) {
     url = `http://localhost:3001/v1/student/getStudent/`;
+  }
+  else if(role == "myprofile"){
+   
+    if(user?.position=="student")
+    
+    url = `http://localhost:3001/v1/student/getStudentID/`;
+    else  if(user?.position=="lecturer")
+    url = `http://localhost:3001/v1/lecturer/getLecturerID/`;
   }
   else {
     url = 'http://localhost:3001/v1/lecturer/getLecturer/';
@@ -27,6 +37,8 @@ export default function StudentProfile() {
       .get(url+ id)
       .then((response) => {
         const studentData = response.data;
+        mainavatar= "http://localhost:3001/uploads/"+studentData.id;
+        console.log(mainavatar)
         setStudent(studentData);
       })
       .catch((error) => {
@@ -43,7 +55,7 @@ export default function StudentProfile() {
     <div className='Profile_wrapper'>
         <div className='Title'>THÔNG TIN {(role == "student") ? "SINH VIÊN" : "GIẢNG VIÊN" }</div>
         <div className='Student_wrapper'>
-            <img className='Avatar_Profile' src={avatar} alt="Avatar Profile"/>
+            <img className='Avatar_Profile' src={"http://localhost:3001/uploads/"+student.id} alt="Avatar Profile"/>
             <div className='Name_ID_wrapper'>
                 <div className='Student_name'>{student.name}</div>
                 <div className='Student_ID'>{student.id} | Sinh viên</div>

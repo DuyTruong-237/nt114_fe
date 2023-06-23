@@ -58,7 +58,7 @@ export default function TopHeader() {
           } 
          {isOpen && (
               <div className="dropdown-menu">
-              <a href="#" className="dropdown-item">
+              <a href={"profile/myprofile/"+user.idUser} className="dropdown-item">
                 <i className="fas fa-id-card" aria-hidden="true"></i>
                 Hồ sơ
               </a>
@@ -70,10 +70,11 @@ export default function TopHeader() {
                 <i className="fa fa-cog" aria-hidden="true"></i>
                 Tùy chọn
               </a>
-              <a href='login' className="dropdown-item" onClick={logout}>
+              <a href='/login' className="dropdown-item" onClick={logout}>
                 <i className="fa fa-sign-out" aria-hidden="true" ></i>
                 Đăng xuất
               </a>
+              
             </div>
             
             )}
