@@ -8,13 +8,11 @@ import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import AddStudent from '../modal/AddStudent';
 import UpdateSubject from '../modal/UpdateSubject';
-
-
-
+import UpdateLecAndStu from '../modal/UpdateLecAndStu';
 
 export default function Student() {
   const [students, setStudents] = useState([]);
-  const [filteredStudents, setFilteredStudents] = useState([]); // Danh sách sinh viên sau khi lọc
+  const [filteredStudents, setFilteredStudents] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -24,7 +22,7 @@ export default function Student() {
     department_id: ''
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -56,22 +54,22 @@ export default function Student() {
       [name]: value
     }));
   };
+
   const closeUpdateModal = () => {
     window.location.reload();
     setShowUpdateModal(false);
-};
+  };
 
-const handleUpdateButtonClick = (student) => {
+  const handleUpdateButtonClick = (student) => {
     setSelectedStudent(student);
     setShowUpdateModal(true);
-};
+  };
 
-const updateStudentDetails = (studentId, updatedDetails) => {
+  const updateStudentDetails = (studentId, updatedDetails) => {
     axios
       .put(`http://localhost:3001/v1/student/${studentId}`, updatedDetails)
       .then((response) => {
         console.log(response.data);
-        // Update the subjects state with the updated student details
         const updatedStudent = students.map((student) =>
           student.student_id === studentId ? { ...student, ...updatedDetails } : student
         );
@@ -89,10 +87,9 @@ const updateStudentDetails = (studentId, updatedDetails) => {
       .then((response) => {
         console.log(response.data);
         setNewStudent({
-          id: '',
           name: '',
-          class: '',
-          faculty: ''
+          acclass_id: '',
+          department_id: ''
         });
         setShowModal(false);
       })
@@ -108,9 +105,9 @@ const updateStudentDetails = (studentId, updatedDetails) => {
   };
 
   const handleSearchChange = (event) => {
-  setSearchTerm(event.target.value);
-  handleSearch(); // Tự động lọc danh sách khi người dùng nhập giá trị
-};
+    setSearchTerm(event.target.value);
+    handleSearch();
+  };
 
   const handleSearch = () => {
     const filtered = students.filter((student) => {
@@ -127,18 +124,18 @@ const updateStudentDetails = (studentId, updatedDetails) => {
       <div className="loading-spinner">
         <div className="loader-container">
           <div className="loader">
-            <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+            <Oval type="Oval" color="#FF7B54" height={80} width={80} />
             <img src={Logo} alt="Loading" className="logo-image" />
           </div>
         </div>
       </div>
     );
   }
- 
+
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
-        <div>DANH SÁCH SINH VIÊN: </div>
+        <div>DANH SÁCH SINH VIÊN:</div>
       </div>
       <div className="List_Toolbar">
         <div className="Search_toolbar">
@@ -153,7 +150,6 @@ const updateStudentDetails = (studentId, updatedDetails) => {
           </button>
         </div>
         <div>
-          
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div>
@@ -209,14 +205,13 @@ const updateStudentDetails = (studentId, updatedDetails) => {
         />
       )}
       {showUpdateModal && (
-        <UpdateSubject
+        <UpdateLecAndStu
           closeUpdateModal={closeUpdateModal}
-          selectedStudent={selectedStudent}
-          updateStudentDetails={updateStudentDetails}
-      />           
+          selectedData={selectedStudent}
+          updateDataDetails={updateStudentDetails}
+          type="student"
+        />
       )}
     </div>
   );
-
-  
 }

@@ -7,12 +7,15 @@ import EditIcon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AddLecturer from '../modal/AddLecturer';
+import UpdateLecAndStu from '../modal/UpdateLecAndStu';
 import Cookies from 'js-cookie';
 export default function Lecturer() {
   const navigate = useNavigate();
   const [lecturers, setLecturers] = useState([]);
   const [filteredLecturers, setFilteredLecturers] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedLecturer, setSelectedLecturer] = useState(null);
   const [newLecturer, setNewLecturer] = useState({
     id: '',
     name: '',
@@ -47,6 +50,32 @@ export default function Lecturer() {
     });
   };
 
+  const handleUpdateButtonClick = (lecturer) => {
+    setSelectedLecturer(lecturer);
+    setShowUpdateModal(true);
+  };
+
+  const updateLecturerDetails = (lecturerId, updatedDetails) => {
+    axios
+      .put(`http://localhost:3001/v1/lecturer/updateLecturer/${lecturerId}`, updatedDetails)
+      .then((response) => {
+        console.log(response.data);
+        const updatedLecturer = lecturers.map((lecturer) =>
+          lecturer._id === lecturerId ? { ...lecturer, ...updatedDetails } : lecturer
+        );
+        setLecturers(updatedLecturer);
+        setShowUpdateModal(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+  const closeUpdateModal = () => {
+    window.location.reload();
+    setShowUpdateModal(false);
+  };
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewLecturer((prevLecturer) => ({
@@ -125,9 +154,6 @@ export default function Lecturer() {
           </button>
         </div>
         <div>
-          <div className="Edit_btn btn">
-            <img className="Edit_icon" src={EditIcon} alt="" />
-          </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div>
@@ -145,6 +171,9 @@ export default function Lecturer() {
             <th>
               <b>Falculty</b>
             </th>
+            <th>
+              <b>Actions</b>
+            </th>
           </tr>
         </thead>
         <tbody className="Manage_Info">
@@ -157,6 +186,11 @@ export default function Lecturer() {
               <td className='lecturerId'>{lecturer.id}</td>
               <td>{lecturer.name}</td>
               <td>{lecturer.department_id.name}</td>
+              <td>
+                <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(lecturer)}>
+                  <img className="Edit_icon" src={EditIcon} alt="" />
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -169,6 +203,16 @@ export default function Lecturer() {
           addLecturer={addLecturer}
         />
       )}
+
+      {showUpdateModal && (
+        <UpdateLecAndStu
+          closeUpdateModal={closeUpdateModal}
+          selectedData={selectedLecturer}
+          updateDataDetails={updateLecturerDetails}
+          type="lecturer"
+        />
+      )}
+
     </div>
   );
 }

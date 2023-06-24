@@ -1,5 +1,6 @@
 import "./ForgotPassword.css"
 import React from 'react'
+import {Link} from 'react-router-dom'
 import mainlogo from '../../img/mainlogo.png'
 export default function ForgotPassword() {
     return(
@@ -30,7 +31,7 @@ export default function ForgotPassword() {
                     <div className="Page">Email</div>
                     <input type="text" className="Email_details" placeholder="mail" />
                     <button className="buttonSend"><b>SEND</b></button>
-                    <div className="message">Back to sign in</div>
+                    <Link to="/login" className="forgot-message">Back to sign in</Link>
 
                 </div>
 
