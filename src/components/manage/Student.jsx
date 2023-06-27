@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import './Manage.css';
+import { Oval } from 'react-loader-spinner';
 import Searchicon from '../../img/search.png';
+import Logo from '../../img/mainlogo.png'
 import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import AddStudent from '../modal/AddStudent';
+import UpdateSubject from '../modal/UpdateSubject';
+
+
+
 
 export default function Student() {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]); // Danh sách sinh viên sau khi lọc
   const [showModal, setShowModal] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [newStudent, setNewStudent] = useState({
     name: '',
     acclass_id: '',
     department_id: ''
   });
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     axios
@@ -24,6 +33,7 @@ export default function Student() {
         const students = response.data;
         setStudents(students);
         setFilteredStudents(students);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -45,6 +55,32 @@ export default function Student() {
       ...prevStudent,
       [name]: value
     }));
+  };
+  const closeUpdateModal = () => {
+    window.location.reload();
+    setShowUpdateModal(false);
+};
+
+const handleUpdateButtonClick = (student) => {
+    setSelectedStudent(student);
+    setShowUpdateModal(true);
+};
+
+const updateStudentDetails = (studentId, updatedDetails) => {
+    axios
+      .put(`http://localhost:3001/v1/student/${studentId}`, updatedDetails)
+      .then((response) => {
+        console.log(response.data);
+        // Update the subjects state with the updated student details
+        const updatedStudent = students.map((student) =>
+          student.student_id === studentId ? { ...student, ...updatedDetails } : student
+        );
+        setStudents(updatedStudent);
+        setShowUpdateModal(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const addStudent = () => {
@@ -86,6 +122,19 @@ export default function Student() {
     setFilteredStudents(filtered);
   };
 
+  if (loading) {
+    return (
+      <div className="loading-spinner">
+        <div className="loader-container">
+          <div className="loader">
+            <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+            <img src={Logo} alt="Loading" className="logo-image" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+ 
   return (
     <div className="List_Wrapper">
       <div className="List_Header">
@@ -104,9 +153,7 @@ export default function Student() {
           </button>
         </div>
         <div>
-          <div className="Edit_btn btn">
-            <img className="Edit_icon" src={Editicon} alt="" />
-          </div>
+          
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div>
@@ -127,6 +174,9 @@ export default function Student() {
             <th>
               <b>Falculty</b>
             </th>
+            <th>
+              <b>Actions</b>
+            </th>
           </tr>
         </thead>
         <tbody className="Manage_Info">
@@ -140,6 +190,11 @@ export default function Student() {
               <td>{student.name || ''}</td>
               <td>{student.acclass_id?.name || ''}</td>
               <td>{student.department_id?.name || ''}</td>
+              <td>
+                <div className="Edit_btn" onClick={() => handleUpdateButtonClick(student)}>
+                  <img className="Edit_icon" src={Editicon} alt="" />
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -153,6 +208,15 @@ export default function Student() {
           addStudent={addStudent}
         />
       )}
+      {showUpdateModal && (
+        <UpdateSubject
+          closeUpdateModal={closeUpdateModal}
+          selectedStudent={selectedStudent}
+          updateStudentDetails={updateStudentDetails}
+      />           
+      )}
     </div>
   );
+
+  
 }
