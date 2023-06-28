@@ -1,7 +1,55 @@
-import React from "react";
-import './StudyResult.css';
 
+import './StudyResult.css';
+import axios from '../../redux/axios-interceptor'
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import React,  { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 export default function StudyResult () {
+    const user= useSelector((state)=> state.login?.currentUser);
+    const [newData, setNewData] = useState([]);
+    const [student, setStudent] = useState([]);
+    const { id, role } = useParams();
+    let id_student;
+    let n=0;
+    let cre=0,tb=0;
+    let prevProcess = null;
+    
+        useEffect(() => {
+            axios
+              .get('http://localhost:3001/v1/student/getStudentID/' + user.idUser)
+              .then((response) => {
+                const newData = response.data;
+                console.log(newData);
+                setStudent(newData);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }, []);
+          if(role=="myresult")
+    {
+          id_student=student._id
+    }else{
+        id_student=id
+    }
+   
+    
+    useEffect(() => {
+      if (student._id) {
+        axios
+          .get('http://localhost:3001/v1/abc/getInfoByID/core/' + id_student)
+          .then((response) => {
+            const newData = response.data;
+            console.log(newData);
+            setNewData(newData);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }, [student]);
+   
     return (
         <div className="Study_Result_wrapper">
             {/* Header */}
@@ -58,60 +106,105 @@ export default function StudyResult () {
                         <th>Điểm HP</th>
                         <th>Ghi chú</th>
                     </tr>
-                    <tr>
-                        <td colSpan={10} style={{background:"white"}}><center><b>Học kỳ 1 - Năm học 2020-2021</b></center></td> 
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>ENG01</td>
-                        <td>Anh văn 1</td>
-                        <td>4</td>
-                        <td></td>
-                        <td title></td>
-                        <td></td>
-                        <td></td>
-                        <td>Miễn</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ENG02</td>
-                        <td>Anh văn 2</td>
-                        <td>4</td>
-                        <td></td>
-                        <td title></td>
-                        <td></td>
-                        <td></td>
-                        <td>Miễn</td>
-                        <td></td>
-                    </tr>
-                    <tr>
+                   
+                   
+  
+    {newData.map((data) => {
+        
+      if (data.subject_class.term !== prevProcess) {
+        let crev=cre,tbv=tb;
+        let f=0
+        if(f!=prevProcess){
+             f=prevProcess;
+            cre=0;
+            tb=0
+        }
+       
+        prevProcess = data.subject_class.term;
+       
+         cre=cre + data.subject_id?.cre||0;
+         tb=tb + data.medium* data.subject_id?.cre||0
+         
+        return( <>
+        {f===1||f===2||f===3? <><tr>
                         <td></td>
                         <td></td>
                         <td><strong>Trung bình học kỳ</strong></td>
-                        <td><strong>19</strong></td>
+                        <td><strong>{crev}</strong></td>
                         <td></td>
                         <td title></td>
                         <td></td>
                         <td></td>
-                        <td><strong>6.62</strong></td>
+                        <td><strong>{tbv/crev}</strong></td>
                         <td></td>
-                    </tr>
-                    <tr>
-                        <td colSpan={10} style={{background:"white"}}><center><b>Học kỳ 2 - Năm học 2020-2021</b></center></td> 
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>IT002</td>
-                        <td>Lập trình hướng đối tượng</td>
-                        <td>4</td>
-                        <td>8</td>
+                    </tr></>: ""
+                    
+                    
+
+        }
+          
+            <td colSpan={10} style={{background:"white"}}><center><b>Học kỳ {data.subject_class.term} - Năm học 2020-2021</b></center></td> 
+            
+            <br/>
+            <tr key={data.id}>
+              <td>{n+=1}</td>
+              <td>{data.subject_id?.subject_id||""}</td>
+              <td>{data.subject_id?.name||""}</td>
+              <td>{data.subject_id?.cre||""}</td>
+              <td>{data.process||""}</td>
+              <td title>{data.midterm||""}</td>
+              <td>{data.practice||""}</td>
+              <td>{data.endterm||""}</td>
+              <td>{data.medium||""}</td>
+              <td>{/* Additional column content */}</td>
+            </tr>
+           
+          </>)
+           
+      } else {
+        cre=cre + data.subject_id?.cre||0;
+        tb=tb + data.medium* data.subject_id?.cre||0
+        return(
+            <>
+            <tr key={data.id}>
+              <td>{n+=1}</td>
+              <td>{data.subject_id?.subject_id||""}</td>
+              <td>{data.subject_id?.name||""}</td>
+              <td>{data.subject_id?.cre||""}</td>
+              <td>{data.process||""}</td>
+              <td title>{data.midterm||""}</td>
+              <td>{data.practice||""}</td>
+              <td>{data.endterm||""}</td>
+              <td>{data.medium||""}</td>
+              <td>{/* Additional column content */}</td>
+            </tr>
+            
+          </>
+        )
+       
+       
+        
+        
+      }
+    })}
+ <tr>
+                        <td></td>
+                        <td></td>
+                        <td><strong>Trung bình học kỳ</strong></td>
+                        <td><strong>{cre}</strong></td>
+                        <td></td>
                         <td title></td>
-                        <td>6.5</td>
-                        <td>8</td>
-                        <td>7.6</td>
                         <td></td>
-                    </tr>
+                        <td></td>
+                        <td><strong>{tb/cre}</strong></td>
+                        <td></td>
+                    </tr>: ""
+                   
+                        
+                  
+                   
+                    
+                   
                 </tbody>
             </table>
         </div>

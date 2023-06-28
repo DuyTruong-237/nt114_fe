@@ -5,7 +5,7 @@ import avatar from '../../img/user.png';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from '../../redux/axios-interceptor';
-
+import { Link } from 'react-router-dom';
 
 
 export default function StudentProfile() {
@@ -64,6 +64,11 @@ export default function StudentProfile() {
         <div className='Info_Wrapper'>
           <div className='Edit_btn_profile_wrapper'>
           <div className='Edit_btn_profile btn_radius' onClick={handleEdit}>
+            <Link to={ `/learning-result/iresult/${student._id}`}><button>Bảng điểm</button></Link>
+           
+          </div>
+          <div className='Edit_btn_profile btn_radius' onClick={handleEdit}>
+           
             <b>{editable ? 'Lưu' : 'Tùy chỉnh'}</b>
           </div>
         </div>

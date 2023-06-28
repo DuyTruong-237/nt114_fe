@@ -124,7 +124,7 @@ const updateStudentDetails = (studentId, updatedDetails) => {
 
   if (loading) {
     return (
-      <div className="loading-spinner">
+      <div className="loading-spinner" >
         <div className="loader-container">
           <div className="loader">
             <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
@@ -180,7 +180,8 @@ const updateStudentDetails = (studentId, updatedDetails) => {
           </tr>
         </thead>
         <tbody className="Manage_Info">
-          {filteredStudents.map((student) => (
+        {
+          students? <>{filteredStudents.map((student) => (
             <tr
               className="Odd"
               key={student.id}
@@ -196,7 +197,16 @@ const updateStudentDetails = (studentId, updatedDetails) => {
                 </div>
               </td>
             </tr>
-          ))}
+          ))}</>:<><div className="loading-spinner">
+          <div className="loader-container">
+            <div className="loader">
+              <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+              <img src={Logo} alt="Loading" className="logo-image" />
+            </div>
+          </div>
+        </div></>
+        }
+          
         </tbody>
       </table>
 

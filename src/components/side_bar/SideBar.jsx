@@ -7,10 +7,12 @@ import departmenticon from '../../img/department.png'
 import subjecticon from '../../img/books (1).png'
 import result from '../../img/score.png'
 import './SideBar.css'
+import { useSelector } from 'react-redux';
 //import '../../../public/img/mainlogo'
 import { Link } from 'react-router-dom';
 
 export default function SideBar() {
+  const user= useSelector((state)=> state.login?.currentUser);
   return (
     <div className='SideBar'>
        <Link to='/' className='SideBar-item'>
@@ -53,7 +55,7 @@ export default function SideBar() {
             Khoa
           </div>          
        </Link>
-       <Link to='/learning-result' className='SideBar-item'>
+       <Link to={ `/learning-result/myresult/${user._id}`} className='SideBar-item'>
           <img 
             className="icon-img"
             src={result} 
