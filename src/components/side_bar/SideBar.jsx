@@ -4,13 +4,16 @@ import classicon from '../../img/class.png'
 import studenicon from '../../img/student.png'
 import teachericon from '../../img/teacher.png'
 import departmenticon from '../../img/department.png'
+import { useSelector } from 'react-redux';
 import subjecticon from '../../img/books (1).png'
 import result from '../../img/score.png'
 import './SideBar.css'
 //import '../../../public/img/mainlogo'
 import { Link } from 'react-router-dom';
+import Student from '../manage/Student'
 
 export default function SideBar({ isOpen, isDefaultHidden }) {
+  const user = useSelector((state) => state.login?.currentUser);
   return (
     <div className={`SideBar ${isOpen ? 'open' : ''}`}>
       <Link to='/' className='SideBar-item'>
@@ -53,7 +56,7 @@ export default function SideBar({ isOpen, isDefaultHidden }) {
             Khoa
           </div>          
        </Link>
-       <Link to='/learning-result' className='SideBar-item'>
+       <Link to={`/learning-result/myresult/${user?._id}`} className='SideBar-item'>
           <img 
             className="icon-img"
             src={result} 
