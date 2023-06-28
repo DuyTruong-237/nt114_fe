@@ -10,10 +10,10 @@ import './SideBar.css'
 //import '../../../public/img/mainlogo'
 import { Link } from 'react-router-dom';
 
-export default function SideBar() {
+export default function SideBar({ isOpen, isDefaultHidden }) {
   return (
-    <div className='SideBar'>
-       <Link to='/' className='SideBar-item'>
+    <div className={`SideBar ${isOpen ? 'open' : ''}`}>
+      <Link to='/' className='SideBar-item'>
             <img 
               className="icon-img"
               src={homeicon} 
@@ -83,7 +83,7 @@ export default function SideBar() {
             Lớp học
           </div>          
        </Link>
-
+       
     </div>
   )
 }
