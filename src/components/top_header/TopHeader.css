@@ -1,6 +1,5 @@
 .topheader{
    display: flex;
-   justify-content:space-between;
    height: 66px;
    background-color: #FF7B54;
    width: 100%;
@@ -20,6 +19,18 @@
     margin-left: 25px;
 
 }
+
+.Menu_btn{
+    padding: 8px;
+    margin-left: 5px;
+    line-height: 66px;
+}
+
+.Menu_btn:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .nameapp{
   
     color: #fff;
@@ -36,6 +47,7 @@
    
 }
 .topHeader-userimg{
+    right: auto;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -45,17 +57,16 @@
 
 }
 .topHeader-part-user{
-    width: auto;
-margin-right: 20px;
+    width: 100%;
+    margin-right: 20px;
 }
 .topHeader-user-username{
+    margin-left: auto;
     color: #fff; 
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
-    margin-right: 10px;
-    line-height: 39px;
-    margin-top: 12px;
+    line-height: 66px;
 }
 
 .dropdown-menu {

@@ -1,6 +1,8 @@
 
 import './App.css';
-
+import React, { useState } from 'react';
+import Header from './components/top_header/TopHeader';
+import SideBar from './components/side_bar/SideBar';
 import DepartmentManagement from './screen/Manage/Department_Management';
 import Profile from './screen/Profile/Profile';
 import Inbox from './screen/Inbox/Inbox';
@@ -16,6 +18,8 @@ import LecturerManagement from './screen/Manage/Lecturer_Management';
 import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
 import Faculty from './components/faculty/Faculty';
 function App() {
+
+  
 
   return (
    
