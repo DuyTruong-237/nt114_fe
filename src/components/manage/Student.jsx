@@ -3,12 +3,13 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import './Manage.css';
 import { Oval } from 'react-loader-spinner';
 import Searchicon from '../../img/search.png';
-import Logo from '../../img/mainlogo.png'
+import Logo from '../../img/mainlogo.png';
 import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import AddStudent from '../modal/AddStudent';
 import UpdateSubject from '../modal/UpdateSubject';
 import UpdateLecAndStu from '../modal/UpdateLecAndStu';
+import * as xlsx from 'xlsx';
 
 export default function Student() {
   const [students, setStudents] = useState([]);
@@ -19,7 +20,7 @@ export default function Student() {
   const [newStudent, setNewStudent] = useState({
     name: '',
     acclass_id: '',
-    department_id: ''
+    department_id: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,50 @@ export default function Student() {
     setShowModal(true);
   };
 
+  const handleAddFromExcelClick = () => {
+    document.getElementById('fileInput').click();
+  };
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const data = new Uint8Array(e.target.result);
+      const workbook = xlsx.read(data, { type: 'array' });
+
+      // Đọc sheet đầu tiên trong workbook
+      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+
+       // Chuyển đổi dữ liệu từ sheet thành mảng các đối tượng sinh viên
+      const jsonData = xlsx.utils.sheet_to_json(worksheet);
+      console.log(jsonData)
+      // Thêm sinh viên vào danh sách
+      const newStudents = jsonData.map((student) => ({
+        name: student['name'],
+        department_id: student['department_id'],
+        acclass_id: student['acclass_id'],
+      }));
+      console.log ({ students: newStudents })
+      console.log (newStudents)
+      // Gọi API để thêm sinh viên vào cơ sở dữ liệu
+      axios
+        .post('http://localhost:3001/v1/student/addStudent/', { students: newStudents })
+        .then((response) => {
+          console.log(response.data);
+          // Cập nhật danh sách sinh viên sau khi thêm thành công
+          setStudents([...students, ...newStudents]);
+          setFilteredStudents([...students, ...newStudents]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    if (file) {
+      reader.readAsArrayBuffer(file);
+    }
+  };
+
   const closeModal = () => {
     window.location.reload();
     setShowModal(false);
@@ -51,7 +96,7 @@ export default function Student() {
     const { name, value } = e.target;
     setNewStudent((prevStudent) => ({
       ...prevStudent,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -89,7 +134,7 @@ export default function Student() {
         setNewStudent({
           name: '',
           acclass_id: '',
-          department_id: ''
+          department_id: '',
         });
         setShowModal(false);
       })
@@ -150,6 +195,16 @@ export default function Student() {
           </button>
         </div>
         <div>
+        <div className="AddFromExcel_btn btn" onClick={handleAddFromExcelClick}>
+            + Add from Excel
+          </div>
+          <input
+            id="fileInput"
+            type="file"
+            accept=".xlsx"
+            style={{ display: 'none' }}
+            onChange={handleFileUpload}
+          />
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div>

@@ -118,17 +118,17 @@ transform: scale(0.99);
   
 
 .Add_btn {
-    background-color: #31A4E5;
-    height: 30px;
-    width: max-content;
     padding: 0 10px;
-    line-height: 30px;
-    border-radius: 5px;
     font-size: 14px;
-    color: #fff;
     font-weight: 600;
     margin-right: 30px;
-    cursor: pointer;
+}
+
+.AddFromExcel_btn {
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 20px;
 }
 .Edit_btn_wrapper {
     display: flex;
@@ -138,16 +138,6 @@ transform: scale(0.99);
     padding: 5px;
 }
 
-.Edit_btn {
-    background-color: #31A4E5;
-    color: #fff;
-    width: max-content;
-    height: 30px;
-    line-height: 30px;
-    display: -webkit-inline-box;
-    border-radius: 5px;
-    cursor: pointer;
-}
 .List_Title {
     display: table-header-group;
     vertical-align: middle;
@@ -158,6 +148,11 @@ transform: scale(0.99);
     background-color: #31A4E5;
     height: 60px;
     line-height: 60px;
+}
+
+.List_Title th,
+.List_Title td {
+    padding: 5px;
 }
 .Manage_Info {
     display: table-row-group;
@@ -199,6 +194,16 @@ td:nth-child(3) {
     margin: 10px 5px;
 }
 
+.btn {
+    background-color: #31A4E5;
+    color: #fff;
+    width: max-content;
+    height: 30px;
+    line-height: 30px;
+    display: -webkit-inline-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .btn:hover {
     opacity: 0.8;
     transition-duration: 0.3s;
