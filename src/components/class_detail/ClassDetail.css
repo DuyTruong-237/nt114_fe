@@ -8,26 +8,38 @@
     background-color: aliceblue;
     position: relative;
     z-index: 1;
-    height: 100%;
-    
+    height: 80%;
     display: flex;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    bottom: 0;
    
+  
+    padding-bottom: 0px;
+    bottom: 0;
 }
 .groub-contentView{
     background-color: rgba(red, green, blue, 0.0);
-    padding-top:70% ;
+    padding-top:55% ;
 }
 .class-item{
-    
-    justify-content: center;
+    border-right: 20px solid #FF7B54;
    
+    border-top: 20px solid #FF7B54 ;
+    border-bottom: 20px solid #FF7B54 ;
+    border-radius: 20px;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+    justify-content: center;
+    transform: translate(0%, -10%);
+    transition: left 1s ease;
+    left: -100%;
+    height: 20%;
+    margin-right: 50px;
     margin-top: 200px;
     width: 40%;
    
 }
+.contentView.open .class-item {
+    left: 0; /* Hiển thị navigation tại vị trí ban đầu */
+  }
 .class-title{
     font-size: 150px;
     display: flex;
@@ -40,8 +52,15 @@
     justify-content: center;
 }
 .class-list-courses{
-    height: 1000px;
+    margin-top: 100px;
+    margin-left: 10px;
+    height: 800px;
     width: 60%;
+    border-radius: 20px;
+    border-left: 20px solid #eabaf8 ;
+   
+    border-top: 20px solid #b90fec ;
+    border-bottom: 20px solid #eabaf8 ;
     overflow: auto;
     scroll-behavior: smooth;
 }
@@ -62,7 +81,7 @@
     position: fixed;
   top: 0;
   left: 0;
-  margin-top: 50px;
+ 
   width: 100%;
   height: 100%;
   
@@ -116,6 +135,7 @@
 .ClassDetail_wrapper{
     width: 100%;
     padding:16px;
+   
     box-sizing: border-box;
 
     
@@ -171,6 +191,18 @@
     margin-left: inherit;
     padding: 3px 50px;
     color: white;
+}
+.courser-item{
+    margin-left: 200px;
+    width: 800px;
+    background-color: #eaeaeb;
+    height: 150px;
+    border-left: 30px solid #ce47f7;
+    transition: transform 0.3s ease,background-color 0.8s ease;
+}
+.courser-item:hover{
+    transform: scale(1.2);
+    background-color: rgb(150, 250, 141);
 }
 @media (min-width: 576px) {
     .List-content {

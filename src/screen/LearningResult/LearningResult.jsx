@@ -1,21 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import TopHeader from '../../components/top_header/TopHeader';
 import SideBar from '../../components/side_bar/SideBar';
 import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
 import LearningResult from '../../components/study_result/StudyResult'
-import './LearningResult.css';
+
 
 export default function LearningResult_scr() {
+  const [isSideBarOpen, setSideBarIsOpen] = useState(false);
+
+  function toggleSidebar() {
+    setSideBarIsOpen(!isSideBarOpen);
+  }
   return (
-    <div className='homeScreen_js'>
+    <div className='homeScreen_js' >
       <div className='Header'>
-        <TopHeader/>
+        <TopHeader toggleSidebar={toggleSidebar}/>
       </div>
       <div className='Body'> 
-        <div className='SideBar'>
-          <SideBar/>
-        </div>
+        {isSideBarOpen && <SideBar />}
         <div className='MainContent'>
           <LearningResult/>
         </div>

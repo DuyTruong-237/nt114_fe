@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import mainlogo from '../../img/mainlogo.png';
 import userimg from '../../img/user.png';
 import './TopHeader.css';
@@ -10,6 +11,7 @@ import MenuIcon from '../../img/menu.png';
 import SideBar from '../side_bar/SideBar';
 
 export default function TopHeader() {
+  const location = useLocation();
   const user = useSelector((state) => state.login?.currentUser);
   const [isOpen, setIsOpen] = useState(false);
   const [isSideBarOpen, setSideBarIsOpen] = useState(false);
@@ -41,7 +43,7 @@ export default function TopHeader() {
   
 
   return (
-    <div className="topheader">
+    <div className={location.pathname === '/'||"class-detail" ? 'home-header' : 'top-header'}>
       {isSideBarOpen && <SideBar/>}
       <div  onClick= {toggleSidebar} className="Menu_btn">
         <img  src={MenuIcon}></img>

@@ -78,7 +78,6 @@ export default function Lecturer() {
       faculty: '',
     });
   };
-
   const handleUpdateButtonClick = (lecturer) => {
     setSelectedLecturer(lecturer);
     setShowUpdateModal(true);
@@ -330,8 +329,8 @@ export default function Lecturer() {
             onDoubleClick={() => handleRowClick(lecturer._id)}
             >
               <td className='lecturerId'>{lecturer.id}</td>
-              <td>{lecturer.name}</td>
-              <td>{lecturer.department_id?.name}</td>
+              <td>{lecturer?.name||""}</td>
+              <td>{lecturer.department_id?.name||""}</td>
               <td>
                 <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(lecturer)}>
                   <img className="Edit_icon" src={EditIcon} alt="" />

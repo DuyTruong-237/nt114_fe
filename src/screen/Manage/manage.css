@@ -1,0 +1,38 @@
+.homeScreen_js{
+    height: 100%;
+  }
+  .Body {
+    padding-top: 66px;
+    min-height: 100%;
+    max-height: none;
+    display: grid;
+    grid-template-columns:  5fr 1fr;
+    width: 100%;
+  }
+  .MainContent{
+    background-color: #F8F9FA;
+    border-radius: 10px;
+    margin: 15px 0px 15px 10px;
+    height: auto;
+    padding-bottom: 30px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .Right-Cont {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .Main-Content {
+      flex-basis: 100%;
+    }
+    .Right-Cont {
+      display: none;
+    }
+  }
