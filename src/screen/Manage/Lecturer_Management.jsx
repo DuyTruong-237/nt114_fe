@@ -4,6 +4,7 @@ import SideBar from '../../components/side_bar/SideBar';
 import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
 import Lecturer from '../../components/manage/Lecturer';
+import "../../screen/Manage/manage.css"
 
 
 export default function Lecturer_Management() {

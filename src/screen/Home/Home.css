@@ -1,17 +1,20 @@
 .homeScreen_js{
   height: 100%;
 }
-.Body {
+.Header-Home {
+  background-color: transparent;
+}
+
+.Body-Home {
   min-height: 100%;
   max-height: none;
   display: grid;
-  grid-template-columns:  5fr 1fr;
+  grid-template-columns:  5fr;
   width: 100%;
 }
-.MainContent{
+.MainContent-Home{
   background-color: #F8F9FA;
   border-radius: 10px;
-  margin: 15px 0px 15px 10px;
   height: auto;
   padding-bottom: 30px;
 }

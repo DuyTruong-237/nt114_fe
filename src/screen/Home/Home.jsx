@@ -15,18 +15,18 @@ export default function Home() {
 
   return (
     <div className='homeScreen_js'>
-      <div className='Header'>
+      <div className='Header-Home'>
         <TopHeader toggleSidebar={toggleSidebar} />
       </div>
-      <div className='Body'>
+      <div className='Body-Home'>
         {isSideBarOpen && <SideBar />}
-        <div className='MainContent'>
+        <div className='MainContent-Home'>
           <MainContent />
         </div>
-        <div className='Right-Cont'>
+        {/* <div className='Right-Cont'>
           <Calendar />
           <Notification />
-        </div>
+        </div> */}
       </div>
     </div>
   );

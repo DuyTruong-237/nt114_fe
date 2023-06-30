@@ -10,17 +10,19 @@ import StudentProfile from '../../components/student_profile/StudentProfile';
 export default function Login() {
   const { id } = useParams();
   const temp = id;
-  
+  const [isSideBarOpen, setSideBarIsOpen] = useState(false);
+
+  function toggleSidebar() {
+    setSideBarIsOpen(!isSideBarOpen);
+  }
 
   return (
     <div className="homeScreen_js">
       <div className="Header">
-        <TopHeader />
+        <TopHeader toggleSidebar={toggleSidebar}/>
       </div>
       <div className="Body">
-        <div className="SideBar">
-          <SideBar />
-        </div>
+        {isSideBarOpen && <SideBar />}
         <div className="MainContent">
          <StudentProfile/>
         </div>

@@ -1,14 +1,13 @@
 
 .SideBar {
     top: 66px;
-    height: 100%;
+    height: 100vh;
     background-color:#002f35c5;
     padding-top: 20px;
     display: inline;
     position: absolute;
     transition: visibility 0.3s ease-in-out;
 }
-
 .SideBar.open {
     visibility: visible;
 }
