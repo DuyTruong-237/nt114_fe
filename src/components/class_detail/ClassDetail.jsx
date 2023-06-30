@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import "./ClassDetail.css"
 import { Link } from 'react-router-dom';
 import axios from '../../redux/axios-interceptor';
-
+import TopHeader from '../../components/top_header/TopHeader';
+import logo from './mainlogo.png'
+import view from './uit1.jpg'
 export default function ClassDetails() {
     const [classes, setClasses] = useState([]);
+    const [isNavOpen, setIsNavOpen] = useState(false);
     useEffect(() => {
         axios
         .get('http://localhost:3001/v1/abc/getAll/subjectclass')
@@ -16,10 +19,61 @@ export default function ClassDetails() {
             console.log(error);
         });
     }, []);
-
+    useEffect(() => {
+        const viewClass = document.querySelector('.naviObject ');
+        if (viewClass) {
+          viewClass.classList.add('open');
+        }
+      }, []);
+      const handleWheel = (e) => {
+        if (e.deltaY > 0) {
+          setIsNavOpen(false);
+        } else if (e.deltaY < 0) {
+          setIsNavOpen(true);
+        }
+      };
+      useEffect(() => {
+        const handleMouseOut = (e) => {
+          const mousePosX = e.clientX;
+    
+          if (mousePosX < window.innerWidth ) {
+            setIsNavOpen(false);
+          }
+        };
+    
+        document.addEventListener('mouseout', handleMouseOut);
+    
+        return () => {
+          document.removeEventListener('mouseout', handleMouseOut);
+        };
+      }, []);
+    
     return (
-        <div>
-            {classes.map(classes => (
+        <div className='ClassDetail_body' onWheel={handleWheel}>
+            
+            <div className='Header-class'>
+        <TopHeader/>
+      </div>
+            <div className='view-class'>
+           
+                <img className='view-item' src={view}/>
+            <div class="overlay"></div>
+            </div>
+            <div className={`naviObject ${isNavOpen ? 'open' : ''}`}>
+                 <div class="navigation">
+                <div className='slogan_message'>“Success is the progressive realization of a worthy goal.”</div> 
+               </div>
+           </div>
+           
+           <div className='groub-contentView'>
+            <div className='contentView'>
+                <div className='class-item'>
+                    <div  className='class-logo-courses'><img src={logo}/></div>
+                    <div className='class-title'> Courses</div>
+                   
+                </div>
+                <div className='class-list-courses'>
+              {classes.map(classes => (
                 <div className="ClassDetail_wrapper">
                     <h1 className="ClassDetail_Header"><strong>{classes.subname} - {classes.subclass_id}</strong></h1>
                     <div id="section-0" className="ClassDetail_Content" role="region" style={{background:"#9dd2f1"}}>
@@ -58,6 +112,10 @@ export default function ClassDetails() {
                     </div>
                 </div>
             ))}
+            </div>
+            </div>
+             </div>
+            
         </div>
         
         

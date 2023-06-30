@@ -1,0 +1,23 @@
+.homeScreen_js-class{
+    width: 100%;
+    position: absolute;
+    background-color: rgb(248, 244, 238);
+    left: 0;
+}
+.Body-class{
+  grid-template-columns:5fr 1fr;
+}
+.Header-class{
+ 
+  z-index: 2;
+  width: 100%;
+}
+.MainContent-class{
+
+}
+.Right-Cont-class{
+  
+}
+.Header-class{
+    
+}

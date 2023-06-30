@@ -3,6 +3,8 @@
    height: 66px;
    background-color: #FF7B54;
    width: 100%;
+   position: fixed;
+   z-index: 2;
 }
 .topHeader-part{
     display: flex;
