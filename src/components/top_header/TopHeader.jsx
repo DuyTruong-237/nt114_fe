@@ -43,7 +43,7 @@ export default function TopHeader() {
   
 
   return (
-    <div className={location.pathname === '/' ? 'home-header' : 'top-header'}>
+    <div className={location.pathname === '/'||"class-detail" ? 'home-header' : 'top-header'}>
       {isSideBarOpen && <SideBar/>}
       <div  onClick= {toggleSidebar} className="Menu_btn">
         <img  src={MenuIcon}></img>
