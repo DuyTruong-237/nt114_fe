@@ -215,3 +215,69 @@ td:nth-child(3) {
     transition-duration: 100ms;
     transform: scale(0.9);
 }
+
+.TempNotification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  
+  .TempNotification-Content {
+    padding: 10px;
+  }
+  
+  .TempNotification-Title {
+    font-weight: bold;
+  }
+  
+  .TempNotification ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .TempTempNotification li {
+    margin-bottom: 5px;
+  }
+  
+  .TempNotification-Close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .TempNotification-Close:hover {
+    opacity: 0.8;
+  }
+  
+  /* Additional styles for better visibility */
+  
+  .TempNotification {
+    color: #333;
+  }
+  
+  .Valid {
+    margin-bottom: 10px;
+  }
+  
+  .Valid .TempNotification-Title {
+    color: green;
+  }
+  
+  .Invalid .TempNotification-Title {
+    color: red;
+  }
+  

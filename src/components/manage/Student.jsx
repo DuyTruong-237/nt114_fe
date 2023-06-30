@@ -24,6 +24,32 @@ export default function Student() {
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
+  const [dataDepartment, setDataDepartment] = useState([]);
+  const [dataAcclass, setDataAcclass] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationData, setNotificationData] = useState({ validStudents: [], invalidStudents: [] });
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/v1/abc/getAll/department')
+      .then((response) => {
+        const dataSelect = response.data;
+        setDataDepartment(dataSelect);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get('http://localhost:3001/v1/abc/getAll/acclass')
+      .then((response) => {
+        const dataAcclass = response.data;
+        setDataAcclass(dataAcclass);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -62,24 +88,60 @@ export default function Student() {
       console.log(jsonData)
       // Thêm sinh viên vào danh sách
       const newStudents = jsonData.map((student) => ({
-        name: student['name'],
-        department_id: student['department_id'],
-        acclass_id: student['acclass_id'],
+        name: student['Họ và tên'],
+        department_id: student['Khoa'],
+        acclass_id: student['Lớp'],
       }));
-      console.log ({ students: newStudents })
-      console.log (newStudents)
-      // Gọi API để thêm sinh viên vào cơ sở dữ liệu
-      axios
-        .post('http://localhost:3001/v1/student/addStudent/', { students: newStudents })
+     
+       // Tạo mảng để chứa các sinh viên đúng
+    const validStudents = [];
+    // Tạo mảng để chứa các sinh viên sai
+    const invalidStudents = [];
+
+    // Lặp qua từng sinh viên trong mảng jsonData
+    jsonData.forEach((student) => {
+      const departmentId = student['Khoa'];
+      const acclassId = student['Lớp'];
+
+      // Kiểm tra giá trị departmentId và acclassId
+      const departmentExists = dataDepartment.some((department) => department._id === departmentId);
+      const acclassExists = dataAcclass.some((acclass) => acclass._id === acclassId);
+      if (departmentExists && acclassExists) {
+        validStudents.push({
+          name: student['Họ và tên'],
+          department_id: departmentId,
+          acclass_id: acclassId,
+        });
+      } else {
+        invalidStudents.push({
+          name: student['Họ và tên'],
+          department_id: departmentId,
+          acclass_id: acclassId,
+        });
+      }
+    });
+      validStudents.map((student)=>{
+        axios
+        .post('http://localhost:3001/v1/student/addStudent/', student)
         .then((response) => {
           console.log(response.data);
           // Cập nhật danh sách sinh viên sau khi thêm thành công
+
           setStudents([...students, ...newStudents]);
           setFilteredStudents([...students, ...newStudents]);
+          setNotificationData({ validStudents, invalidStudents });
+          setShowNotification(true);
+          setTimeout(() => {
+            setShowNotification(false);
+            window.location.reload();
+          }, 10000);
         })
         .catch((error) => {
           console.log(error);
         });
+      })
+      // Gọi API để thêm sinh viên vào cơ sở dữ liệu
+      
     };
 
     if (file) {
@@ -179,6 +241,34 @@ export default function Student() {
 
   return (
     <div className="List_Wrapper">
+      {showNotification && (
+        <div className="TempNotification">
+          <div className="TempNotification-Content">
+            <div className="Valid">
+              <div className="TempNotification-Title">Thêm thành công:</div>
+              <ul>
+                {notificationData.validStudents.map((student, index) => (
+                  <li key={index}>{student.name}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="Invalid">
+              <div className="TempNotification-Title">Thêm thất bại:</div>
+              <ul>
+                {notificationData.invalidStudents.map((student, index) => (
+                  <li key={index}>{student.name}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="TempNotification-Close" onClick={() => {
+            setShowNotification(false)
+            window.location.reload();
+          }}>
+            X
+          </div>
+        </div>
+      )}
       <div className="List_Header">
         <div>DANH SÁCH SINH VIÊN:</div>
       </div>
@@ -195,7 +285,7 @@ export default function Student() {
           </button>
         </div>
         <div>
-        <div className="AddFromExcel_btn btn" onClick={handleAddFromExcelClick}>
+          <div className="AddFromExcel_btn btn" onClick={handleAddFromExcelClick}>
             + Add from Excel
           </div>
           <input
