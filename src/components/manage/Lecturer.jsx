@@ -155,8 +155,8 @@ export default function Lecturer() {
             onDoubleClick={() => handleRowClick(lecturer._id)}
             >
               <td className='lecturerId'>{lecturer.id}</td>
-              <td>{lecturer.name}</td>
-              <td>{lecturer.department_id.name}</td>
+              <td>{lecturer?.name||""}</td>
+              <td>{lecturer.department_id?.name||""}</td>
             </tr>
           ))}
         </tbody>
