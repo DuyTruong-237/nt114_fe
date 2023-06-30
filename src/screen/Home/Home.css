@@ -5,7 +5,7 @@
   min-height: 100%;
   max-height: none;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns:  5fr 1fr;
   width: 100%;
 }
 .MainContent{
@@ -14,10 +14,6 @@
   margin: 15px 0px 15px 10px;
   height: auto;
   padding-bottom: 30px;
-}
-.SideBar {
-  /* z-index: 999; */
-  
 }
 
 .hidden {

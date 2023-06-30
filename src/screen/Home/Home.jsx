@@ -8,28 +8,26 @@ import './Home.css';
 
 export default function Home() {
   const [isSideBarOpen, setSideBarIsOpen] = useState(false);
+
   function toggleSidebar() {
     setSideBarIsOpen(!isSideBarOpen);
   }
+
   return (
     <div className='homeScreen_js'>
       <div className='Header'>
-        <TopHeader toggleSideBar={toggleSidebar}  />
-        
+        <TopHeader toggleSidebar={toggleSidebar} />
       </div>
-      <div className='Body'> 
-  
-        <SideBar isOpen={isSideBarOpen} isDefaultHidden={true} />
+      <div className='Body'>
+        {isSideBarOpen && <SideBar />}
         <div className='MainContent'>
-          <MainContent/>
+          <MainContent />
         </div>
         <div className='Right-Cont'>
-          <Calendar/>
-          <Notification/>
+          <Calendar />
+          <Notification />
         </div>
       </div>
-      
-      
     </div>
-  )
+  );
 }

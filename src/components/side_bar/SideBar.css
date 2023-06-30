@@ -1,10 +1,11 @@
 
 .SideBar {
-   height: auto;
-   background-color:#002f35c5;
-   padding-top: 20px;
-   display: inline;
-   visibility: hidden;
+    top: 66px;
+    height: 100%;
+    background-color:#002f35c5;
+    padding-top: 20px;
+    display: inline;
+    position: absolute;
     transition: visibility 0.3s ease-in-out;
 }
 
