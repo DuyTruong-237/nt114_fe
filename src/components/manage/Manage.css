@@ -96,6 +96,7 @@ transform: scale(0.99);
 
 .loading-spinner {
     display: flex;
+    
     align-items: center;
     justify-content: center;
     height: 100%;

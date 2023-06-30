@@ -1,6 +1,8 @@
 
 import './App.css';
-
+import React, { useState } from 'react';
+import Header from './components/top_header/TopHeader';
+import SideBar from './components/side_bar/SideBar';
 import DepartmentManagement from './screen/Manage/Department_Management';
 import Profile from './screen/Profile/Profile';
 import Inbox from './screen/Inbox/Inbox';
@@ -17,6 +19,8 @@ import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
 import Faculty from './components/faculty/Faculty';
 function App() {
 
+  
+
   return (
    
     <div className='app_js'>
@@ -32,7 +36,7 @@ function App() {
         <Route path='/lecturer' element={<LecturerManagement/>}/>
         <Route path='/department' element={<DepartmentManagement/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
-        <Route path='/learning-result' element={<LearningResult/>}/>
+        <Route path='/learning-result/:role/:id' element={<LearningResult/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>
         <Route path='/forgotpassword' element={<ForgotPassword/>}/>
       </Routes>

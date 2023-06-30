@@ -28,11 +28,14 @@ const expirationDate = new Date().getTime() + expiresIn30Seconds;
       // Gọi API login
       axios.post('http://localhost:3001/v1/user/login', credentials)
         .then((response) => {
-           
+         
           const token = response.data.token;
           const user= response.data.user;
+          let idObject;
           // Lưu token vào cookie hoặc local storage
           // ...
+          
+         
           console.log(user)
           //document.cookie =("token="+token);
           //setCookie("tokens", token, 7);

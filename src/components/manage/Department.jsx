@@ -28,6 +28,7 @@ export default function Department() {
       .get('http://localhost:3001/v1/depart/getAllDepartment/')
       .then((response) => {
         const departments = response.data;
+        console.log(departments)
         setDepartments(departments);
         setFilteredDepartments(departments);
         setLoading(false);

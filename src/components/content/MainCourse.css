@@ -48,8 +48,8 @@
     margin: 0px 5px;
 }
 .Course {
-    width: 290px;
-    height: 135px;
+    /* width: 290px;
+    height: 135px; */
     border-radius: 10px;
     margin-top: 24px;
     cursor: pointer;

@@ -5,10 +5,9 @@ import Calendar from  '../../components/calendar/calendar';
 import Notification from '../../components/notification/Notification';
 import Student from '../../components/manage/Student';
 
-
 export default function Student_Management() {
   return (
-    <div className='homeScreen_js'>
+    <div className='homeScreen_js' >
       <div className='Header'>
         <TopHeader/>
       </div>

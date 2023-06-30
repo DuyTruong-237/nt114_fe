@@ -1,12 +1,17 @@
 
 .SideBar {
-   width: 15%;
    height: auto;
    background-color:#002f35c5;
    padding-top: 20px;
    display: inline;
-
+   visibility: hidden;
+    transition: visibility 0.3s ease-in-out;
 }
+
+.SideBar.open {
+    visibility: visible;
+}
+
 .SideBar-item{
     display: flex;
     margin: 15px;
@@ -26,6 +31,10 @@
 }
 .SideBar-item:hover .SideBar-title-text {
   color: #FF7B54;
+}
+
+.hidden {
+    display: none;
 }
 
 .icon-img {
