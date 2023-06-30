@@ -29,7 +29,7 @@ export default function Login() {
         <div className="container">
           <div className="left">
             <div className="textlogin"><b>LOGIN</b></div>
-            <div className="slogan">Hello! Welcome to Hogwart.</div>
+            <div className="slogan-login">Hello! Welcome to Hogwart.</div>
 
       <div className="page">
         <div className="form">
