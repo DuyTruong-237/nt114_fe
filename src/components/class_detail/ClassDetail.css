@@ -9,25 +9,28 @@
     position: relative;
     z-index: 1;
     height: 100%;
-    
     display: flex;
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     bottom: 0;
-   
 }
 .groub-contentView{
     background-color: rgba(red, green, blue, 0.0);
-    padding-top:70% ;
+    padding-top:55% ;
 }
 .class-item{
-    
+    position: relative;
     justify-content: center;
-   
+    transform: translate(0%, -10%);
+    transition: left 1s ease;
+    left: -100%;
     margin-top: 200px;
     width: 40%;
    
 }
+.contentView.open .class-item {
+    left: 0; /* Hiển thị navigation tại vị trí ban đầu */
+  }
 .class-title{
     font-size: 150px;
     display: flex;
@@ -171,6 +174,18 @@
     margin-left: inherit;
     padding: 3px 50px;
     color: white;
+}
+.courser-item{
+    margin-left: 100px;
+    width: 800px;
+    background-color: #d8d9da;
+    height: 150px;
+    border-left: 30px solid #ae10df;
+    transition: transform 0.3s ease,background-color 0.8s ease;
+}
+.courser-item:hover{
+    transform: scale(1.2);
+    background-color: antiquewhite;
 }
 @media (min-width: 576px) {
     .List-content {
