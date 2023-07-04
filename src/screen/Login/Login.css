@@ -129,6 +129,10 @@
   color: #FF7B54;
 }
 
+.message a:hover{
+  opacity: 0.8;
+}
+
 body {
   background: #D1D9D3;
   display: flex;
