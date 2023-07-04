@@ -40,6 +40,7 @@ export default function MainCourse() {
             Your browser does not support the video tag.
         </video>
       </div>
+      <div className='test1'>hdfgdh</div>
         {/* <div className='Courses_Wrapper'>
             <div className='Course Gryffindor'>
                 <div className='Course_Title'>
