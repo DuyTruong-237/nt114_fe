@@ -15,7 +15,7 @@ export default function AddLecturer({
   addLecturer
 }) {
   const [dataDepartment, setData] = useState([]);
-  const [dataAcclass, setDataClass] = useState([]);
+  // const [dataAcclass, setDataClass] = useState([]);
   useEffect(() => {
     axios
       .get('http://localhost:3001/v1/abc/getAll/department')
@@ -27,15 +27,15 @@ export default function AddLecturer({
       .catch((error) => {
         console.log(error);
       });
-      axios
-      .get('http://localhost:3001/v1/abc/getAll/acclass')
-      .then((response) => {
-        const dataAcclass = response.data;
-        setDataClass(dataAcclass)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      // axios
+      // .get('http://localhost:3001/v1/abc/getAll/acclass')
+      // .then((response) => {
+      //   const dataAcclass = response.data;
+      //   setDataClass(dataAcclass)
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
   }, []);
   return (
     <div className="modal">
@@ -62,16 +62,17 @@ export default function AddLecturer({
           value={newLecturer.department_id}
           onChange={handleChange}
           >
-             {dataDepartment.map(data =>(<option value={data._id}>{data.name}</option>))}
+            <option value="">Select</option>
+            {dataDepartment.map(data =>(<option value={data._id}>{data.name}</option>))}
         </select>
-        <label>Falculty</label>
+        {/* <label>Falculty</label>
         <input
           type="text"
           placeholder="Falculty"
           name="faculty"
           value={newLecturer.faculty}
           onChange={handleChange}
-        />
+        /> */}
         <button onClick={addLecturer}>Add</button>
       </div>
     </div>

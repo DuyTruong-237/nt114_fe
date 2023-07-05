@@ -39,7 +39,7 @@ export default function Login() {
             <div>Password</div>
             <input type="password" className="login_details" placeholder="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button class="buttonLogin"  onClick={handleLogin} disabled={loginState.loading}><b>LOG IN</b></button>
-            <div className="message">Forgot your password? <a href=" ">Forgot password</a></div>
+            <div className="message">Forgot your password? <Link to="/forgotpassword">Forgot password</Link></div>
           </div>
         </div>
       </div>

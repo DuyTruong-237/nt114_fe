@@ -3,6 +3,8 @@
 }
 .Header-Home {
   background-color: transparent;
+  position: fixed;
+  z-index: 3;
 }
 
 .Body-Home {

@@ -102,7 +102,7 @@ export default function AddStudent({
               <option value="">Select</option>
              {dataDepartment.map(data =>(<option value={data._id}>{data.name}</option>))}
         </select>
-        <div>{newData.name || "abc"}</div>
+        <div>{newData.name || ""}</div>
         <button onClick={addStudent}>Add</button>
       </div>
     </div>

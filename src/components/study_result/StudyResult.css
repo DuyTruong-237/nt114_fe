@@ -54,4 +54,6 @@
 
 .Student_Result_Table td:nth-child(1){
     background-color: #9dd2f1;
+    min-height: 20px;
+    min-width: 20px;
 }

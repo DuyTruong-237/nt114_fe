@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import mainlogo from '../../img/mainlogo.png';
 import userimg from '../../img/user.png';
 import './TopHeader.css';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -15,6 +15,25 @@ export default function TopHeader() {
   const user = useSelector((state) => state.login?.currentUser);
   const [isOpen, setIsOpen] = useState(false);
   const [isSideBarOpen, setSideBarIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const scrollThreshold = 700; // Độ dài cuộn (px) khi màu nền thay đổi
+
+    if (scrollPosition > scrollThreshold) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   function handleUserImgClick() {
     setIsOpen(!isOpen);
@@ -37,18 +56,20 @@ export default function TopHeader() {
   function handleLogoClick() {
     navigate('/');
   }
+
   function toggleSidebar() {
     setSideBarIsOpen(!isSideBarOpen);
   }
-  
+
+  let headerClass = location.pathname === '/' || location.pathname === '/class-detail' ? 'home-header' : 'top-header';
 
   return (
-    <div className={location.pathname === '/'||"class-detail" ? 'home-header' : 'top-header'}>
-      {isSideBarOpen && <SideBar/>}
-      <div  onClick= {toggleSidebar} className="Menu_btn">
-        <img  src={MenuIcon}></img>
+    <div className={`${headerClass} ${isScrolled ? 'scrolled' : ''}`}>
+      {isSideBarOpen && <SideBar />}
+      <div onClick={toggleSidebar} className="Menu_btn">
+        <img src={MenuIcon} alt="Menu" />
       </div>
-      
+
       <div onClick={handleLogoClick} className="topHeader-part">
         <img className="Header_Logo" src={mainlogo} alt="logo" />
         <div className="nameapp">Hogwart</div>
@@ -59,8 +80,8 @@ export default function TopHeader() {
             <div className="topHeader-user-username">{user.userName || ''}</div>
             <img
               className="topHeader-userimg"
-              src={user.avatar? "http://localhost:3001/uploads/"+user.avatar : userimg}
-              alt="logo"
+              src={user.avatar ? "http://localhost:3001/uploads/" + user.avatar : userimg}
+              alt="avatar"
               onClick={handleUserImgClick}
             />
           </>
@@ -72,7 +93,7 @@ export default function TopHeader() {
 
         {isOpen && (
           <div className="dropdown-menu">
-            <a href={"profile/myprofile/"+user.idUser} className="dropdown-item">
+            <a href={`profile/myprofile/${user.idUser}`} className="dropdown-item">
               <i className="fas fa-id-card" aria-hidden="true"></i>
               Hồ sơ
             </a>
@@ -91,7 +112,6 @@ export default function TopHeader() {
           </div>
         )}
       </div>
-     
     </div>
   );
 }
