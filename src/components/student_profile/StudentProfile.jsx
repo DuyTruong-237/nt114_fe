@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from '../../redux/axios-interceptor';
 import { Link } from 'react-router-dom';
-
+import { useDropzone } from 'react-dropzone';
 
 export default function StudentProfile() {
   let url;
@@ -15,6 +15,7 @@ export default function StudentProfile() {
   const [student, setStudent] = useState(null);
   const [editable, setEditable] = useState(false); // Thêm state để theo dõi chế độ chỉnh sửa
   let mainavatar="";
+
   if (role == "student" ) {
     url = `http://localhost:3001/v1/student/getStudent/`;
   }
@@ -45,7 +46,23 @@ export default function StudentProfile() {
         console.log(error);
       });
   }, [id]);
+const onDrop = async (acceptedFiles) => {
+    const file = acceptedFiles[0];
 
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    try {
+      const response = await axios.post('http://localhost:3001/v1/user/updateUser/'+student.id, formData, {
+       
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   if (!student) {
     return <div>Loading...</div>;
   }
@@ -54,8 +71,9 @@ export default function StudentProfile() {
 
     <div className='Profile_wrapper'>
         <div className='Title'>THÔNG TIN {(role == "student") ? "SINH VIÊN" : "GIẢNG VIÊN" }</div>
-        <div className='Student_wrapper'>
-            <img className='Avatar_Profile' src={"http://localhost:3001/uploads/"+student.id} alt="Avatar Profile"/>
+        <div className='Student_wrapper' {...getRootProps()}>
+            <img  className='Avatar_Profile' src={"http://localhost:3001/uploads/"+student.idUser} alt="Avatar Profile"/>
+          <div {...getInputProps()}></div>
             <div className='Name_ID_wrapper'>
                 <div className='Student_name'>{student.name}</div>
                 <div className='Student_ID'>{student.id} | Sinh viên</div>

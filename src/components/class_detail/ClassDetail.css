@@ -52,13 +52,13 @@
     justify-content: center;
 }
 .class-list-courses{
-   
+   margin-top: 100px;
     padding-bottom: 200px;
     flex-wrap: wrap;
     height: auto;
     width: 100%;
     border-radius: 20px;
-    background-color: #adadb3;
+    background-color: #eaeaeb;
     transform: translate(0%, -10%);
     transition: right 1s ease;
     right: -100%;
@@ -92,8 +92,12 @@
   
 }
 .class-cliss{
-    height: 200px;
+    height: 100px;
     font-size: 100px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+   display: flex;
     background-color: #FF7B54;
     border-top-left-radius:20px ;
     border-top-right-radius: 20px;
@@ -146,7 +150,7 @@
 .ClassDetail_wrapper{
     width: 100%;
    
-   background-color: #adadb3;
+   background-color: #eaeaeb;
     box-sizing: border-box;
    
         
@@ -163,9 +167,9 @@
 
 
 .courser-item{
-    margin-left: 150px;
+    margin-left: 200px;
     width: 800px;
-    background-color: #eaeaeb;
+    background-color: #c9c9ca;
     height: 150px;
     border-left: 30px solid #ce47f7;
     transition: transform 0.3s ease,background-color 0.8s ease;
