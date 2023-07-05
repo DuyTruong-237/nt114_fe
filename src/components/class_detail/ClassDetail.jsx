@@ -1,25 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import "./ClassDetail.css"
-import { Link } from 'react-router-dom';
+import {Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from '../../redux/axios-interceptor';
 import TopHeader from '../../components/top_header/TopHeader';
 import logo from './mainlogo.png'
+import { useSelector } from 'react-redux';
 import view from './uit1.jpg'
 export default function ClassDetails() {
+  const user= useSelector((state)=> state.login?.currentUser);
     const [classes, setClasses] = useState([]);
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [istitOpen, setIsTitOpen] = useState(false);
-    useEffect(() => {
-        axios
-        .get('http://localhost:3001/v1/abc/getAll/subjectclass')
-        .then(response => {
-            const classes = response.data;
-            setClasses(classes);
+    const [student, setStudent] = useState([]);
+    let idstudent;
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/v1/student/getStudentID/' + user.idUser)
+      .then((response) => {
+      
+        const newData = response.data;
+       
+        setStudent(newData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+ 
+  useEffect(() => {
+    if (student._id) {
+      axios
+        .get('http://localhost:3001/v1/abc/getInfoByID/core/' + student._id)
+        .then((response) => {
+          const classes = response.data;
+          console.log(classes)
+          setClasses(classes);
         })
-        .catch(error => {
-            console.log(error);
+        .catch((error) => {
+          console.log(error);
         });
-    }, []);
+    }
+  }, [student]);
+    // useEffect(() => {
+    //     axios
+    //     .get('http://localhost:3001/v1/abc/getInfoByID/core/' + idstudent)
+    //     .then(response => {
+    //         const classes = response.data;
+    //         console.log(classes)
+    //         setClasses(classes);
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     });
+    // }, []);
     // useEffect(() => {
     //     const viewClass = document.querySelector('.naviObject ');
     //     const viewContent = document.querySelector('.contentView ');
@@ -49,6 +83,9 @@ export default function ClassDetails() {
       //         console.log('Element is visible on the screen!');
       //     }
       // }, []);
+      const handleRowClick = (classId) => {
+        navigate(`/classInfo/${classId}`);
+      };
       useEffect(() => {
         const elementToObserve = document.querySelector('.naviObject');
     
@@ -148,55 +185,28 @@ export default function ClassDetails() {
            </div>
            
            <div className='groub-contentView'>
+           
             <div className={`contentView ${istitOpen ? 'open' : ''}`} >
                 <div className='class-item'>
                     <div  className='class-logo-courses'><img src={logo}/></div>
                     <div className='class-title'> Courses</div>
                    
                 </div>
-                <div className='class-list-courses'>
+                
+                <div className={`class-list-courses ${istitOpen ? 'open' : ''}`}>
+                  <div className='class-cliss'>Class list</div>
               {classes.map(classes => (
                 <div className="ClassDetail_wrapper">
-                  <div className='courser-item'><h1 className="ClassDetail_Header"><strong>{classes.subname} - {classes.subclass_id}</strong></h1></div>
+                  <Link to={"/classInfo/"+classes.subject_class?._id}><div className='courser-item' ><h1 className="ClassDetail_Header"><strong>{classes.subject_class?.subname||""} -</strong></h1></div></Link>
                     
-                    {/* <div id="section-0" className="ClassDetail_Content" role="region" style={{background:"#9dd2f1"}}>
-                        <ul className="List-content">
-                            <li className="List-item">
-                            <a class="Item-title" href="https://courses.uit.edu.vn/mod/forum/view.php?id=157905">
-                                <img src="https://courses.uit.edu.vn/theme/image.php/classic/forum/1667485444/icon" 
-                                class="activityicon" alt=""
-                                />
-                                Các thông báo
-                            </a>
-                            </li>
-                        </ul>              
-                    </div>
-                    <div id="section-1" className="ClassDetail_Content" role="region" style={{background:"#9dd2f1"}}>
-                        <h3 className="Content-title">
-                                    Chủ đề 1
-                                </h3>
-                            <ul className="List-content">
-                                
-                                <li className="List-item">
-                                    <a class="Item-title" href="https://courses.uit.edu.vn/mod/quiz/view.php?id=116233">
-                                    <img src="https://courses.uit.edu.vn/theme/image.php/classic/quiz/1667485444/icon"
-                                    class="iconlarge activityicon" alt=""/>
-                                    Bài kiểm tra đầu khóa
-                                    </a>
-                                </li>
-                                <li className="List-item">
-                                    <a class="Item-title" href="https://courses.uit.edu.vn/mod/assign/view.php?id=114608">
-                                    <img src="https://courses.uit.edu.vn/theme/image.php/classic/assign/1667485444/icon"
-                                    class="activityicon" alt=""/>
-                                    Nộp bài tập ôn tập chương 1
-                                    </a>
-                                </li>
-                            </ul>
-                    </div> */}
+                    
                 </div>
             ))}
             </div>
             </div>
+           
+            
+            
              </div>
             
         </div>

@@ -17,15 +17,16 @@ import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import LecturerManagement from './screen/Manage/Lecturer_Management';
 import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
 import Faculty from './components/faculty/Faculty';
+import ClassInfo from './screen/classinfo/classInfo'
 function App() {
 
-  
 
   return (
    
     <div className='app_js'>
       <BrowserRouter>
       <Routes>
+        
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/noti/:id' element={<ReadingScreen/>} />
@@ -39,6 +40,7 @@ function App() {
         <Route path='/learning-result/:role/:id' element={<LearningResult/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>
         <Route path='/forgotpassword' element={<ForgotPassword/>}/>
+        <Route path='/classInfo/:classID' element={<ClassInfo/>}/>
       </Routes>
       </BrowserRouter>
     </div>

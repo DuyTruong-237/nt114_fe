@@ -1,0 +1,94 @@
+.classInfo-Background{
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    background-color: #fff;
+   min-height: 100%;
+    border-radius: 20px;
+    padding-bottom: 30px;
+}
+.ClassDetail_Content{
+    margin: 0  10%;
+    border: 1px solid #b4b1b1;
+}
+.logoCourse{
+    width: 80px;
+    height: 80px;
+    margin-left: 45%;
+}
+.classInfo-classname{
+
+    font-size: 4rem;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.title-logo{
+    width: 30%;
+    
+    margin-left: 20px;
+    display: flex;
+    background-color: #FF7B54;
+    padding: 10px 0;
+    border-top-right-radius:30px ;
+    border-bottom-right-radius: 30px;
+}
+.classInfo-title{
+    font-size: 50px;
+    margin-left: 20px;
+    justify-content: flex-end;
+    margin-top: 5px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+.ClassDetail_Content {
+    border-bottom: 1px solid #cad6e2;
+    margin-top: 30px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 18px;
+    border-radius: 10px;
+    border-left-style: solid;
+    border-left-color: #e4eff5;
+    
+}
+
+.List-content {
+    list-style: none;
+    margin:16px;
+}
+
+.List-item {
+    cursor: pointer;
+    padding: 0.2em;
+    clear: both;
+}
+.Item-title {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    background-color: transparent;
+}
+.activityicon {
+    margin-right: 6px;
+    vertical-align: text-bottom;
+}
+.Item-title:hover {
+    color: rgb(77, 72, 72);
+    text-decoration: underline;
+}
+.Content-title {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    margin-top: 5px;
+    font-size: 1.640625rem;
+    
+    padding: 3px 50px;
+    color: #000;
+}
+.header-doc{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    margin-bottom: 20px;
+}
