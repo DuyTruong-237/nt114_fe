@@ -1,128 +1,103 @@
-.MainCourse_Title {
-    font-size: 40px;
-    font-weight: 400;
-    margin-left: 20px;
-    margin-top: 20px;
+.MainCourse {
+    height: 100%;
 }
-.MainCourse_Search {
-    justify-content: center;
+.slogan_message {
+    color: #fff;
+    font-size: 60px;
     display: flex;
+    margin-left: 55%;
+    width: 40%;
+    margin-top: 10%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
 }
-.Searchbar {
-    height: 50px;
-    width: 323px;
-    box-sizing: border-box;
-    border: 3px solid #0A7ACC;
-    margin: 30px 0px;
-    border-radius: 5px 0px 0px 5px;
-}
-.Searchbar-input{
-    height: 95%;
+.slogan_message.visible {
+    transform: translateX(0%);
+    transition: transform 0.5s ease;
+  }
+
+.navigation_Home {
+    height: 100%;
     width: 100%;
-    border: none;
-    outline: none;
-    font-size:larger;
-    padding-left: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%); 
+    z-index: 2;
+    transition: left 1s ease;
+  }
+.naviObject_Home {
+    height: 100%;
+    width: 70%;
+    top: -100%;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+}
+.naviObject_Home.scrolled .navigation_Home{
+    width: 150%;
+    transition: left 0.5s ease;
+    
 }
 
-.Searchbox {
-    height: 50px;
-    width: 50px;
-    box-sizing: border-box;
-    background-color: #0A7ACC;
-    margin: 30px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0px 5px 5px 0px;
-}
-.Searching {
-    height: 28px;
+.naviObject_Home.open .navigation_Home{
+    left: 0; 
 }
 
-.Courses_Wrapper {
-    display: grid;
-    grid-template: auto/ auto auto auto;
-    column-gap: 20px;
-    justify-content: center;
-    margin: 0px 5px;
-}
-.Course {
-    /* width: 290px;
-    height: 135px; */
-    border-radius: 10px;
-    margin-top: 24px;
-    cursor: pointer;
-}
-.Course:hover {
-    transition-duration: 0.3s;
-    transform: scale(1.1);
-}
+.scroll-content {
+    display: none;
+    color: #fff;
+    font-size: 50px;
+    margin-left: 500px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .naviObject_Home.scrolled .scroll-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .video-container {
-    width: 100%;
-    height: 100%;
     position: fixed;
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
+    z-index: 1; 
     border: none;
 }
   
-  .video-container video {
+  
+.video-container video {
     width: 100%;
     height: 100%;
+    
     object-fit: cover;
 }
-  
-.Gryffindor {
-    background-color: #DA4949;
+
+.content-wrapper {
+    position: relative;
+    margin-top: 100vh;
+  }
+
+.content-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
 }
-.Ravenclaw {
-    background-color: #31A4E5;
+
+.content-section h2 {
+    transform: translateX(-100%);
+    transition: transform 1s ease;
 }
-.Slytherin {
-    background-color: #367E18;
-}
-.Hufflebuff {
-    margin-top: 24px;
-    background-color: #F4BF39;
-}
-.Course_Title {
-    font-size: 25px;
-    font-weight: 600;
-    color: #fff;
-    margin-left: 15px;
-    margin-top: 5px;
-}
-.Course_Lecturer {
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    margin-top: 15px;
-    margin-left: 15px;
-}
-.Course_Icon {
-    text-align: right;
-}
-.Icon-img {
-    height: 55px;
-    margin-right: 10px;
-}
-@media only screen and (max-width: 1024px) {
-    
-    .Courses_Wrapper {
-        display: grid;
-        grid-template: auto/ auto auto;
-        column-gap: 20px;
-        justify-content: center;
-    }
-    .Searchbar
-    {
-        flex-grow: 1;
-        margin-left: 10px;
-    }
-    .Searchbox
-    {
-        margin-right: 10px;
-    }
+
+.content-section.open h2 {
+    transform: translateX(0);
 }

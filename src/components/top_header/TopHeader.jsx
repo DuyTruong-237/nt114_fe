@@ -26,7 +26,7 @@ export default function TopHeader() {
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
-    const scrollThreshold = window.innerHeight / 2; // Độ dài cuộn (px) khi màu nền thay đổi
+    const scrollThreshold = 700; // Độ dài cuộn (px) khi màu nền thay đổi
 
     if (scrollPosition > scrollThreshold) {
       setIsScrolled(true);

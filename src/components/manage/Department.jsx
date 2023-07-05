@@ -190,7 +190,9 @@ export default function Department() {
               <td>{department.dean || ''}</td>
               <td>{department.des || ''}</td>
               <td>
-                <button className='Update_btn' onClick={() => handleUpdateButtonClick(department)}>Update</button>
+                <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(department)}>
+                  <img className="Edit_icon" src={Editicon} alt="" />
+                </div>
               </td>
             </tr>
           ))}
