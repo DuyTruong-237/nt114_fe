@@ -48,7 +48,6 @@ export default function StudentProfile() {
   }, [id]);
 const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
-
     const formData = new FormData();
     formData.append('avatar', file);
 
@@ -56,8 +55,9 @@ const onDrop = async (acceptedFiles) => {
       const response = await axios.post('http://localhost:3001/v1/user/updateUser/'+student.id, formData, {
        
       });
-
-      console.log(response.data);
+      
+      
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -70,13 +70,13 @@ const onDrop = async (acceptedFiles) => {
   return (
 
     <div className='Profile_wrapper'>
-        <div className='Title'>THÔNG TIN {(role == "student") ? "SINH VIÊN" : "GIẢNG VIÊN" }</div>
+        <div className='Title'>THÔNG TIN {user?.position=="student"? "SINH VIÊN" : "GIẢNG VIÊN" }</div>
         <div className='Student_wrapper' {...getRootProps()}>
             <img  className='Avatar_Profile' src={"http://localhost:3001/uploads/"+student.idUser} alt="Avatar Profile"/>
           <div {...getInputProps()}></div>
             <div className='Name_ID_wrapper'>
                 <div className='Student_name'>{student.name}</div>
-                <div className='Student_ID'>{student.id} | Sinh viên</div>
+                <div className='Student_ID'>{student.id} |{role=="myprofile"? (user?.position=="student"? "Sinh viên":"Giảng viên"):(role=="student"? "Sinh viên":"Giảng viên")} {}</div>
             </div> 
         </div>
         <div className='Info_Wrapper'>

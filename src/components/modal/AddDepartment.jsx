@@ -34,7 +34,7 @@ export default function AddDepartment({
         <input
           type="text"
           placeholder="Dean"
-          name="class"
+          name="dean"
           value={newDepartment.class}
           onChange={handleChange}
         />
@@ -42,7 +42,7 @@ export default function AddDepartment({
         <input
           type="text"
           placeholder="Description"
-          name="faculty"
+          name="des"
           value={newDepartment.faculty}
           onChange={handleChange}
         />
