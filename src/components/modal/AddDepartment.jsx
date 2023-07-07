@@ -8,9 +8,9 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
 export default function AddDepartment({
   closeAddModal,
-  newStudent,
+  newDepartment,
   handleChange,
-  addStudent
+  addDepartment
 }) {
   return (
     <div className="modal">
@@ -27,7 +27,7 @@ export default function AddDepartment({
           type="text"
           placeholder="Name"
           name="name"
-          value={newStudent.name}
+          value={newDepartment.name}
           onChange={handleChange}
         />
         <label>Trưởng Khoa</label>
@@ -35,7 +35,7 @@ export default function AddDepartment({
           type="text"
           placeholder="Dean"
           name="dean"
-          value={newStudent.class}
+          value={newDepartment.class}
           onChange={handleChange}
         />
         <label>Mô tả</label>
@@ -43,10 +43,10 @@ export default function AddDepartment({
           type="text"
           placeholder="Description"
           name="des"
-          value={newStudent.faculty}
+          value={newDepartment.faculty}
           onChange={handleChange}
         />
-        <button onClick={addStudent}>Add</button>
+        <button onClick={addDepartment}>Add</button>
       </div>
     </div>
   );

@@ -83,6 +83,7 @@ export default function Department() {
           faculty: ''
         });
         setShowAddModal(false);
+        window.location.reload();
       })
       .catch((error) => {
         // Xử lý phản hồi từ server khi có lỗi
@@ -158,9 +159,6 @@ export default function Department() {
         </div>
         <div>
         {user?.position=="admin"? <> 
-         <div className="Edit_btn btn">
-            <img className="Edit_icon" src={Editicon} alt="" />
-          </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div></>:""}
@@ -207,9 +205,9 @@ export default function Department() {
       {showAddModal && (
         <AddDepartment
           closeAddModal={closeAddModal}
-          newStudent={newDepartment}
+          newDepartment={newDepartment}
           handleChange={handleChange}
-          addStudent={addDepartment}
+          addDepartment={addDepartment}
         />
       )}
 
