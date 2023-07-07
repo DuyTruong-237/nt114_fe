@@ -191,8 +191,8 @@ export default function Department() {
               onDoubleClick={() => handleRowClick(department._id)}
             >
               <td className="departmentId">{department.name}</td>
-              <td>{department.dean || ''}</td>
-              <td>{department.des || ''}</td>
+              <td>{department?.dean?.name || ''}</td>
+              <td>{department?.des || ''}</td>
               <td>
                 <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(department)}>
                   <img className="Edit_icon" src={Editicon} alt="" />
