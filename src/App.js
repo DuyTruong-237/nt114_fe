@@ -17,24 +17,25 @@ import SubjectManagement from './screen/SubjectManagement/Subject_Management';
 import LecturerManagement from './screen/Manage/Lecturer_Management';
 import ForgotPassword from './screen/ForgotPassword/ForgotPassword';
 import Faculty from './components/faculty/Faculty';
+import Notfound from './screen/404/notfound';
+import { useSelector } from 'react-redux';
 import ClassInfo from './screen/classinfo/classInfo'
 function App() {
-
+  const user = useSelector((state) => state.login?.currentUser);
 
   return (
    
     <div className='app_js'>
       <BrowserRouter>
       <Routes>
-        
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={ <Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/noti/:id' element={<ReadingScreen/>} />
         <Route path='/faculty/:id' element={<Faculty/>} />
         <Route path='/profile/:role/:id' element={<Profile/>}/>
         <Route path='/inbox' element={<Inbox/>}/>
-        <Route path='/student' element={<StudentManagement/>}/>
-        <Route path='/lecturer' element={<LecturerManagement/>}/>
+        <Route path='/student' element={user?.position=="admin"? <StudentManagement/>: <Notfound/>}/>
+        <Route path='/lecturer' element={user?.position=="admin"? <LecturerManagement/>: <Notfound/>}/>
         <Route path='/department' element={<DepartmentManagement/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
         <Route path='/learning-result/:role/:id' element={<LearningResult/>}/>

@@ -8,8 +8,11 @@ import Editicon from '../../img/edit.png';
 import axios from '../../redux/axios-interceptor';
 import AddDepartment from '../modal/AddDepartment';
 import UpdateDepartment from '../modal/UpdateDepartment';
+import { useSelector } from 'react-redux';
 
 export default function Department() {
+  const user = useSelector((state) => state.login?.currentUser);
+
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [departments, setDepartments] = useState([]);
   const [filteredDepartments, setFilteredDepartments] = useState([]);
@@ -154,12 +157,13 @@ export default function Department() {
           </button>
         </div>
         <div>
-          <div className="Edit_btn btn">
+        {user?.position=="admin"? <> 
+         <div className="Edit_btn btn">
             <img className="Edit_icon" src={Editicon} alt="" />
           </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
-          </div>
+          </div></>:""}
         </div>
       </div>
       <table>

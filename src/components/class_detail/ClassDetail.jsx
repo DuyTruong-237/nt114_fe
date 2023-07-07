@@ -14,9 +14,19 @@ export default function ClassDetails() {
     const [student, setStudent] = useState([]);
     let idstudent;
   const navigate = useNavigate();
+  let URL,URL2;
+  if(user?.position=="student"){
+    URL="http://localhost:3001/v1/student/getStudentID/"
+    URL2="http://localhost:3001/v1/abc/getInfoByID/core/"
+  }else if( user?.position=="lecturer"){
+    URL="http://localhost:3001/v1/lecturer/getLecturerID/"
+    URL2="http://localhost:3001/v1/subclass/getSubClassIDLec/"
+  }else{
+    URL="http://localhost:3001/v1/abc/getAll/subjectclass"
+  }
   useEffect(() => {
     axios
-      .get('http://localhost:3001/v1/student/getStudentID/' + user.idUser)
+      .get(URL + user.idUser)
       .then((response) => {
       
         const newData = response.data;
