@@ -61,7 +61,7 @@ export default function TopHeader() {
     setSideBarIsOpen(!isSideBarOpen);
   }
 
-  let headerClass = location.pathname === '/' || location.pathname === '/class-detail' ? 'home-header' : 'top-header';
+  let headerClass = location.pathname === '/' ? 'home-header' : 'top-header';
 
   return (
     <div className={`${headerClass} ${isScrolled ? 'scrolled' : ''}`}>
