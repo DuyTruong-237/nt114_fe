@@ -38,7 +38,7 @@ function App() {
         <Route path='/lecturer' element={user?.position=="admin"? <LecturerManagement/>: <Notfound/>}/>
         <Route path='/department' element={<DepartmentManagement/>}/>
         <Route path='/class-detail' element={<ClassDetails/>}/>
-        <Route path='/learning-result/:role/:id' element={<LearningResult/>}/>
+        <Route path='/learning-result/:role/:id' element={user?.position=="student"? <LearningResult/>: <Notfound/>}/>
         <Route path='/subject-manage' element={<SubjectManagement/>}/>
         <Route path='/forgotpassword' element={<ForgotPassword/>}/>
         <Route path='/classInfo/:classID' element={<ClassInfo/>}/>

@@ -41,7 +41,7 @@ export default function ClassDetails() {
   useEffect(() => {
     if (student._id) {
       axios
-        .get('http://localhost:3001/v1/abc/getInfoByID/core/' + student._id)
+        .get(URL2 + student._id)
         .then((response) => {
           const classes = response.data;
           console.log(classes)
@@ -207,7 +207,7 @@ export default function ClassDetails() {
                   <div className='class-cliss'>Class list</div>
               {classes.map(classes => (
                 <div className="ClassDetail_wrapper">
-                  <Link to={"/classInfo/"+classes.subject_class?._id}><div className='courser-item' ><h1 className="ClassDetail_Header"><strong>{classes.subject_class?.subname||""} -</strong></h1></div></Link>
+                  <Link to={"/classInfo/"+(user?.position=="lecturer"? classes._id:classes.subject_class?._id)}><div className='courser-item' ><h1 className="ClassDetail_Header"><strong>{user?.position=="lecturer"? classes?.subname:  classes.subject_class?.subname||""} - {user?.position=="lecturer"? classes?.subclass_id:  classes.subject_class?.subclass_id||""}</strong></h1></div></Link>
                     
                     
                 </div>

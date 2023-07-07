@@ -19,10 +19,8 @@ export default function Department() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [newDepartment, setNewDepartment] = useState({
-    id: '',
-    name: '',
-    description: '',
-    dean: ''
+   
+   
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -69,6 +67,7 @@ export default function Department() {
   };
 
   const addDepartment = () => {
+    console.log(newDepartment)
     axios
       .post('http://localhost:3001/v1/depart/addDepartment', newDepartment)
       .then((response) => {

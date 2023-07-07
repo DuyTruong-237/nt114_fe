@@ -19,8 +19,8 @@ export default function Student() {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [newStudent, setNewStudent] = useState({
     name: '',
-    acclass_id: '',
-    department_id: '',
+    acclass_id: null,
+    department_id: null,
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -91,6 +91,7 @@ export default function Student() {
         name: student['Họ và tên'],
         department_id: student['Khoa'],
         acclass_id: student['Lớp'],
+        CI: student['CCCD'],
       }));
      
        // Tạo mảng để chứa các sinh viên đúng
@@ -102,6 +103,7 @@ export default function Student() {
     jsonData.forEach((student) => {
       const departmentId = student['Khoa'];
       const acclassId = student['Lớp'];
+      const CI = student['CCCD'];
 
       // Kiểm tra giá trị departmentId và acclassId
       const departmentExists = dataDepartment.some((department) => department._id === departmentId);
@@ -111,12 +113,14 @@ export default function Student() {
           name: student['Họ và tên'],
           department_id: departmentId,
           acclass_id: acclassId,
+          CI:CI
         });
       } else {
         invalidStudents.push({
           name: student['Họ và tên'],
           department_id: departmentId,
           acclass_id: acclassId,
+          CI:CI
         });
       }
     });
@@ -193,11 +197,7 @@ export default function Student() {
       .post('http://localhost:3001/v1/student/addStudent/', newStudent)
       .then((response) => {
         console.log(response.data);
-        setNewStudent({
-          name: '',
-          acclass_id: '',
-          department_id: '',
-        });
+       
         setShowModal(false);
       })
       .catch((error) => {
