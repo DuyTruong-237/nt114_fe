@@ -71,6 +71,27 @@
     border-color: powderblue;
   }
 
+  .upload-box {
+    padding: 0px !important;
+    background-color:beige;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(159, 155, 155);
+  }
+
+  ::-webkit-file-upload-button {
+    color: white;
+    background: #ff7b54;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 0 1px 1px rgb(224, 155, 155);
+    outline: none;
+  }
+
+  ::-webkit-file-upload-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
   .modal-content > textarea {
     font-family: none;
     resize: vertical;

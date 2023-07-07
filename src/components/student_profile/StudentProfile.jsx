@@ -46,6 +46,7 @@ export default function StudentProfile() {
         console.log(error);
       });
   }, [id]);
+  
 const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     const formData = new FormData();
