@@ -83,7 +83,7 @@ const onDrop = async (acceptedFiles) => {
         <div className='Info_Wrapper'>
           <div className='Edit_btn_profile_wrapper'>
           <div className='Edit_btn_profile btn_radius' onClick={handleEdit}>
-            <Link to={ `/learning-result/iresult/${student._id}`}><button>Bảng điểm</button></Link>
+            <Link className='Show_Result_btn' to={ `/learning-result/iresult/${student._id}`}><b>Bảng điểm</b></Link>
            
           </div>
           <div className='Edit_btn_profile btn_radius' onClick={handleEdit}>
