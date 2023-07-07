@@ -94,7 +94,7 @@ export default function TopHeader() {
         {isOpen && (
           <div className="dropdown-menu">
             <a href={`profile/myprofile/${user.idUser}`} className="dropdown-item">
-              <i className="fas fa-id-card" aria-hidden="true"></i>
+              <i className="fa fa-id-card" aria-hidden="true"></i>
               Hồ sơ
             </a>
             <a href="#" className="dropdown-item">

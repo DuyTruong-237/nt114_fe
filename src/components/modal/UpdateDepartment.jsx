@@ -41,6 +41,19 @@ export default function UpdateDepartment({
       });
   };
 
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:3001/v1/depart/deleteDepartment/${department._id}`)
+      .then((response) => {
+        console.log(response.data);
+        closeUpdateModal();
+        updateDepartmentDetails();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
   return (
     <div className="modal">
       <div className="modal-header">
@@ -93,7 +106,10 @@ export default function UpdateDepartment({
           onChange={handleChange}
         />
 
-        <button onClick={handleUpdate}>Update</button>
+        <div className='Handle_btn'>
+          <button onClick={handleUpdate}>Update</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
       </div>
     </div>
   );

@@ -154,9 +154,6 @@ export default function Department() {
           </button>
         </div>
         <div>
-          <div className="Edit_btn btn">
-            <img className="Edit_icon" src={Editicon} alt="" />
-          </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div>
@@ -203,9 +200,9 @@ export default function Department() {
       {showAddModal && (
         <AddDepartment
           closeAddModal={closeAddModal}
-          newStudent={newDepartment}
+          newDepartment={newDepartment}
           handleChange={handleChange}
-          addStudent={addDepartment}
+          addDepartment={addDepartment}
         />
       )}
 
