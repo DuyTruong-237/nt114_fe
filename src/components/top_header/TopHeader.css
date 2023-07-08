@@ -69,10 +69,10 @@
 
 }
 .topHeader-part-user{
-    position: fixed;
-    width: 500px;
-    margin: 15px 20px 0 0;
-    right: 0;
+    display: flex;
+    width: 100%;
+    margin: 10px 20px 0 0;
+    justify-content: flex-end;
 }
 .topHeader-user-username{
     margin-left: auto;
