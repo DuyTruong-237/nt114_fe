@@ -5,6 +5,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import axios from 'axios';
 import './AddData.css';
+import { useSelector } from 'react-redux';
 
 config.autoAddCss = false; // Remove automatic CSS addition of FontAwesome
 
@@ -13,6 +14,9 @@ export default function UpdateDepartment({
   selectedDepartment,
   updateDepartmentDetails,
 }) {
+  const user= useSelector((state)=> state.login?.currentUser);
+
+
   const [department, setDepartment] = useState(selectedDepartment || {
     _id: '',
     name: '',
@@ -105,11 +109,13 @@ export default function UpdateDepartment({
           value={department.vDean}
           onChange={handleChange}
         />
-
-        <div className='Handle_btn'>
+        {
+          user?.position=="admin"?  <div className='Handle_btn'>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleDelete}>Delete</button>
-        </div>
+        </div> :""
+        }
+       
       </div>
     </div>
   );

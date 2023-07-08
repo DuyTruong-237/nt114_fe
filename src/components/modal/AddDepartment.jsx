@@ -4,14 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { useSelector } from 'react-redux';
 
 config.autoAddCss = false; // Loại bỏ tự động thêm CSS của FontAwesome
 export default function AddDepartment({
+  
   closeAddModal,
   newDepartment,
   handleChange,
   addDepartment
 }) {
+  const user= useSelector((state)=> state.login?.currentUser);
+
   return (
     <div className="modal">
         <div className="modal-header">

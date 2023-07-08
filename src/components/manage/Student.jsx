@@ -92,6 +92,10 @@ export default function Student() {
         department_id: student['Khoa'],
         acclass_id: student['Lớp'],
         CI: student['CCCD'],
+        sex: student['Giới tính'],
+        address: student['Địa chỉ'],
+        email: student['Email'],
+        phone_num: student['Số điện thoại']
       }));
      
        // Tạo mảng để chứa các sinh viên đúng
@@ -104,6 +108,10 @@ export default function Student() {
       const departmentId = student['Khoa'];
       const acclassId = student['Lớp'];
       const CI = student['CCCD'];
+      const sex =  student['Giới tính'];
+      const address =  student['Địa chỉ'];
+      const email =  student['Email'];
+      const phone_num = student['Số điện thoại'];
 
       // Kiểm tra giá trị departmentId và acclassId
       const departmentExists = dataDepartment.some((department) => department._id === departmentId);
@@ -113,18 +121,27 @@ export default function Student() {
           name: student['Họ và tên'],
           department_id: departmentId,
           acclass_id: acclassId,
-          CI:CI
+          CI:CI,
+          sex: sex,
+          address: address,
+          email: email,
+          phone_num:phone_num
         });
       } else {
         invalidStudents.push({
           name: student['Họ và tên'],
           department_id: departmentId,
           acclass_id: acclassId,
-          CI:CI
+          CI:CI,
+          sex: sex,
+          address: address,
+          email: email,
+          phone_num:phone_num
         });
       }
     });
       validStudents.map((student)=>{
+        console.log(student)
         axios
         .post('http://localhost:3001/v1/student/addStudent/', student)
         .then((response) => {

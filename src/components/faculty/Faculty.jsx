@@ -7,6 +7,7 @@ export default function Faculty(){
     const { id } = useParams();
     const [department, setDepartment] = useState(null);
     const [subjects, setSubjects] = useState([]);
+    const [Lecturer, setLecturers] = useState([]);
     console.log("abc");
     useEffect(() => {
         axios
@@ -24,6 +25,16 @@ export default function Faculty(){
         .then((response) => {
             const subjects = response.data;  
             setSubjects(subjects);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+        axios
+        .get(`http://localhost:3001/v1/lecturer/getLecturerIDdepart/${id}`)
+        .then((response) => {
+            const departmentData = response.data;
+            console.log(department)
+            setLecturers(departmentData);
         })
         .catch((error) => {
             console.log(error);
@@ -75,16 +86,18 @@ export default function Faculty(){
                                                 </tr>
                                             </thead>
                                             <tbody className="FacultyTable_Body">
-                                                <tr>
+                                            {Lecturer.map((lec) => (<tr>
                                                     <td>1</td>
-                                                    <td>ThS. Trần Thị Dung</td>
-                                                    <td>Truyền thông</td>
+                                                    <td>{lec.name||""}</td>
+                                                    <td>{lec.specialize||"Truyền thông"}</td>
                                                     <td>
                                                         <ul>
                                                             <li>Quản trị mạng và hệ thống</li>
                                                         </ul>
                                                     </td>
-                                                </tr>
+                                                </tr>))}
+                                               
+                                               
                                             </tbody>
                                         </table>
                                     </div>
