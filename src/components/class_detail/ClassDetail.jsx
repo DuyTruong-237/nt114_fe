@@ -3,6 +3,8 @@ import "./ClassDetail.css"
 import {Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from '../../redux/axios-interceptor';
 import TopHeader from '../../components/top_header/TopHeader';
+import AddClass from '../modal/AddClass';
+import UpdateClass from '../modal/UpdateClass';
 import { Oval } from 'react-loader-spinner';
 import Logo from '../../img/mainlogo.png'
 import Searchicon from '../../img/search.png';
@@ -16,16 +18,12 @@ export default function ClassDetails() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [istitOpen, setIsTitOpen] = useState(false);
     const [student, setStudent] = useState([]);
+    const [filteredStudents, setFilteredStudents] = useState([]);
     const [selectedClass, setSelectedClass] = useState(null);
     const [filteredClasses, setFilteredClasses] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
     const [showUpdateModal, setShowUpdateModal] = useState(false);
-    const [newClass, setNewClass] = useState({
-      id: '',
-      name: '',
-      description: '',
-      dean: ''
-    });
+    const [newClass, setNewClass] = useState({});
     let idstudent;
   const navigate = useNavigate();
   let URL,URL2;
@@ -66,6 +64,7 @@ export default function ClassDetails() {
         });
     }
   }, [student]);
+  
     // useEffect(() => {
     //     axios
     //     .get('http://localhost:3001/v1/abc/getInfoByID/core/' + idstudent)
@@ -121,6 +120,8 @@ export default function ClassDetails() {
       const handleRowClick = (classId) => {
         navigate(`/classInfo/${classId}`);
       };
+
+
       const handleAddButtonClick = () => {
         setShowAddModal(true); // Hiển thị modal khi người dùng nhấp vào nút "Add_btn"
       };
@@ -162,7 +163,8 @@ export default function ClassDetails() {
             console.log(error);
           });
       }, []);
-      const addClasses = () => {
+      const addClass = () => {
+        console.log(newClass)
         axios
           .post('http://localhost:3001/v1/subclass/addSubClass', newClass)
           .then((response) => {
@@ -177,6 +179,7 @@ export default function ClassDetails() {
               lecturer_id: ''
             });
             setShowAddModal(false);
+            window.location.reload();
           })
           .catch((error) => {
             // Xử lý phản hồi từ server khi có lỗi
@@ -210,6 +213,25 @@ export default function ClassDetails() {
           }
         };
       }, []);
+      const updateClassDetails = () => {
+        axios
+          .put(
+            `http://localhost:3001/v1/subclass/updateSubClass/${selectedClass.subclass_id}`,
+            selectedClass
+          )
+          .then((response) => {
+            // Xử lý phản hồi từ server khi cập nhật thành công
+            console.log(response.data);
+    
+            // Sau khi cập nhật thành công, đặt lại trạng thái và đóng modal
+            setSelectedClass(null);
+            setShowUpdateModal(false);
+          })
+          .catch((error) => {
+            // Xử lý phản hồi từ server khi có lỗi
+            console.log(error);
+          });
+      };
       if (loading) {
         return (
           <div className="loading-spinner">
@@ -297,9 +319,6 @@ export default function ClassDetails() {
         </div>
         <div>
         {user?.position=="admin"? <> 
-        <div className="Edit_btn btn">
-            <img className="Edit_icon" src={Editicon} alt="" />
-          </div>
           <div className="Add_btn btn" onClick={handleAddButtonClick}>
             + Add
           </div></>:""}
@@ -346,20 +365,20 @@ export default function ClassDetails() {
         </tbody>
       </table>
 
-      {/* Modal */}
-      {/* {showAddModal && (
-        <AddClasses
+      {/* { Modal } */}
+      {showAddModal && (
+        <AddClass
           closeAddModal={closeAddModal}
-          newStudent={newClass}
+          newClass={newClass}
           handleChange={handleChange}
-          addStudent={addClass}
+          addClass={addClass}
         />
       )}
 
       {showUpdateModal && (
         <UpdateClass
           closeUpdateModal={closeUpdateModal}
-          selectedDClass={selectedClass}
+          selectedClass={selectedClass}
           // handleChange={(e) => {
           //   const { name, value } = e.target;
           //   setSelectedDepartment((prevDepartment) => ({
@@ -369,7 +388,7 @@ export default function ClassDetails() {
           // }}
           updateClassDetails={updateClassDetails}
         />
-      )}   */}
+      )}  
     </div>
       </>:
       <>

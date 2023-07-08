@@ -132,6 +132,46 @@
   button:hover {
     opacity: 0.8;
   }
+  .modal-header-UpdateClass {
+    background-color: #ff7b54;
+    margin: 10% auto 0%;
+    padding: 10px 20px 0px;
+    border: 1px solid #ccc;
+    width: 800px;
+    position: relative;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .modal-content-UpdateClass {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0 auto 10%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 800px;
+    position: relative;
+    border-radius: 0px 0px 25px 5px;
+  }
+  .modal-content-UpdateClass > textarea {
+    font-family: none;
+    resize: vertical;
+  }
+
+  .modal-content-UpdateClass > button{
+    background-color: #31A4E5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 10px;
+    min-width: 200px;
+    align-self: center;
+    margin-top: 5px;
+  }
+
+  
 
 /* Responsive styles */
 @media screen and (max-width: 600px) {

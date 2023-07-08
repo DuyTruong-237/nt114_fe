@@ -69,8 +69,10 @@
 
 }
 .topHeader-part-user{
-    width: 100%;
-    margin-right: 20px;
+    position: fixed;
+    width: 500px;
+    margin: 15px 20px 0 0;
+    right: 0;
 }
 .topHeader-user-username{
     margin-left: auto;
@@ -82,7 +84,7 @@
 }
 
 .dropdown-menu {
-    width: 12%;
+    width: 25%;
     position: absolute;
     top: 70px;
     right: 10px;
