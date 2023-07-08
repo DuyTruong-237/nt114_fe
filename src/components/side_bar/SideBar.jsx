@@ -59,16 +59,23 @@ export default function SideBar({ isOpen, isDefaultHidden }) {
             Khoa
           </div>          
        </Link>
-       <Link to={`/learning-result/myresult/${user?._id}`} className='SideBar-item'>
-          <img 
-            className="icon-img"
-            src={result} 
-            alt="statistic" />
-             
-          <div className='SideBar-title-text'>
+      
+             {
+                user?.position=="admin"?
+                <Link to={`/learning-result/myresult/${user?._id}`} className='SideBar-item'>
+                <img 
+                  className="icon-img"
+                  src={result} 
+                  alt="statistic" />
+                  <div className='SideBar-title-text'>
             Bảng điểm
           </div>          
        </Link>
+       :
+       ""
+
+             }
+          
        <Link to='/subject-manage' className='SideBar-item'>
           <img 
             className="icon-img"

@@ -4,8 +4,11 @@ import mainlogo from './mainlogo.png'
 import axios from '../../redux/axios-interceptor';
 import { useParams } from 'react-router-dom';
 import AddFileUpload from '../../components/modal/AddFileUpload';
+import { useSelector } from 'react-redux';
 
 export default function ClassInfo () {
+  const user= useSelector((state)=> state.login?.currentUser);
+
     const [files, setFiles] = useState([])
     const [Class, setClass] = useState("")
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,8 +63,11 @@ export default function ClassInfo () {
       // Modal Handle Area
 
       const handleFileUpload = (formData) => { // Hàm để xử lý thêm file
+        formData.append('subclass',classID)
+        formData.append('type',1)
+        formData.append('creater_id',user._id )
         axios
-          .post('http://localhost:3001/v1/uploadfile', formData)
+          .post('http://localhost:3001/v1/uploadfile/addfile', formData)
           .then((response) => {
             console.log(response.data);
           })
@@ -104,9 +110,12 @@ return (
   <div id="section-1" className="ClassDetail_Content" role="region" >
       <div className='header-doc'>  
         <div>   Tài liệu môn học</div> 
-        <div className="Add_btn btn" onClick={openModal}>
-            + Add
-        </div>
+        {
+          user?.position=="lecturer"?  <div className="Add_btn btn" onClick={openModal}>
+          + Add
+      </div> :""
+        }
+       
         </div>
       {files.map((file)=>(
         <><h3 className="Content-title">

@@ -29,8 +29,8 @@ export default function AddFileUpload({
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append('title', title);
-    formData.append('description', description);
-    formData.append('file', file);
+    formData.append('des', description);
+    formData.append('URL', file);
 
     handleFileUpload(formData);
   };

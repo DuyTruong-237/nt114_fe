@@ -96,10 +96,10 @@
     margin: 0px 20px 30px;
 }
 .Info_Bar_Wrapper {
-    display: grid;
-    grid-template: auto/ auto auto auto;
-    column-gap: 80px;
-    justify-content: left;
+    justify-content: space-around;
+    display: flex;
+  
+    
 }
 .Info_Bar {
     margin-top: 10px;
@@ -117,4 +117,24 @@
 
 .Infobar-input[readonly]:focus {
     outline: none;
+}
+.basic-info{
+    display: grid;
+    grid-template: auto/ auto auto auto;
+    column-gap: 80px;
+    justify-content: left;
+    width: 70%;
+
+}
+.subject-list-lec{
+    width: 30%;
+
+}
+.lec-sublist{
+
+}
+.lec-sublist-row{
+    border: 1px solid #d8d6d6;
+    padding: 10px;
+
 }
