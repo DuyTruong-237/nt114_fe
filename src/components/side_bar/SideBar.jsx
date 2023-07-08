@@ -61,7 +61,7 @@ export default function SideBar({ isOpen, isDefaultHidden }) {
        </Link>
       
              {
-                user?.position=="admin"?
+                user?.position=="student"?
                 <Link to={`/learning-result/myresult/${user?._id}`} className='SideBar-item'>
                 <img 
                   className="icon-img"
@@ -86,7 +86,7 @@ export default function SideBar({ isOpen, isDefaultHidden }) {
             Môn học
           </div>          
        </Link>
-       <Link to='/class-detail' className='SideBar-item'>
+       {user? <Link to='/class-detail' className='SideBar-item'>
           <img 
             className="icon-img"
             src={classicon} 
@@ -95,7 +95,10 @@ export default function SideBar({ isOpen, isDefaultHidden }) {
           <div className='SideBar-title-text'>
             Lớp học
           </div>          
-       </Link>
+       </Link>:""
+       
+        
+       }
        
     </div>
   )
