@@ -1,5 +1,7 @@
 .MainCourse {
-    height: 100%;
+    height: 100vh;
+    width: 100%;
+    
 }
 .slogan_message {
     color: #fff;
@@ -91,8 +93,8 @@
 
 .content-wrapper {
     position: relative;
-    width: 50%;
-    
+    width: 100%;
+    min-height: 100vh;
     margin-top: 100%;
     z-index: 2;
   }
@@ -101,25 +103,32 @@
    
     background-color: rgba(0, 0, 0, 0);
     padding: 20px;
+    width: 50%;
     margin-top: 20px;
     color: #fff;
-    font-size: 100px;
-    margin-bottom: 400px;
+    font-size: 50px;
+    margin-bottom: 100px;
 }
+
+.content-body {
+    margin-top: 350px;
+}
+
 .content-info{
     font-size: 30px;
     
 }
 .content-info2{
-    font-size: 30px;
-    position: absolute;
-    left: 100%;
-    right: -100%;
+    font-size: 26px;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 45px;
+    grid-column: 2;   
 }
 
 .triangle-right{
     width: 100px;
-    border-width: 150px;
+    border-width: 100px;
     border-color: transparent transparent transparent rgb(21, 94, 163);
     border-style: solid;
     display: block;
@@ -128,27 +137,30 @@
   
     display: flex;
     color: rgb(214, 212, 212);
-    font-size: 200px;
+    font-size: 100px;
 }
 .Mission-title{
     padding-left: 32px;
     background-color: rgb(21, 94, 163);
 }
 .Mission-body{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .img-misson{
+    width: 650px;
     margin-top: 70px;
     margin-left: 30px;
+    grid-column: 1;
 }
 .tlgd{
-    margin-top: 200px;
-    position: absolute;
-   margin-left: 30px;
-    width: 1800px;
-    font-size: 100px;
-    display: flex;
-    justify-content: space-around;
+    margin: 200px auto 0px;
+    position: relative;
+    width: 90%;
+    font-size: 50px;
+    display: grid;
+    grid-column-gap: 70px;
+    grid-template-columns: 1fr 1fr 1fr;
     
     
 }
@@ -156,11 +168,17 @@
     background-color: rgb(8, 126, 126);
     color: #fff;
     padding: 10px;
-   border-radius: 20px;
-   
-   transition: transform 0.3s ease,background-color 0.8s ease;
-
+    border-radius: 20px;  
+    transition: transform 0.3s ease,background-color 0.8s ease;
 }
+
+.tlgd >div:first-child {
+    grid-column: 1;
+}
+.tlgd >div:last-child {
+    grid-column: 3;
+}
+
 .tlgd > div:hover{
     transform: scale(1.2);
     background-color:#df9527 ;
@@ -174,14 +192,50 @@
 }
 .body-main{
     width: 100%;
-    height: 1000px;
+    height: 100%;
     background-color: aquamarine;
 }
 .tlgd-content{
     font-size: 20px;
-    width: 500px;
     visibility: hidden;
 }
+.Footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 100%;
+    width: 100%;
+    background-color: #103157;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    z-index: 99;
+}
+.Footer img {
+    padding: 20px;
+    width: 600px;
+}
+.Contact_Info {
+    padding: 20px;
+    margin-right: 50px;
+}
+
+.Contact_Info_Wrapper {
+    display: flex;
+    font-size: 15px;
+    font-weight: 500;
+   
+    
+}
+.Contact_Content {
+    margin-top: 5px;
+}
+.Contact_Title > img {
+    width: 20px;
+}
+  
+  
 /* .content-section h2 {
     transform: translateX(-100%);
     transition: transform 1s ease;
