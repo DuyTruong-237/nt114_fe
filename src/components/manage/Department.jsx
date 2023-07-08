@@ -18,10 +18,7 @@ export default function Department() {
   const [filteredDepartments, setFilteredDepartments] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [newDepartment, setNewDepartment] = useState({
-   
-   
-  });
+  const [newDepartment, setNewDepartment] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   useEffect(() => {

@@ -16,15 +16,17 @@
     margin-left: 25px;
 }
 .List_Toolbar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 .Search_toolbar {
     color: #fff;
     font-size: 14px;
     height: 30px;
     width: max-content;
-    margin: 20px 20px;
+    margin: 0 20px 20px;
     padding-left: 15px;
     padding-right: 15px;
     line-height: 30px;
@@ -89,7 +91,6 @@ transform: scale(0.99);
 }
 .List_Toolbar div:nth-child(2) { 
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     margin-left: auto;
 }
