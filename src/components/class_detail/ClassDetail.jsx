@@ -3,6 +3,10 @@ import "./ClassDetail.css"
 import {Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from '../../redux/axios-interceptor';
 import TopHeader from '../../components/top_header/TopHeader';
+import { Oval } from 'react-loader-spinner';
+import Logo from '../../img/mainlogo.png'
+import Searchicon from '../../img/search.png';
+import Editicon from '../../img/edit.png'
 import logo from './mainlogo.png'
 import { useSelector } from 'react-redux';
 import view from './uit1.jpg'
@@ -12,6 +16,16 @@ export default function ClassDetails() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [istitOpen, setIsTitOpen] = useState(false);
     const [student, setStudent] = useState([]);
+    const [selectedClass, setSelectedClass] = useState(null);
+    const [filteredClasses, setFilteredClasses] = useState([]);
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [newClass, setNewClass] = useState({
+      id: '',
+      name: '',
+      description: '',
+      dean: ''
+    });
     let idstudent;
   const navigate = useNavigate();
   let URL,URL2;
@@ -93,8 +107,81 @@ export default function ClassDetails() {
       //         console.log('Element is visible on the screen!');
       //     }
       // }, []);
+      const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+        handleSearch(); // Tự động lọc danh sách khi người dùng nhập giá trị
+      };
+    
+      const handleSearch = () => {
+        const filtered = classes.filter((classes) =>
+          classes.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredClasses(filtered);
+      };
       const handleRowClick = (classId) => {
         navigate(`/classInfo/${classId}`);
+      };
+      const handleAddButtonClick = () => {
+        setShowAddModal(true); // Hiển thị modal khi người dùng nhấp vào nút "Add_btn"
+      };
+    
+      const closeAddModal = () => {
+        window.location.reload();
+        setShowAddModal(false); // Đóng modal
+      };
+    
+      const handleUpdateButtonClick = (classes) => {
+        setSelectedClass(classes);
+        setShowUpdateModal(true);
+      };
+    
+      const closeUpdateModal = () => {
+          window.location.reload();
+          setShowUpdateModal(false);
+      };
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setNewClass((prevClass) => ({
+          ...prevClass,
+          [name]: value
+        }));
+      };
+      const [searchTerm, setSearchTerm] = useState('');
+      const [loading, setLoading] = useState(true);
+      useEffect(() => {
+        axios
+          .get('http://localhost:3001/v1/subclass/getAllSubClass')
+          .then((response) => {
+            const classes = response.data;
+            
+            setClasses(classes);
+            setFilteredClasses(classes);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, []);
+      const addClasses = () => {
+        axios
+          .post('http://localhost:3001/v1/subclass/addSubClass', newClass)
+          .then((response) => {
+            // Xử lý phản hồi từ server khi thêm thành công
+            console.log(response.data);
+    
+            // Sau khi thêm thành công, đặt lại trạng thái và đóng modal
+            setNewClass({
+              id: '',
+              subclass_id: '',
+              subname: '', 
+              lecturer_id: ''
+            });
+            setShowAddModal(false);
+          })
+          .catch((error) => {
+            // Xử lý phản hồi từ server khi có lỗi
+            console.log(error);
+          });
       };
       useEffect(() => {
         const elementToObserve = document.querySelector('.naviObject');
@@ -123,6 +210,18 @@ export default function ClassDetails() {
           }
         };
       }, []);
+      if (loading) {
+        return (
+          <div className="loading-spinner">
+            <div className="loader-container">
+              <div className="loader">
+                <Oval type="Oval" color= "#FF7B54" height={80} width={80} />
+                <img src={Logo} alt="Loading" className="logo-image" />
+              </div>
+            </div>
+          </div>
+        );
+      }
 //       // const handleWheel = (e) => {
 //       //   if (e.deltaY > 80) {
 //       //     setIsNavOpen(false);
@@ -178,10 +277,106 @@ export default function ClassDetails() {
 //       // }, []);
     
     return (
-        <div className='ClassDetail_body' >
+      <> {user.position =="admin"? <>
+      
+        <div className="List_Wrapper">
+      <div className="List_Header">
+        <div>DANH SÁCH LỚP: </div>
+      </div>
+      <div className="List_Toolbar">
+        <div className="Search_toolbar">
+        <input
+            type="text"
+            placeholder="Tìm kiếm"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button className="Search_btn" onClick={handleSearch}>
+            <img className="Search_icon" src={Searchicon} alt="" />
+          </button>
+        </div>
+        <div>
+        {user?.position=="admin"? <> 
+        <div className="Edit_btn btn">
+            <img className="Edit_icon" src={Editicon} alt="" />
+          </div>
+          <div className="Add_btn btn" onClick={handleAddButtonClick}>
+            + Add
+          </div></>:""}
+        </div>
+      </div>
+      <table>
+        <thead className="List_Title">
+          <tr>
+            <th >
+              <b>ID</b>
+            </th>
+            <th>
+              <b>Name</b>
+            </th>
+            <th>
+              <b>Term</b>
+            </th>
+            <th>
+              <b>Year</b>
+            </th>
+            <th>
+              <b>Action</b>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="Manage_Info">
+          {filteredClasses.map((classes) => (
+            <tr
+              className="Odd"
+              key={classes.id}
+              onDoubleClick={() => handleRowClick(classes._id)}
+            >
+              <td className="classId">{classes.subclass_id}</td>
+              <td>{classes.subname || ''}</td>
+              <td>{classes.term || ''}</td>
+              <td>{classes.yearSchool || ''}</td>
+              <td>
+                <div className="Edit_btn btn" onClick={() => handleUpdateButtonClick(classes)}>
+                  <img className="Edit_icon" src={Editicon} alt="" />
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* Modal */}
+      {/* {showAddModal && (
+        <AddClasses
+          closeAddModal={closeAddModal}
+          newStudent={newClass}
+          handleChange={handleChange}
+          addStudent={addClass}
+        />
+      )}
+
+      {showUpdateModal && (
+        <UpdateClass
+          closeUpdateModal={closeUpdateModal}
+          selectedDClass={selectedClass}
+          // handleChange={(e) => {
+          //   const { name, value } = e.target;
+          //   setSelectedDepartment((prevDepartment) => ({
+          //     ...prevDepartment,
+          //     [name]: value
+          //   }));
+          // }}
+          updateClassDetails={updateClassDetails}
+        />
+      )}   */}
+    </div>
+      </>:
+      <>
+      <div className='ClassDetail_body' >
             
             <div className='Header-class'>
-        <TopHeader/>
+            
       </div>
             <div className='view-class'>
            
@@ -220,6 +415,9 @@ export default function ClassDetails() {
              </div>
             
         </div>
+      </>}</>
+     
+        
         
         
         

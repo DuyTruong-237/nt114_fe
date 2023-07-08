@@ -17,9 +17,10 @@ export default function Home() {
     <div className='homeScreen_js'>
       <div className='Header-Home'>
         <TopHeader toggleSidebar={toggleSidebar} />
+        {isSideBarOpen && <SideBar />}
       </div>
       <div className='Body-Home'>
-        {isSideBarOpen && <SideBar />}
+        
         <div className='MainContent-Home'>
           <MainContent />
         </div>

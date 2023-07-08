@@ -10,14 +10,24 @@ export default function ClassDetails_scr() {
   useEffect(() => {
    
   }, []);
+  const [isSideBarOpen, setSideBarIsOpen] = useState(false);
+  function toggleSidebar() {
+    setSideBarIsOpen(!isSideBarOpen);
+  }
   return (
     <div className='homeScreen_js-class'>
-      
-      <div className='Body-class'> 
-       
-        <div className='MainContent-class'>
+      <div className='Header'>
+        <TopHeader toggleSidebar={toggleSidebar}/>
+      </div>
+      <div className='Body'> 
+        {isSideBarOpen && <SideBar />}
+        <div className='MainContent'>
           <ClassDetail/>
         </div>
+        <div className='Right-Cont'>
+        <Calendar/>
+        <Notification/>
+      </div>
        
       </div>
     </div>

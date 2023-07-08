@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './MainCourse.css';
 import SearchIcon from '../../img/search.png';
-import book from '../../img/book.png';
-import education from '../../img/education.png';
-import book2 from '../../img/book (2).png';
-import view from '../../img/book.png';
-import book3 from '../../img/book (3).png';
+import BannerFooter from '../../img/banner_footer.png'
+import LocationIcon from '../../img/pin.png'
+import TeleIcon from '../../img/viber.png'
+import FaxIcon from '../../img/fax-machine.png'
+import EmailIcon from '../../img/email.png'
 import VideoIntro from '../../video/Intro.mp4';
 import uit1 from './uit.jpg'
 
 export default function MainCourse() {
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [contentText, setContentText] = useState(false);
   const [isSloganVisible, setIsSloganVisible] = useState(true);
@@ -137,6 +138,7 @@ export default function MainCourse() {
       }
     };
   }, []);
+ 
   return (
     <div className="MainCourse">
       <div className="video-container">
@@ -144,6 +146,7 @@ export default function MainCourse() {
           <source src={VideoIntro} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        
       </div>
       <div   id="naviObject_Home-id" className={`naviObject_Home ${isNavVisible ? 'open' : ''} ${isElementVisible ? 'scrolled' : ''} ${isElementcontent_bodyVisible? 'scrolled2' : ''}` }>
         <div className={`navigation_Home ${isSloganVisible ? 'visible' : ''}`}>
@@ -151,34 +154,72 @@ export default function MainCourse() {
           <div className={`scroll-content ${isScrolled ? 'scrolled_Home' : ''}`}>{contentText}</div>
         </div>
       </div>
-    <div className='body-main'>
-      <div className="content-wrapper">
-        <div className="content-section">
-          <p>ABOUT UIT</p>
-          <p className='content-info'> Providing high quality human resources for Vietnam’s labor market and to serve community’s purposes,The leading university in advanced research and technology transfer in ICT and related fields</p>
-        </div>
-        <div className="content-body">
-        
-          <div className='MISSION '>
-            <div className='Mission-title'>MISSION</div>
-            <div className='triangle-right'></div></div>
-            <div className='Mission-body'>
-            <img className='img-misson' src={uit1}/>
-          <p className='content-info2'>Being a prestigious name in quality education for industrial innovation of ICT and other related fields in Asian.
-          <br/><br/>
-          In line with training, scientific research are in UIT’s utmost attention and highlighted as the top of all other activities. The focal point concentrates on Information Security, Internet of Things, Artificial Intelligence, Data Sciences and Circuit Design (VLSI Design). Besides, other research fields are being invested and promoted such as E-Commerce, Knowledge Engineering, Multimedia Processing, and Information Systems, Software Engineering. National and international conferences hosted by UIT have become a forum for IT scientists to exchange their ideas and collaborate to carry out research on mutual interest issues.</p>
+      <div className='body-main'>
+        <div className="content-wrapper">
+          <div className="content-section">
+            <p>ABOUT UIT</p>
+            <p className='content-info'> Providing high quality human resources for Vietnam’s labor market and to serve community’s purposes,The leading university in advanced research and technology transfer in ICT and related fields</p>
+          </div>
+          <div className="content-body">
+          
+            <div className='MISSION '>
+              <div className='Mission-title'>MISSION</div>
+              <div className='triangle-right'></div></div>
+              <div className='Mission-body'>
+              <img className='img-misson' src={uit1}/>
+            <p className='content-info2'>Being a prestigious name in quality education for industrial innovation of ICT and other related fields in Asian.
+            <br/><br/>
+            In line with training, scientific research are in UIT’s utmost attention and highlighted as the top of all other activities. The focal point concentrates on Information Security, Internet of Things, Artificial Intelligence, Data Sciences and Circuit Design (VLSI Design). Besides, other research fields are being invested and promoted such as E-Commerce, Knowledge Engineering, Multimedia Processing, and Information Systems, Software Engineering. National and international conferences hosted by UIT have become a forum for IT scientists to exchange their ideas and collaborate to carry out research on mutual interest issues.</p>
 
-        </div>
-        <div className='tlgd'>
-          <div>Exquisite<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
-          <div>Innovation<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
-          <div>Enthusiasm<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
-         
-        </div>
-        <div className='qert'></div>
-        </div>
+          </div>
+          <div className='tlgd'>
+            <div>Exquisite<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
+            <div>Innovation<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
+            <div>Enthusiasm<div className='tlgd-content'>The motto also helps mapping UIT as the top university in IT field in Vietnam, and the place for its students to be catered in all aspects</div></div>
+          
+          </div>
+          
+          </div>
+        </div>    
+        
       </div>
-      </div>
+      <div className='Footer'>
+        <img src={BannerFooter} alt="" />
+        <div className='Contact_Info'>
+          <div className='Contact_Info_Wrapper'>
+            <div className='Contact_Title'>
+              <img src={LocationIcon} alt="Pin" />
+            </div>
+            <div className='Contact_Content'>
+              ĐỊA CHỈ 
+              <br/>
+              Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh.
+            </div>
+          </div>
+          <div className='Contact_Info_Wrapper'>
+            <div className='Contact_Title'>
+              <img src={TeleIcon} alt="Tele" />
+              
+            </div>
+            <div className='Contact_Content'>
+              ĐIỆN THOẠI
+              <br/>
+              028 372 52002.     
+            </div>       
+          </div>
+          <div className='Contact_Info_Wrapper'>
+            <div className='Contact_Title'>
+              <img src={EmailIcon} alt="Email" />
+              
+            </div>
+            <div className='Contact_Content'>
+              EMAIL 
+              <br/>
+              info@uit.edu.vn     
+            </div>
+          </div>
+        </div>
+      </div>      
     </div>
   );
 }
