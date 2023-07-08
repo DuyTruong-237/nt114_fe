@@ -299,13 +299,14 @@ export default function ClassDetails() {
 //       // }, []);
     
     return (
-      <> {user.position =="admin"? <>
+      <> {user.position =="admin"? 
+      <>
       
         <div className="List_Wrapper">
-      <div className="List_Header">
+       <div className="List_Header">
         <div>DANH SÁCH LỚP: </div>
-      </div>
-      <div className="List_Toolbar">
+       </div>
+       <div className="List_Toolbar">
         <div className="Search_toolbar">
         <input
             type="text"
@@ -323,8 +324,8 @@ export default function ClassDetails() {
             + Add
           </div></>:""}
         </div>
-      </div>
-      <table>
+       </div>
+       <table>
         <thead className="List_Title">
           <tr>
             <th >
@@ -363,19 +364,19 @@ export default function ClassDetails() {
             </tr>
           ))}
         </tbody>
-      </table>
+       </table>
 
-      {/* { Modal } */}
-      {showAddModal && (
+       {/* { Modal } */}
+       {showAddModal && (
         <AddClass
           closeAddModal={closeAddModal}
           newClass={newClass}
           handleChange={handleChange}
           addClass={addClass}
         />
-      )}
+       )}
 
-      {showUpdateModal && (
+       {showUpdateModal && (
         <UpdateClass
           closeUpdateModal={closeUpdateModal}
           selectedClass={selectedClass}
@@ -388,15 +389,16 @@ export default function ClassDetails() {
           // }}
           updateClassDetails={updateClassDetails}
         />
-      )}  
-    </div>
-      </>:
-      <>
-      <div className='ClassDetail_body' >
+       )}  
+        </div>
+        </>
+       :
+       <>
+       <div className='ClassDetail_body' >
             
             <div className='Header-class'>
             
-      </div>
+       </div>
             <div className='view-class'>
            
                 <img className='view-item' src={view}/>
