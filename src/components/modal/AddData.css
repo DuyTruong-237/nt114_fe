@@ -141,6 +141,10 @@
     position: relative;
     border-radius: 10px 10px 0px 0px;
   }
+  .modal-header-UpdateClass > h2 {
+    margin-top: 10.92px;
+    color: #fff;
+  }
 
   .modal-content-UpdateClass {
     display: flex;
@@ -156,6 +160,19 @@
   .modal-content-UpdateClass > textarea {
     font-family: none;
     resize: vertical;
+  }
+
+  .modal-content-UpdateClass > input {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-color: powderblue;
+  }
+
+  .modal-content-UpdateClass > label {
+    font-size: 22px;
+    margin: 0px 0px 3px 1px;
+    font-weight: 500;
   }
 
   .modal-content-UpdateClass > button{
